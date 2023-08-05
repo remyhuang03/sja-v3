@@ -1,0 +1,61 @@
+@font-face {
+    font-family: 'logo-font';
+    src: url('../fonts/concert-one.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'main-font';
+    src: url('../fonts/motosanssc.otf') format('opentype');
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'main-font', sans-serif;
+}
+
+
+body {
+    /* 暗灰色背景 */
+    background-color: #222;
+    /* 文本颜色为白色 */
+    color: #ffffff;
+}
+
+header {
+    /* 紫色标题栏背景 */
+    background: #fff;
+    color: #222;
+    text-align: center;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border-bottom: 2px solid #444; */
+}
+
+h1 {
+    font-family: 'logo-font', monospace;
+    font-size: 40px;
+    letter-spacing: 3px;
+    margin-right: 10px;
+}
+
+footer {
+    padding: 10px;
+    font-family: sans-serif;
+    color: #999;
+    font-size: small;
+    text-align: center;
+}
+
+footer a{
+    color: #999;
+    text-decoration: none;
+}
+
+footer a:hover{
+    color: #fff;
+}

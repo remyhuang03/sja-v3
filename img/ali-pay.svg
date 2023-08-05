@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   t="1689857935393"
+   class="icon"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   p-id="2288"
+   width="200"
+   height="200"
+   id="svg1052"
+   sodipodi:docname="ali-pay.svg"
+   inkscape:version="1.2 (dc2aedaf03, 2022-05-15)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1056" />
+  <sodipodi:namedview
+     id="namedview1054"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="4.09"
+     inkscape:cx="100"
+     inkscape:cy="100"
+     inkscape:window-width="1920"
+     inkscape:window-height="1046"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1052" />
+  <path
+     d="M 1024,701.0304 V 196.864 A 196.95655,196.9664 0 0 0 827.09465,0 H 196.85416 A 196.95655,196.9664 0 0 0 0,196.864 V 827.136 A 196.90535,196.9152 0 0 0 196.85416,1024 H 827.09465 A 197.11014,197.12 0 0 0 1020.9282,861.9008 c -52.22144,-22.6304 -278.51412,-120.32 -396.42183,-176.64 -89.69791,108.6976 -183.69641,173.9264 -325.30853,173.9264 -141.61212,0 -236.173791,-87.2448 -224.807959,-194.048 7.474826,-70.0416 55.549219,-184.576 264.281189,-164.9664 110.07449,10.3424 160.40158,30.8736 250.15069,60.5184 23.19244,-42.5984 42.49387,-89.4464 57.13634,-139.264 H 248.0516 v -39.424 H 444.95695 V 311.1424 H 204.78976 V 267.776 H 444.90575 V 165.632 c 0,0 2.1503,-15.9744 19.81341,-15.9744 h 98.45268 V 267.776 h 255.9872 v 43.4176 H 563.17184 V 381.952 H 772.0062 a 805.9501,805.9904 0 0 1 -84.83416,212.6848 c 60.66897,22.016 336.77676,106.3936 336.77676,106.3936 z m -740.46858,90.5728 c -149.65011,0 -173.30333,-94.464 -165.36773,-133.9392 7.83321,-39.3216 51.19744,-90.624 134.39328,-90.624 95.58562,0 181.23894,24.4736 284.0434,74.5472 -72.18839,94.0032 -160.91355,150.016 -253.06895,150.016 z"
+     fill="#009fe8"
+     p-id="2289"
+     data-spm-anchor-id="a313x.7781069.0.i1"
+     id="path1050"
+     style="stroke-width:0.999975" />
+</svg>

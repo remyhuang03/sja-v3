@@ -1,0 +1,72 @@
+.board {
+    flex: 1 200px;
+    background-color: #333;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 10px;
+}
+
+#donation-slogan {
+    font-size: 45px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin: 50px 0 50px;
+}
+
+main {
+    padding: 10px;
+}
+
+.board>p {
+    text-indent: 2em;
+    margin: 5px;
+}
+
+h3 {
+    margin: 20px 0 10px;
+}
+
+#pay-list>li img {
+    height: 50px;
+}
+
+#pay-list>li {
+    list-style: none;
+    display: inline-block;
+    background-color: white;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+#pay-win {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    padding: 20px;
+    background-color: #333;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+#close-btn {
+    cursor: pointer;
+    float: right;
+}
+
+#pay-qrcode
+{
+    margin: 10px;
+}
+
+#pay-qrcode>img {
+    width: 100%;
+}
+
