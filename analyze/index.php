@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SJA Plus 分析器</title>
-    <link rel="icon" href="../../img/logo.svg">
-    <link rel="shortcut icon" href="../../img/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="icon" href="../img/logo.svg">
+    <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="style.css">
 
 </head>
@@ -15,7 +15,7 @@
 <body>
     <header>
         <h1>SJA</h1>
-        <img src="../../img/plus.svg" alt="Plus" width="65px">
+        <img src="../img/plus.svg" alt="Plus" width="65px">
     </header>
 
     <main>
