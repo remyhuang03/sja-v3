@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'logo-font';
-    src: url('../fonts/concert-one.ttf') format('truetype');
+    src: url('/fonts/concert-one.ttf') format('truetype');
 }
 
 @font-face {
     font-family: 'main-font';
-    src: url('../fonts/motosanssc.otf') format('opentype');
+    src: url('/fonts/motosanssc.otf') format('opentype');
 }
 
 * {
@@ -52,10 +52,6 @@ footer {
 }
 
 footer a{
-    color: #999;
+    color: #939393;
     text-decoration: none;
-}
-
-footer a:hover{
-    color: #fff;
 }

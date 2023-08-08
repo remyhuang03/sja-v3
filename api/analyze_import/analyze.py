@@ -1,8 +1,9 @@
 import json
 import csv
-from AnalyzeError import AnalyzeError
-from AnalyzeReport import AnalyzeReport
-from block_info import *
+from .AnalyzeError import AnalyzeError
+from .AnalyzeReport import AnalyzeReport
+from .block_info import *
+
 CORE_VERSION = "analyze-7.0.0"
 report = AnalyzeReport(CORE_VERSION)
 
@@ -104,7 +105,7 @@ def analyze(file_path, file_size=0):
         except:
             # file is not valid json
             raise AnalyzeError("不是合法的json文件")
-
+    report["file_size"] = file_size
     # get targets
     if "targets" in json_project:
         json_targets = json_project["targets"]
@@ -135,21 +136,22 @@ def analyze(file_path, file_size=0):
             found_flag = False
             for id in json_blocks:
                 block = json_blocks[id]
-
+                # 是一个变量积木
+                if isinstance(block, list):
+                    report["category_count"]["data"] += 1
+                    report["total_block_count"] += 1
                 # 是新段落
-                if block["topLevel"] and not block["shadow"]:
+                elif (
+                    isinstance(block, dict)
+                    and block["topLevel"]
+                    and not block["shadow"]
+                ):
                     found_flag = True
                     isValidPara = is_valid_top_block(block["opcode"])
                     if isValidPara:
                         report["valid_paragraph_count"] += 1
-                    else:
-                        print(id)
                     report["total_paragraph_count"] += 1
                     search_paragraph(id, isValidPara, json_blocks)
                     # 该段落寻找结束
                     break
-    return (report.report)
-
-
-if __name__ == "__main__":
-    analyze(r"C:\Users\Robert Huang\Desktop\project.json")
+    return report.report

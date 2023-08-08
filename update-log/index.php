@@ -12,25 +12,13 @@
 </head>
 
 <body>
-    <header>
-        <h1>SJA</h1>
-        <img src="../img/plus.svg" alt="Plus" width="65px">
-    </header>
+    <?php include $_SERVER["DOCUMENT_ROOT"]."/includes/header.php";?>
 
     <main>
         暂无内容。
     </main>
 
-    <footer>
-        <div>
-            Copyright &copy;  黄力行. All rights reserved.
-        </div>
-        <div>
-            <a href="https://beian.miit.gov.cn/" target="_blank">
-                苏ICP备2023024793号-1
-            </a>
-        </div>
-    </footer>
+    <?php include $_SERVER["DOCUMENT_ROOT"]."/includes/footer.php";?>
 </body>
 
 </html>

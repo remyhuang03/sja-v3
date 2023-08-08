@@ -1,12 +1,13 @@
 import csv
 import os
 
-if os.name == "nt":
-    csv_path = (
-        r"doc\blocks_release.csv"
-    )
-elif os.name == "posix":
-    csv_path = "/www/wwwroot/www.sjaplus.top/doc/blocks_release.csv"
+# if os.name == "nt":
+#     csv_path = (
+#         r"doc\blocks_release.csv"
+#     )
+# elif os.name == "posix":
+#     csv_path = "/www/wwwroot/www.sjaplus.top/doc/blocks_release.csv"
+csv_path = "doc/blocks_release.csv"
 csv_file = csv.reader(open(csv_path, "r", encoding="utf-8"))
 csv_file = list(csv_file)
 block_info = {i[0]: i[1:] for i in csv_file}

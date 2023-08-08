@@ -1,15 +1,12 @@
 from pathlib import Path
 from datetime import datetime
 from time import time
+import sys
 from lxml import etree
 import csv
 from subprocess import run
 import os
-
-
 import math
-
-this_path = Path(__file__).parent
 
 
 def generate_pie_chart(values, colors):
@@ -23,7 +20,7 @@ def generate_pie_chart(values, colors):
     radius = 30  # 半径
     index = 0
     for value in values:
-        percentage = value / total
+        percentage = value / total if total>0 else 0
         angle = 360 * percentage
         end_angle = start_angle + angle
 
@@ -49,9 +46,7 @@ def generate_pie_chart(values, colors):
 
 
 # 第二行的分类显示格式
-with open(
-    this_path.parent.parent / "doc" / "category_report_format.csv", encoding="utf-8"
-) as f:
+with open("doc/category_report_format.csv", encoding="utf-8") as f:
     list_csv = list(csv.reader(f))
     # en_cate: [zn_cate, color, main_cate]
     cate_fmt = {row[0]: row[1:] for row in list_csv}
@@ -126,9 +121,13 @@ def json_svg(json: dict):
         for attr in attrs:
             elem.attrib[attr] = str(attrs[attr])
 
-    tree = etree.parse(open(this_path / "res" / "report_model.svg", encoding="utf-8"))
+    tree = etree.parse(
+        open(Path(__file__).parent / "res" / "report_model.svg", encoding="utf-8")
+    )
     root = tree.getroot()
     # 1. 第一栏
+    # file_size from bytes to MB
+    json['file_size'] = f"{json['file_size']/(1024*1024):.2f}"
     for key in ROW_1:
         change_elem(key, str(json[key]))
     # 2. 饼图
@@ -154,7 +153,7 @@ def json_svg(json: dict):
     codes = """
 index = ROW_2.index(key) + 1
 main_color = cate_fmt[key][1]
-pct = count / total_count
+pct = count / total_count if total_count>0 else 0
 lighter_color = lighter(main_color)
 if index<=6:
     percent_x = 140 + 155 * pct
@@ -185,7 +184,9 @@ change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
 
     # 保存处理好的报告图
     file_name = str(time()).replace(".", "_")
-    with open(this_path / "temp" / (file_name + "_t.svg"), "w", encoding="utf-8") as f:
+    with open(
+        Path(__file__).parent / "temp" / (file_name + "_t.svg"), "w", encoding="utf-8"
+    ) as f:
         f.write(
             etree.tostring(root, encoding="utf-8")
             .decode("utf-8")
@@ -193,10 +194,10 @@ change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
             .replace("&lt;", "<")
         )
     # 压缩图像保存到
-    scour_command = f"scour -i {this_path /'temp'/(file_name+'_t.svg')} -o {this_path /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"
+    scour_command = f"scour -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"
     run(scour_command, shell=True)
-    os.remove(this_path / "temp" / (file_name + "_t.svg"))
-    return file_name+".svg"
+    os.remove(Path(__file__).parent / "temp" / (file_name + "_t.svg"))
+    return file_name + ".svg"
 
 
 if __name__ == "__main__":

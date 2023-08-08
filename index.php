@@ -7,16 +7,13 @@
     <title>SJA Plus 分析器</title>
     <link rel="icon" href="img/logo.svg">
     <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/homepage.css">
 
 </head>
 
 <body>
-    <header>
-        <h1>SJA</h1>
-        <img src="img/plus.svg" alt="Plus" width="65px">
-    </header>
+
+    <?php include "./includes/header.php";?>
 
     <main>
         <div class="left-column">
@@ -32,13 +29,13 @@
                 SJA 分析器先后经 Scratch 版、旧 Python 版开发，积累了很多问题，也受到了大家的诸多反馈，为此我决定重新制作 SJA 分析器，修复目前已知的问题，提供更好的分析体验。SJA
                 分析器的制作初衷是为了反对作品抄袭现象而提供作品对比功能，作品分析功能仅为推广方便而制作。某平台关闭后，抄袭现象明显减少，但是作品分析的需求却增多了，SJA 分析器的重心也将转移到作品分析上。
             </p>
-            <img src="img/home-bg.svg" alt="">
+            <img src="/img/home-bg.svg" alt="">
         </div>
         <div class="right-column">
             <a href="analyze/index.php" class="tool-btn" id="analyze-btn">
                 <div>作品分析</div>
             </a>
-            <a href="update-log/index.html" id='update-log-btn' class="tool-btn">
+            <a href="update-log/index.php" id='update-log-btn' class="tool-btn">
                 <div>更新日志</div>
             </a>
             <a href="#/index.html" id='donation-btn' class="tool-btn">
@@ -47,16 +44,7 @@
         </div>
     </main>
 
-    <footer>
-        <div>
-            Copyright &copy;  黄力行. All rights reserved.
-        </div>
-        <div>
-            <a href="https://beian.miit.gov.cn/" target="_blank">
-                苏ICP备2023024793号-1
-            </a>
-        </div>
-    </footer>
+    <?php include "./includes/footer.php";?>
 </body>
 
 </html>

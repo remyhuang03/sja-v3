@@ -13,19 +13,26 @@
 </head>
 
 <body>
-    <header>
-        <h1>SJA</h1>
-        <img src="../img/plus.svg" alt="Plus" width="65px">
-    </header>
+    <?php include "/includes/header.php";?>
 
     <main>
         <div class="report">
-            <p>暂无报告，上传文件试试吧！</p>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "GET") {
+                echo "<p>暂无报告，上传文件试试吧！</p>";
+            } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+                $script_path = $_SERVER['DOCUMENT_ROOT']."/api/analyze.py";
+                $result = shell_exec("python $script_path $file_path");
+                echo $result
+            }
+            ?>
+
         </div>
 
         <!-- 右侧栏 -->
         <div class="menu">
-            <form method="post" action="/api/analyze">
+            <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                 <!-- 选择文件按钮 -->
                 <!-- width: auto; -->
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
@@ -58,16 +65,7 @@
         </div>
     </main>
 
-    <footer>
-        <div>
-            Copyright &copy;  黄力行. All rights reserved.
-        </div>
-        <div>
-            <a href="https://beian.miit.gov.cn/" target="_blank">
-                苏ICP备2023024793号-1
-            </a>
-        </div>
-    </footer>
+    <?php include "/includes/footer.php";?>
     <script src="script.js"></script>
 </body>
 

@@ -4,13 +4,17 @@ from typing import Any
 from os import name as osname
 
 # 加载哈希秘密值
-if osname == "nt":
-    hash_secret = open(r"build\report_code_hash_secret.txt", encoding="utf-8").read()
-elif osname == "posix":
-    hash_secret = open(
-        "/www/wwwroot/www.sjaplus.top/build/report_code_hash_secret.txt",
-        encoding="utf-8",
-    ).read()
+# if osname == "nt":
+#     hash_secret = open(r"build\report_code_hash_secret.txt", encoding="utf-8").read()
+# elif osname == "posix":
+#     hash_secret = open(
+#         "/www/wwwroot/www.sjaplus.top/build/report_code_hash_secret.txt",
+#         encoding="utf-8",
+#     ).read()
+hash_secret = open(
+    "build/report_code_hash_secret.txt",
+    encoding="utf-8",
+).read()
 
 
 class AnalyzeReport:

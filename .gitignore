@@ -1,3 +1,4 @@
 build
-includes/report_img/temp
-includes/report_img/sja-reports
+api/analyze_import/report_img/temp
+api/analyze_import/sja-reports
+__pycache__/
