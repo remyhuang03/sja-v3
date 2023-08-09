@@ -1,5 +1,5 @@
 import csv
-import os
+from pathlib import Path
 
 # if os.name == "nt":
 #     csv_path = (
@@ -7,7 +7,8 @@ import os
 #     )
 # elif os.name == "posix":
 #     csv_path = "/www/wwwroot/www.sjaplus.top/doc/blocks_release.csv"
-csv_path = "doc/blocks_release.csv"
+
+csv_path = Path(__file__).parent.parent.parent / "doc" / "blocks_release.csv"
 csv_file = csv.reader(open(csv_path, "r", encoding="utf-8"))
 csv_file = list(csv_file)
 block_info = {i[0]: i[1:] for i in csv_file}

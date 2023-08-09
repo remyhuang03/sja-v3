@@ -20,7 +20,7 @@ def generate_pie_chart(values, colors):
     radius = 30  # 半径
     index = 0
     for value in values:
-        percentage = value / total if total>0 else 0
+        percentage = value / total if total > 0 else 0
         angle = 360 * percentage
         end_angle = start_angle + angle
 
@@ -46,7 +46,10 @@ def generate_pie_chart(values, colors):
 
 
 # 第二行的分类显示格式
-with open("doc/category_report_format.csv", encoding="utf-8") as f:
+with open(
+    Path(__file__).parent.parent.parent.parent / "doc" / "category_report_format.csv",
+    encoding="utf-8",
+) as f:
     list_csv = list(csv.reader(f))
     # en_cate: [zn_cate, color, main_cate]
     cate_fmt = {row[0]: row[1:] for row in list_csv}
@@ -127,7 +130,7 @@ def json_svg(json: dict):
     root = tree.getroot()
     # 1. 第一栏
     # file_size from bytes to MB
-    json['file_size'] = f"{json['file_size']/(1024*1024):.2f}"
+    json["file_size"] = f"{json['file_size']/(1024*1024):.2f}"
     for key in ROW_1:
         change_elem(key, str(json[key]))
     # 2. 饼图

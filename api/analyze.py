@@ -48,11 +48,12 @@ try:
         (Path(__file__).parent / "analyze_import" / "report_img" / "temp" / file_name),
         (Path(__file__).parent / "analyze_import" / "report_img" / "sja-reports" / file_name),
     )
-    commit_to_github()
-    print("ok")
+    if open(Path(__file__).parent.parent/'build'/'is_debug.txt').read()=='0':
+        commit_to_github()
+    print("?ok?",end='')
     print(f"https://cdn.jsdelivr.net/gh/h8p0/sja-reports/{file_name}")
 
 except Exception as e:
     # 分析出错
-    print("err")
+    print("?err?",end='')
     print(e.with_traceback())

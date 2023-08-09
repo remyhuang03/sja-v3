@@ -2,3 +2,4 @@ build
 api/analyze_import/report_img/temp
 api/analyze_import/sja-reports
 __pycache__/
+uploads

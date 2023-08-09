@@ -2,6 +2,7 @@ from json import dumps
 from datetime import datetime
 from typing import Any
 from os import name as osname
+from pathlib import Path
 
 # 加载哈希秘密值
 # if osname == "nt":
@@ -12,7 +13,7 @@ from os import name as osname
 #         encoding="utf-8",
 #     ).read()
 hash_secret = open(
-    "build/report_code_hash_secret.txt",
+    Path(__file__).parent.parent.parent/"build"/"report_code_hash_secret.txt",
     encoding="utf-8",
 ).read()
 

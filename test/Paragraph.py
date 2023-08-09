@@ -1,6 +1,4 @@
 from Block import Block
-from functools import reduce
-
 
 class Paragraph:
     """
