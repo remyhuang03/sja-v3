@@ -75,9 +75,9 @@
 
                     if($status=="ok")
                     {
-                        echo '<img src=$url>';
+                        echo "<img src=$url>";
                     }
-                    else if($status=='err')
+                    else
                     {
                         echo "抱歉，分析过程中遇到了错误。";
                         echo $url;

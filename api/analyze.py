@@ -23,37 +23,45 @@ output:
     status:
         正常则为ok，否则为err
     url/err:
-        分析报告对应URL（如果status为ok），否则为错误信息
+        分析报告对应时间戳（如果status为ok），否则为错误信息
 """
 try:
-    
     file_path = sys.argv[1]
-    
+
     file_extension = file_path.split(".")[-1]
-    file_size = getsize(file_path) 
-    temp_path = "" 
-    
+    file_size = getsize(file_path)
+    temp_path = ""
+
     if file_extension == "sb3":
         # 先解压提取json文件
-        temp_path = Path(__file__).parent / ("temp_analyze_" + str(time()).replace(".", "_"))
+        temp_path = Path(__file__).parent / (
+            "temp_analyze_" + str(time()).replace(".", "_")
+        )
         with zipfile.ZipFile(file_path, "r") as zip_ref:
             zip_ref.extractall(temp_path)
         file_path = Path(temp_path) / "project.json"
-    report = analyze(file_path,file_size)
+    report = analyze(file_path, file_size)
     if temp_path:
         shutil.rmtree(temp_path)
-    
+
     file_name = json_svg(report)
     copy(
         (Path(__file__).parent / "analyze_import" / "report_img" / "temp" / file_name),
-        (Path(__file__).parent / "analyze_import" / "report_img" / "sja-reports" / file_name),
+        (
+            Path(__file__).parent
+            / "analyze_import"
+            / "report_img"
+            / "sja-reports"
+            / file_name
+        ),
     )
-    if open(Path(__file__).parent.parent/'build'/'is_debug.txt').read()=='0':
-        commit_to_github()
-    print("?ok?",end='')
-    print(f"https://cdn.jsdelivr.net/gh/h8p0/sja-reports/{file_name}")
+    # 服务器上 github 访问速度慢死了
+    # commit_to_github()
+    print("?ok?", end="")
+    print(f"https://sjaplus.top/api/report-img.php?stamp={file_name}")
+    # print(f"https://cdn.jsdelivr.net/gh/h8p0/sja-reports/{file_name}")
 
 except Exception as e:
     # 分析出错
-    print("?err?",end='')
+    print("?err?", end="")
     print(e.with_traceback())
