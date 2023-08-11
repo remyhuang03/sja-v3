@@ -131,7 +131,7 @@
                 <li>
                     <button id='save-report-btn' class='icon-btn'>
                         <img src='img/download_ico.svg' alt=''>
-                        <a download='$url'>下载报告图</a>
+                        <a href='$url' download='SJA报告.svg'>下载报告图</a>
                     </button>
                 </li>
             </ul>";
