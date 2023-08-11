@@ -64,4 +64,4 @@ try:
 except Exception as e:
     # 分析出错
     print("?err?", end="")
-    print(e.with_traceback())
+    print(e)

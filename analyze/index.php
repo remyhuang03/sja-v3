@@ -61,7 +61,7 @@
                     move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                     $script_path = $_SERVER['DOCUMENT_ROOT'] . "/api/analyze.py";
                     //执行python分析程序获得结果
-                    $result = shell_exec("python $script_path $target_file");
+                    $result = shell_exec("python $script_path $target_file 2>&1");
 
 
                     // 找到两个问号的位置
@@ -73,14 +73,12 @@
                     // 提取第二个问号后面到字符串末尾的子字符串
                     $url = substr($result, $second_pos + 1);
 
-                    if($status=="ok")
-                    {
+                    if ($status == "ok") {
                         echo "<img src=$url>";
-                    }
-                    else
-                    {
+                    } else {
                         echo "抱歉，分析过程中遇到了错误。";
                         echo $url;
+                        echo $result;
                     }
                 }
             }

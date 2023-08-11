@@ -196,8 +196,12 @@ change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
             .replace("&gt;", ">")
             .replace("&lt;", "<")
         )
-    # 压缩图像保存到
-    scour_command = f"scour -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"
+    # 压缩图像保存
+    scour_path = open(
+        Path(__file__).parent.parent.parent.parent.parent / "scour_path.txt",
+        encoding="utf-8",
+    ).read()
+    scour_command = f"{scour_path} -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"
     run(scour_command, shell=True)
     os.remove(Path(__file__).parent / "temp" / (file_name + "_t.svg"))
     return file_name + ".svg"
