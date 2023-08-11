@@ -41,6 +41,8 @@ try:
             zip_ref.extractall(temp_path)
         file_path = Path(temp_path) / "project.json"
     report = analyze(file_path, file_size)
+    #debug:
+    print(report)
     if temp_path:
         shutil.rmtree(temp_path)
 
@@ -64,4 +66,5 @@ try:
 except Exception as e:
     # 分析出错
     print("?err?", end="")
-    print(e)
+    print(e.with_traceback())
+

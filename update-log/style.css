@@ -1,0 +1,72 @@
+.version {
+    width: 90%;
+    margin: 20px auto 20px;
+}
+
+.version:first-child {
+    margin-top: 30px;
+}
+
+.square {
+    display: inline-block;
+    border-radius: 10px;
+    margin-right: 10px;
+    padding: 5px 10px;
+}
+
+h2 {
+    background-color: #6f42c1;
+    color: white;
+    font-size: 16px;
+}
+
+.date {
+    font-size: 18px;
+    color: #ddd;
+    font-weight: lighter;
+}
+
+.version-title {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+ul {
+    list-style: none;
+    padding-left: 40px;
+}
+
+ul span {
+    font-size: 16px;
+    color: #ddd;
+}
+
+li {
+    margin: 10px 0;
+}
+
+.added {
+    color: #b4e0be;
+    background-color: #28a745;
+    font-size: 14px;
+}
+
+.improved,
+.fixed {
+    color: #8ccaf1;
+    background-color: #0366d6;
+    font-size: 14px;
+}
+
+.new {
+    color: #FFF7E1;
+    background-color: #ffca28;
+    font-size: 14px;
+}
+
+hr {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px dashed #ddd;
+}

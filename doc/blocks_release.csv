@@ -610,8 +610,8 @@ GandiDolly-0.1.2_menu_SPRITE_MENU,ccw,menu
 GandiDolly-0.1.2_getTouchedCloneProperty,ccw,num
 GandiDolly-0.1.2_cloneAndSetKV,ccw,sentence
 GandiDolly-0.1.2_deleteCloneById,ccw,sentence
-GandiDolly-0.1.2_dispatchWhenCloned,ccw,top
-GandiDolly-0.1.2_dispatchWhenCloneDeleted,ccw,top
+GandiDolly_dispatchWhenCloned,ccw,top
+GandiDolly_dispatchWhenCloneDeleted,ccw,top
 GandiDolly-0.1.2_getCloneProperty,ccw,num
 GandiDolly-0.1.2_propertyOfSprite,ccw,num
 GandiDolly-0.1.2_setTargetKV,ccw,sentence
@@ -722,3 +722,11 @@ VIDateTime_add,ccw,num
 VIDateTime_get,ccw,num
 VIDateTime_timezone,ccw,num
 VIDateTime_timezonemin,ccw,num
+GandiJoystick_whenJoystickMoved,ccw,top-arg
+GandiAIHub_dispatchWhenMessageReceived,ccw,top-arg
+text_dispatchFontLoaded,ccw,top-arg
+text_dispatchTextTyped,ccw,top-arg
+WitCatMouse_mouse,ccw,top
+WitCatMouse_mousetds,ccw,top-input
+WitCatInput_keys,ccw,top-input
+GandiMedia_dispatchWhenVideoEventReceived,ccw,top-arg

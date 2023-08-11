@@ -4,7 +4,7 @@ from .AnalyzeError import AnalyzeError
 from .AnalyzeReport import AnalyzeReport
 from .block_info import *
 
-CORE_VERSION = "analyze-7.0.0"
+CORE_VERSION = "analyze-7.0.1"
 report = AnalyzeReport(CORE_VERSION)
 
 
@@ -64,7 +64,10 @@ def search_paragraph(id, isValidPara, blocks):
             # 嵌入的是正常积木
             if isinstance(input[1], str):
                 next_blocks_id.add(input[1])
-            # 否则嵌入的是变量/列表
+            # TW编辑器特异位置
+            elif input[1] == None:
+                pass
+            # 嵌入的是变量/列表
             elif input[1][0] in [12, 13]:
                 category_one_more_block("data")
                 report["total_block_count"] += 1

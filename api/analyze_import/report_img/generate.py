@@ -183,7 +183,7 @@ change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
 
     date_str = datetime.utcfromtimestamp(json["datetime"]).strftime("%Y年%m月%d日")
     ver = json["core_version"]
-    change_elem("footer_left", f"对比时间：{date_str}    内核版本号：{ver} ")
+    change_elem("footer_left", f"分析时间：{date_str}    内核版本号：{ver} ")
 
     # 保存处理好的报告图
     file_name = str(time()).replace(".", "_")
@@ -198,7 +198,7 @@ change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
         )
     # 压缩图像保存
     scour_path = open(
-        Path(__file__).parent.parent.parent.parent.parent / "scour_path.txt",
+        Path(__file__).parent.parent.parent.parent/"build" / "scour_path.txt",
         encoding="utf-8",
     ).read()
     scour_command = f"{scour_path} -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"

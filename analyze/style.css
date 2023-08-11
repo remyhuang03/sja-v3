@@ -76,6 +76,6 @@ button:hover {
 
 #uploaded {
     border: none;
-    background-color: white;
+    background-color: #ddd;
     color: #222;
 }

@@ -18,6 +18,8 @@
     <main>
         <div class="report">
             <?php
+            $status = "";
+            $url = "";
             if ($_SERVER["REQUEST_METHOD"] == "GET") {
                 echo "<p>暂无报告，上传文件试试吧！</p>";
             } else if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -33,10 +35,10 @@
                 if (!file_exists($target_dir)) {
                     mkdir($target_dir, 0755);
                 }
-                // 保存文件路径
-                $target_file = $target_dir . '/' . basename($_FILES["file"]["name"]);
                 //扩展名
-                $file_type = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                $file_type = strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION));
+                // 保存文件路径
+                $target_file = $target_dir . '/tmp.' . $file_type;
                 //是否允许上传
                 $upload_ok = true;
                 if (isset($_POST["submit"])) {
@@ -45,9 +47,9 @@
                         $upload_ok = false;
                     }
                 }
-                // 文件不得大于20MB
-                if ($_FILES["file"]["size"] > 20 * 1024 * 1024) {
-                    echo "抱歉，SJA分析器目前仅支持20MB以下大小的文件。";
+                // 文件不得大于30MB
+                if ($_FILES["file"]["size"] > 30 * 1024 * 1024) {
+                    echo "抱歉，SJA分析器目前仅支持30MB以下大小的文件。";
                     $upload_ok = false;
                 }
                 //文件格式错误（sb3, json）
@@ -74,10 +76,9 @@
                     $url = substr($result, $second_pos + 1);
 
                     if ($status == "ok") {
-                        echo "<img src=$url>";
+                        echo "<img id='report' src=$url>";
                     } else {
                         echo "抱歉，分析过程中遇到了错误。";
-                        echo $url;
                         echo $result;
                     }
                 }
@@ -98,7 +99,7 @@
                 fclose($pwd_file);
                 ?>
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
-                    选择文件
+                    <span id="file-name">选择文件</span>
                     <input type="file" accept=".sb3,.json" id="input-upload" name="file">
                 </label>
 
@@ -112,26 +113,32 @@
                     <img src="img/start_ico.svg" alt="">
                     <span>开始分析</span>
                 </button>';
+                } else {
+                    echo "SJA分析器 Plus 版仍处于内测阶段，您尚未取得内测资格，暂时无法使用，敬请期待。";
                 } ?>
             </form>
 
-            <ul id="result-menu" <?php if ($_SERVER["REQUEST_METHOD"] == "GET") {
-                                        echo 'style="display:none;"';
-                                    }
-                                    ?>>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && $status == "ok") {
+                echo
+                "<ul id='result-menu'>
                 <li>
-                    <button id="copy-md-btn" class="icon-btn">
-                        <img src="img/md_ico.svg" alt="">
+                    <button id='copy-md-btn' class='icon-btn'>
+                        <img src='img/md_ico.svg' alt=''>
                         <span>复制Markdown</span>
                     </button>
                 </li>
                 <li>
-                    <button id="save-report-btn" class="icon-btn">
-                        <img src="img/download_ico.svg" alt="">
-                        <span>下载报告图</span>
+                    <button id='save-report-btn' class='icon-btn'>
+                        <img src='img/download_ico.svg' alt=''>
+                        <a download='$url'>下载报告图</a>
                     </button>
                 </li>
-            </ul>
+            </ul>";
+            }
+            ?>
+
+
         </div>
     </main>
 
