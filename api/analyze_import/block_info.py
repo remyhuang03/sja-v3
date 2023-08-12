@@ -59,8 +59,9 @@ def get_category(opcode: str):
                 return perfix
         return -1
 
-    ret = search_prefix(opcode) != -1
+    ret = search_prefix(opcode)
     if ret != -1:
+        print(ret)
         return ret
     # 如果没有收录，则推测
     else:

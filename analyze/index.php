@@ -74,7 +74,10 @@
                     $status = substr($result, $first_pos + 1, $second_pos - $first_pos - 1);
                     // 提取第二个问号后面到字符串末尾的子字符串
                     $url = substr($result, $second_pos + 1);
-
+                    if(str_contains($_SERVER['HTTP_HOST'],'www'))
+                    {
+                        $url = str_replace('sjaplus.top','www.sjaplus.top',$url);
+                    }
                     if ($status == "ok") {
                         echo "<img id='report' src=$url>";
                     } else {
