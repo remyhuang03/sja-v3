@@ -33,13 +33,19 @@
         </div>
         <div class="right-column">
             <a href="analyze/index.php" class="tool-btn" id="analyze-btn">
-                <div>作品分析</div>
+                <div>作品分析器</div>
+            </a>
+            <a href="stat/index.php" class="tool-btn" id="stat-btn">
+                <div><del>数据看板</del></div>
+            </a>
+            <a href="cmpr/index.php" class="tool-btn" id="cmpr-btn">
+                <div><del>抄袭对比器</del></div>
             </a>
             <a href="update-log/index.php" id='update-log-btn' class="tool-btn">
                 <div>更新日志</div>
             </a>
-            <a href="#/index.html" id='donation-btn' class="tool-btn">
-                <div></div>
+            <a href="faq/index.php" id='faq-btn' class="tool-btn">
+                <div><del>常见问题</del></div>
             </a>
         </div>
     </main>

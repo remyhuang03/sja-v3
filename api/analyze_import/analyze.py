@@ -4,7 +4,9 @@ from .AnalyzeError import AnalyzeError
 from .AnalyzeReport import AnalyzeReport
 from .block_info import *
 
-CORE_VERSION = "analyze-7.0.1"
+# 内核版本号
+CORE_VERSION = "analyze-7.0.2"
+# 分析报告
 report = AnalyzeReport(CORE_VERSION)
 
 
@@ -73,11 +75,6 @@ def search_paragraph(id, isValidPara, blocks):
                 report["total_block_count"] += 1
                 if isValidPara:
                     report["valid_block_count"] += 1
-
-    # 处理field(暂无需处理)
-    for field in list(fields.values()):
-        pass
-
     del blocks[id]
 
     # 递归处理被记录的后续积木
@@ -98,8 +95,6 @@ def analyze(file_path, file_size=0):
     Return:
         dict
     """
-    # init report
-
     # load file
     with open(file_path, "r", encoding="utf-8") as f:
         try:
@@ -109,6 +104,8 @@ def analyze(file_path, file_size=0):
             # file is not valid json
             raise AnalyzeError("不是合法的json文件")
     report["file_size"] = file_size
+    # 加载自身extension列表
+    extend_extensions(json_project['extensions'])
     # get targets
     if "targets" in json_project:
         json_targets = json_project["targets"]

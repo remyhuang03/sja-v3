@@ -87,3 +87,18 @@ main {
 #donation-btn {
     background-image: url(../img/donation-logo.svg);
 }
+#faq-btn {
+    background-image: url(../img/faq-logo.svg);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+#cmpr-btn {
+    background-image: url(../img/cmpr-logo.svg);
+    cursor: not-allowed;
+    pointer-events: none;
+}
+#stat-btn {
+    background-image: url(../img/stat-logo.svg);
+    cursor: not-allowed;
+    pointer-events: none;
+}

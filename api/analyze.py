@@ -27,12 +27,11 @@ output:
 """
 try:
     file_path = sys.argv[1]
-
     file_extension = file_path.split(".")[-1]
     file_size = getsize(file_path)
     temp_path = ""
 
-    if file_extension == "sb3":
+    if file_extension in ["sb3","cc3"]:
         # 先解压提取json文件
         temp_path = Path(__file__).parent / (
             "temp_analyze_" + str(time()).replace(".", "_")

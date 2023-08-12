@@ -52,9 +52,9 @@
                     echo "抱歉，SJA分析器目前仅支持30MB以下大小的文件。";
                     $upload_ok = false;
                 }
-                //文件格式错误（sb3, json）
-                if ($file_type != "sb3" && $file_type != "json") {
-                    echo "抱歉，SJA分析器目前仅支持sb3和json格式的文件。";
+                //文件格式错误
+                if (!in_array($file_type, array("sb3", "cc3", "json"))) {
+                    echo "抱歉，SJA分析器目前仅支持以下格式：sb3 / json / cc3 。";
                     $upload_ok = false;
                 }
 
@@ -100,7 +100,7 @@
                 ?>
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
                     <span id="file-name">选择文件</span>
-                    <input type="file" accept=".sb3,.json" id="input-upload" name="file">
+                    <input type="file" accept=".sb3,.json,.cc3" id="input-upload" name="file">
                 </label>
 
                 <!-- 开始分析按钮 -->
@@ -129,10 +129,12 @@
                     </button>
                 </li>
                 <li>
+                <a href='$url' download='SJA分析报告.svg'>
                     <button id='save-report-btn' class='icon-btn'>
                         <img src='img/download_ico.svg' alt=''>
-                        <a href='$url' download='SJA报告.svg'>下载报告图</a>
+                        下载报告图
                     </button>
+                </a>
                 </li>
             </ul>";
             }

@@ -60,8 +60,9 @@ li {
 }
 
 .new {
-    color: #FFF7E1;
-    background-color: #ffca28;
+    /* color: #FFF7E1; */
+    color: rgb(244, 244, 238);
+    background-color: #cd9f14;
     font-size: 14px;
 }
 

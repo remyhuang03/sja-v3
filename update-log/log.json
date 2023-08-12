@@ -1,13 +1,21 @@
 [
     {
+        "version": "3.1.1-alpha",
+        "date": "2023-08-12",
+        "update":[
+            ["added","增加下载报告图功能"],
+            ["improved","更新对别针社区括展的检测和 cc3 文件的检测支持 [analyze-7.0.2]"]
+        ]
+    },
+    {
         "version": "3.1.0-alpha",
         "date": "2023-08-11",
         "update":[
             ["new","增加更新日志页面"],
             ["improved","优化选择文件按钮显示，增加文件拖拽上传功能"],
-            ["improved","文件上传大小限制扩大到30MB"],
-            ["added","增加复制报告markdown和下载报告图功能"],
-            ["improved","更新对CCW平台有效积木的检测 [analyze-7.0.1]"],
+            ["improved","文件上传大小限制扩大到 30MB"],
+            ["added","增加复制报告 markdown 功能"],
+            ["improved","更新对 CCW 平台有效积木的检测 [analyze-7.0.1]"],
             ["fixed","修复TW编辑器文件的解析错误 [analyze-7.0.1] - 感谢SQY"]
         ]
     },
@@ -15,7 +23,7 @@
         "version": "3.0.0-alpha",
         "date": "2023-08-11",
         "update":[
-            ["new","SJA Plus版底层功能上线内测"]
+            ["new","SJA Plus 版底层功能上线内测"]
         ]
     }
 ]

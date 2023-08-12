@@ -79,3 +79,7 @@ button:hover {
     background-color: #ddd;
     color: #222;
 }
+
+a{
+    text-decoration: none;
+}
