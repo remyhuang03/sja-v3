@@ -1,3 +1,9 @@
+// 防止表单重复提交
+if (window.history.replaceState) {
+    window.history.replaceState(null, null, window.location.href);
+}
+
+// 复制Markdown功能
 copy_md_btn = document.getElementById("copy-md-btn")
 if (copy_md_btn) {
     copy_md_btn.addEventListener("click", function () {
@@ -11,6 +17,7 @@ if (copy_md_btn) {
     })
 }
 
+// 文件拖拽上传功能
 let load_lbl = document.getElementById("unloaded");
 let file_ipt = document.getElementById("input-upload");
 let file_name_span = document.getElementById("file-name");

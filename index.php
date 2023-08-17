@@ -36,7 +36,7 @@
                 <div>作品分析器</div>
             </a>
             <a href="stat/index.php" class="tool-btn" id="stat-btn">
-                <div><del>数据看板</del></div>
+                <div>数据看板</div>
             </a>
             <a href="cmpr/index.php" class="tool-btn" id="cmpr-btn">
                 <div><del>抄袭对比器</del></div>

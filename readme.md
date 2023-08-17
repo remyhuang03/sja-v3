@@ -15,10 +15,10 @@ SJA 原版采用 Scratch 实现，旧版 SJA 网站采用 Python 后端实现。
 | sc   | Scratch              | ✅Fully       | 2023-08-12 |
 | a    | 阿儿法营（稽木世界） | ✅Fully       | 2023-08-12 |
 | ccw  | 共创世界             | ✅Fully       | 2023-08-12 |
-| cc   | ClipCC               | 🚧Working on       |            |
+| cc   | ClipCC               | ✅Fully       | 2023-08-13 |
+| xmw  | 小码王               | ✅Fully       | 2023-08-13 |
 | tw   | TurboWarp            | 🚧Working on  |            |
 | cn   | Scratch 中社         | 🚧Working on  |            |
-| xmw  | 小码王               | 🚧Working on  |            |
 | 40   | 40code               | ⏲️to-do       |            |
 | sn   | 编程少年             | ⏲️to-do       |            |
 | xtl  | 有道小图灵           | ⏲️to-do       |            |

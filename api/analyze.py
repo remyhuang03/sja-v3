@@ -17,6 +17,8 @@ brief:
 input:
     file_path:
         待分析的.sb3或.json文件
+    is_sort:
+        是否进行排序(0或1)
 output:
     cmd_out:
         svg压缩程序过程性输出，无用
@@ -31,7 +33,7 @@ try:
     file_size = getsize(file_path)
     temp_path = ""
 
-    if file_extension in ["sb3","cc3"]:
+    if file_extension in ["sb3", "cc3"]:
         # 先解压提取json文件
         temp_path = Path(__file__).parent / (
             "temp_analyze_" + str(time()).replace(".", "_")
@@ -44,7 +46,7 @@ try:
     if temp_path:
         shutil.rmtree(temp_path)
 
-    file_name = json_svg(report)
+    file_name = json_svg(report, bool(int(sys.argv[2])))
     copy(
         (Path(__file__).parent / "analyze_import" / "report_img" / "temp" / file_name),
         (
@@ -64,5 +66,4 @@ try:
 except Exception as e:
     # 分析出错
     print("?err?", end="")
-    print(e.with_traceback())
-
+    print(e)

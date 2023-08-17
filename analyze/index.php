@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="UTF-8">
@@ -47,9 +47,9 @@
                         $upload_ok = false;
                     }
                 }
-                // 文件不得大于30MB
-                if ($_FILES["file"]["size"] > 30 * 1024 * 1024) {
-                    echo "抱歉，SJA分析器目前仅支持30MB以下大小的文件。";
+                // 文件不得大于48MB
+                if ($_FILES["file"]["size"] > 48 * 1024 * 1024) {
+                    echo "抱歉，SJA分析器目前仅支持48MB以下大小的文件。";
                     $upload_ok = false;
                 }
                 //文件格式错误
@@ -62,65 +62,78 @@
                     // 临时文件保存到指定路径
                     move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                     $script_path = $_SERVER['DOCUMENT_ROOT'] . "/api/analyze.py";
-                    //执行python分析程序获得结果
-                    $result = shell_exec("python $script_path $target_file 2>&1");
+                    $is_sort = $_POST["is_sort"];
 
+                    //执行python分析程序获得结果
+                    $result = shell_exec("python3 $script_path $target_file $is_sort 2>&1");
+
+                    // 删除上传的文件及临时文件夹
+                    unlink($target_file);
+                    rmdir($target_dir);
 
                     // 找到两个问号的位置
                     $first_pos = strpos($result, '?');
                     $second_pos = strpos($result, '?', $first_pos + 1);
 
-                    // 提取第一个问号后面到第二个问号之间的子字符串
+                    // 提取第一个问号后面到第二个问号之间的子字符串（状态码）
                     $status = substr($result, $first_pos + 1, $second_pos - $first_pos - 1);
+
                     // 提取第二个问号后面到字符串末尾的子字符串
                     $url = substr($result, $second_pos + 1);
-                    if(str_contains($_SERVER['HTTP_HOST'],'www'))
-                    {
-                        $url = str_replace('sjaplus.top','www.sjaplus.top',$url);
+                    // 替换为同源链接
+                    if (strpos($_SERVER['HTTP_HOST'], 'www') === 0) {
+                        $url = str_replace('sjaplus.top', 'www.sjaplus.top', $url);
                     }
                     if ($status == "ok") {
                         echo "<img id='report' src=$url>";
                     } else {
-                        echo "抱歉，分析过程中遇到了错误。";
+                        echo "很抱歉，分析过程中遇到了错误。请将如下报错信息反馈给我们：<br>";
                         echo $result;
                     }
                 }
             }
             ?>
-
         </div>
+
+
 
         <!-- 右侧栏 -->
         <div class="menu">
             <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
-                <!-- 选择文件按钮 -->
-                <!-- width: auto; -->
-                <?php
-                $pwd_path = $_SERVER['DOCUMENT_ROOT'] . "/build/alpha_pwd.txt";
-                $pwd_file = fopen($pwd_path, "r");
-                $pwd = fread($pwd_file, filesize($pwd_path));
-                fclose($pwd_file);
-                ?>
+                <!-- 自动提交token，防止重复提交表单 -->
+                <input type="hidden" name="token" value="<?php echo $analyze_token; ?>">
+
+                <!-- 选择文件框 -->
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
-                    <span id="file-name">选择文件</span>
+                    <span id="file-name">选择文件 (sb3 / cc3 / json)</span>
                     <input type="file" accept=".sb3,.json,.cc3" id="input-upload" name="file">
                 </label>
 
+                <!-- 是否排序单选按钮 -->
+                <fieldset>
+                    类型排序：
+                    <span class='radio-btn'>
+                        <input type="radio" name="is_sort" value="1" id='is_sort-1'>
+                        <label for='is_sort-1'>
+                            降序排序
+                        </label>
+                    </span>
+                    <span class='radio-btn'>
+                        <input type="radio" name="is_sort" value="0" id='is_sort-0' checked>
+                        <label for='is_sort-0'>
+                            默认
+                        </label>
+                    </span>
+                </fieldset>
+
                 <!-- 开始分析按钮 -->
-                <?php
-                if ((array_key_exists('pwd', $_GET) && $_GET['pwd'] == $pwd) ||
-                    ($_SERVER["REQUEST_METHOD"] == "POST")
-                ) {
-                    echo '
                 <button type="submit" style="font: 20px bold;" class="icon-btn">
                     <img src="img/start_ico.svg" alt="">
                     <span>开始分析</span>
-                </button>';
-                } else {
-                    echo "SJA分析器 Plus 版仍处于内测阶段，您尚未取得内测资格，暂时无法使用，敬请期待。";
-                } ?>
+                </button>
             </form>
 
+            <!-- 分析结果菜单（复制MD、下载报告图） -->
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && $status == "ok") {
                 echo
@@ -142,13 +155,10 @@
             </ul>";
             }
             ?>
-
-
         </div>
     </main>
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
-    <script src="script.js"></script>
 </body>
 
 </html>

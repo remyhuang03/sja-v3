@@ -730,3 +730,13 @@ WitCatMouse_mouse,ccw,top
 WitCatMouse_mousetds,ccw,top-input
 WitCatInput_keys,ccw,top-input
 GandiMedia_dispatchWhenVideoEventReceived,ccw,top-arg
+nhjr.ToolBox.ConvenientModules.hatWhenBecomeTrue,cc,top-input
+nhjr.ToolBox.ConvenientModules.hatWhenChange,cc,top-input
+nhjr.ToolBox.ConvenientModules.NeverGonnaGiveYouStart,cc,top
+nhjr.ToolBox.ConvenientModules.NeverGonnaLetYouStop,cc,top
+nhjr.ToolBox.ConvenientModules.hatWhenIsTrue,cc,top-input
+frank.gamepad.onPress,cc,top-input
+top.sparrowhe.console.execute,cc,top
+shiki.lollipop.hat,cc,top-input
+shiki.touch.whenstagepressed,cc,top
+shiki.touch.whenspritepressed,cc,top

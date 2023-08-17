@@ -98,7 +98,7 @@ def lighter(color):
     return ret
 
 
-def json_svg(json: dict):
+def json_svg(json: dict,is_sort:bool = False):
     def change_elem(id, text=None, color=None, **attrs):
         """
         以id更改对应项
@@ -153,33 +153,33 @@ def json_svg(json: dict):
     # 3. 第二栏
     include_count = 0
 
-    codes = """
-index = ROW_2.index(key) + 1
-main_color = cate_fmt[key][1]
-pct = count / total_count if total_count>0 else 0
-lighter_color = lighter(main_color)
-if index<=6:
-    percent_x = 140 + 155 * pct
-else:
-    percent_x = 425 + 155 * pct
-change_elem(f"cate_count{index}", str(count), main_color)
-change_elem(f"percent{index}", f"{pct:.1%}", main_color, x=percent_x)
-change_elem(f"cate_name{index}", cate_fmt[key][0])
-change_elem(f"cate_rect{index}", color=main_color)
-change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
-"""
-    for key in ROW_2:
-        # 余项后面再处理
-        if key == "other":
-            continue
-        count = categories.get(key, 0)
-        include_count += count
-        exec(codes)
+    cate_stat = {k:0 for k in ROW_2}
+    for k in cate_stat:
+        if k!='other':
+            count = categories.get(k, 0)
+            cate_stat[k] = count
+            include_count += count
+    if 'other' in cate_stat:
+        cate_stat['other'] = total_count - include_count
+        cate_stat_lst = list(cate_stat.items())
+    if is_sort:
+        cate_stat_lst.sort(key=lambda a:a[1],reverse=True)
 
-    if "other" in ROW_2:
-        key = "other"
-        count = total_count - include_count
-        exec(codes)
+    index = 1
+    for key,count in cate_stat_lst:
+        main_color = cate_fmt[key][1]
+        pct = count / total_count if total_count>0 else 0
+        lighter_color = lighter(main_color)
+        if index<=6:
+            percent_x = 140 + 155 * pct
+        else:
+            percent_x = 425 + 155 * pct
+        change_elem(f"cate_count{index}", str(count), main_color)
+        change_elem(f"percent{index}", f"{pct:.1%}", main_color, x=percent_x)
+        change_elem(f"cate_name{index}", cate_fmt[key][0])
+        change_elem(f"cate_rect{index}", color=main_color)
+        change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
+        index+=1
 
     date_str = datetime.utcfromtimestamp(json["datetime"]).strftime("%Y年%m月%d日")
     ver = json["core_version"]
