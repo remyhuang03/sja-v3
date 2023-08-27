@@ -8,6 +8,10 @@
     src: url('/fonts/motosanssc.otf') format('opentype');
 }
 
+ul {
+    list-style: none;
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -23,18 +27,13 @@ body {
 }
 
 header {
-    /* background: #fff; */
     background: linear-gradient(to bottom, #6103ee, #4a4aed);
-    /* color: #222; */
     color: #fff;
-    text-align: center;
-    padding: 10px;
+    padding: 10px 15px;
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /* border-bottom: 2px solid #444; */
+    justify-content: space-between;
     box-shadow: 0 0 10px 0 #4a4aed;
 }
 
@@ -43,6 +42,55 @@ h1 {
     font-size: 40px;
     letter-spacing: 3px;
     margin-right: 10px;
+}
+
+#header-left {
+    margin-left: 10px;
+    float: left;
+    display: flex;
+    justify-content: left;
+    align-items: flex-end;
+}
+
+#header-left ul {
+    display: flex;
+    align-items: left;
+    justify-content: space-between;
+    margin-left: 40px;
+}
+
+#header-left ul a {
+    display: inline-block;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #eee;
+    text-align: center;
+    padding: 5px 10px;
+}
+
+#header-left ul a:hover {
+    color: #5528ee;
+    background-color: #eee;
+    border-radius: 5px;
+}
+
+#header-left img {
+    height: 25px;
+}
+
+.icon {
+    height: 25px;
+    margin: 0 10px;
+}
+
+#header-right {
+    float: right;
+    display: flex;
+    align-items: center;
+}
+
+#header-right a {
+    height: 25px;
 }
 
 footer {
@@ -54,12 +102,79 @@ footer {
 }
 
 footer a {
-    color: #939393;
-    text-decoration: none;
+    color: #999;
+}
+
+footer a:hover {
+    color: #fff;
+}
+
+footer>div{
+    margin: 10px 0;
+}
+
+footer li{
+    display: inline-block;
+    margin: 0 5px;
 }
 
 .board {
     background: #333;
     border-radius: 10px;
     box-shadow: #333 0 0 5px 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+header #account {
+    cursor: pointer;
+}
+
+#account-container:hover #account-drop-box[login='true'] {
+    display: block;
+}
+
+#account-container {
+    position: relative;
+}
+
+#account-drop-box {
+    display: none;
+    position: absolute;
+    top: 100%;
+    /* right: 0; */
+    background-color: #222;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 0 #5528ee;
+    padding: 10px;
+    width: 100px;
+    right: 0;
+    z-index: 1;
+}
+
+#account-drop-box li {
+    display: block;
+    color: #eee;
+    padding: 5px 10px;
+    text-align: center;
+}
+
+#account-drop-box li:first-child {
+    padding-top: 0;
+}
+
+.account-menu-item {
+    cursor: pointer;
+    background-color: inherit;
+    border-radius: 5px;
+}
+
+.account-menu-item:hover {
+    background-color: #333;
+}
+
+header{
+    z-index: 100;
 }

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="/includes/css/style.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="./login.php" method="post">
+        <h1 style="font-family: main-font;">登录SJA</h1>
+        <div class="login-input">
+            <div>
+                <label for="id">登录口令ID</label>
+                <input class='str-ipt' name="id" id='id' placeholder="（不是SJA账号ID）" required="required" />
+            </div>
+            <div>
+                <label for="pwd">登录口令</label>
+                <input class='str-ipt' id='pwd' name="pwd" placeholder="登录口令" required="required" />
+            </div>
+            <div>
+                <input type="submit" value="登录" class="btn-login" />
+            </div>
+            <div>
+                <a href="https://note.youdao.com/s/SJbVA2tL" target="_blank">还没有登录口令？</a>
+            </div>
+        </div>
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>

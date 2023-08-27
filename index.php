@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJA Plus 分析器</title>
+    <title>SJA分析器</title>
+    <meta name="description" content="SJA分析器为您快速分析Scratch作品文件、抄袭比对、数据看板">
     <link rel="icon" href="img/logo.svg">
     <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="css/homepage.css">
@@ -13,7 +14,7 @@
 
 <body>
 
-    <?php include "./includes/header.php";?>
+    <?php include "./includes/header.php"; ?>
 
     <main>
         <div class="left-column">
@@ -50,7 +51,7 @@
         </div>
     </main>
 
-    <?php include "./includes/footer.php";?>
+    <?php include "./includes/footer.php"; ?>
 </body>
 
 </html>

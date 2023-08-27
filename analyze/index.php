@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SJA Plus 分析器</title>
-    <link rel="icon" href="../img/logo.svg">
+    <title>SJA作品分析器</title>
+    <link rel="icon" href="/favicon.ico">
     <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="style.css">
@@ -101,11 +101,11 @@
         <div class="menu">
             <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                 <!-- 自动提交token，防止重复提交表单 -->
-                <input type="hidden" name="token" value="<?php echo $analyze_token; ?>">
+                <input type="hidden" name="token">
 
                 <!-- 选择文件框 -->
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
-                    <span id="file-name">选择文件 (sb3 / cc3 / json)</span>
+                    <span id="file-name">选择文件 (*可以直接上传作品)</span>
                     <input type="file" accept=".sb3,.json,.cc3" id="input-upload" name="file">
                 </label>
 
@@ -160,5 +160,6 @@
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
 </body>
+<script src='script.js'></script>
 
 </html>

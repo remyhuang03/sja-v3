@@ -1,9 +1,16 @@
 <?php
+ini_set('session.cookie_secure', 1);
+ini_set('session.cookie_samesite', 'None');
+session_start();
 # 没有stamp参数，返回400
 if (!isset($_GET['stamp'])) {
     header('HTTP/1.1 400 Bad Request');
 } else {
-    $stamp = htmlspecialchars($_GET['stamp']);
+    $stamp =  filter_var(
+        $_GET['stamp'],
+        FILTER_VALIDATE_REGEXP,
+        array("options" => array("regexp" => "/^[0-9]+_[0-9]+\.svg$/"))
+    );
     # 检查本地是否有文件
     $local_report_path = $_SERVER['DOCUMENT_ROOT'] . "/api/analyze_import/report_img/sja-reports/$stamp";
     if (file_exists($local_report_path)) {
@@ -56,16 +63,23 @@ if (!isset($_GET['stamp'])) {
     if (isset($_SESSION[$stamp]) && time() - $_SESSION[$stamp] < 5 * 60) {
         $is_record_to_db = false;
     }
-
-    #链接数据库并记录访问
-    if ($is_record_to_db) {
-        $_SESSION[$stamp] = time();
-        include $_SERVER['DOCUMENT_ROOT'] . "/includes/connect_db.php";
-        $conn = connect_db('sja');
-        if (!$conn->connect_error) {
-            $conn->query("INSERT INTO analyze_report_visit VALUES ('$stamp',DEFAULT, '$platform')");
-            $conn->close();
+    try {
+        #链接数据库并记录访问
+        if ($is_record_to_db) {
+            $_SESSION[$stamp] = time();
+            include $_SERVER['DOCUMENT_ROOT'] . "/includes/connect_db.php";
+            $conn = connect_db('sja');
+            $date = date('Y-m-d');
+            if (!$conn->connect_error) {
+                $sql = "INSERT INTO `project_stat`(`file`, `visit_date`, `origin`, `visit_cnt`) 
+                        VALUES ('$stamp','$date', '$platform',1)
+                        ON DUPLICATE KEY UPDATE `visit_cnt`=`visit_cnt`+1";
+                $conn->query($sql);
+                $conn->close();
+            }
         }
+    } catch (Exception $e) {
+        // do nothing
     }
+    exit;
 }
-exit;

@@ -1,6 +1,5 @@
-from analyze_import.analyze import analyze
-from analyze_import.report_img.generate import json_svg
-from shutil import move, copy
+# todo
+from shutil import move, copy, rmtree
 from pathlib import Path
 import sys
 from analyze_import.AnalyzeError import AnalyzeError
@@ -9,7 +8,6 @@ import shutil
 from time import time
 from pathlib import Path
 from os.path import getsize
-from subprocess import run
 
 """
 brief:
@@ -17,11 +15,7 @@ brief:
 input:
     file_path:
         待分析的.sb3或.json文件
-    is_sort:
-        是否进行排序(0或1)
 output:
-    cmd_out:
-        svg压缩程序过程性输出，无用
     status:
         正常则为ok，否则为err
     url/err:
@@ -44,7 +38,7 @@ try:
     report = analyze(file_path, file_size)
 
     if temp_path:
-        run(["rm", "-rf", temp_path], check=True)
+        shutil.rmtree(temp_path)
 
     file_name = json_svg(report, bool(int(sys.argv[2])))
     copy(
@@ -57,11 +51,8 @@ try:
             / file_name
         ),
     )
-    # 服务器上 github 访问速度慢死了
-    # commit_to_github()
     print("?ok?", end="")
-    print(f"https://sjaplus.top/api/report-img.php?stamp={file_name}")
-    # print(f"https://cdn.jsdelivr.net/gh/h8p0/sja-reports/{file_name}")
+    print(f"https://sjaplus.top/api/report-img.php?stamp={file_name}&type=compare")
 
 except Exception as e:
     # 分析出错
