@@ -61,7 +61,6 @@ try:
     # commit_to_github()
     print("?ok?", end="")
     print(f"https://sjaplus.top/api/report-img.php?stamp={file_name}")
-    # print(f"https://cdn.jsdelivr.net/gh/h8p0/sja-reports/{file_name}")
 
 except Exception as e:
     # 分析出错

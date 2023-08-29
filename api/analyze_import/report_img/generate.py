@@ -16,7 +16,7 @@ def generate_pie_chart(values, colors):
     ret = ""
     total = sum(values)
     start_angle = 0
-    cx, cy = 495, 130  # 圆心坐标
+    cx, cy = 510, 130  # 圆心坐标
     radius = 30  # 半径
     index = 0
     for value in values:
@@ -98,7 +98,7 @@ def lighter(color):
     return ret
 
 
-def json_svg(json: dict,is_sort:bool = False):
+def json_svg(json: dict, is_sort: bool = False):
     def change_elem(id, text=None, color=None, **attrs):
         """
         以id更改对应项
@@ -133,16 +133,17 @@ def json_svg(json: dict,is_sort:bool = False):
     json["file_size"] = f"{json['file_size']/(1024*1024):.2f}"
     for key in ROW_1:
         change_elem(key, str(json[key]))
+
     # 2. 饼图
     categories = json["category_count"]
     # 各类型积木总数
     total_count = sum(categories.values())
     include_count = 0
-    # 统计四大类型
+    # 统计五大类型
     data = {
-        "values": [0, 0, 0, 0],
-        "labels": ["logic", "art", "interact", "display"],
-        "colors": ["#4472c4", "#da0000", "#ffc000", "#548235"],
+        "values": [0, 0, 0, 0, 0],
+        "labels": ["operation", "control", "art", "interact", "display"],
+        "colors": ["#4472c4", "#ffc000", "#da0000", "ec89ff", "#548235"],
     }
     for cate in categories:
         if cate in cate_fmt:
@@ -150,27 +151,28 @@ def json_svg(json: dict,is_sort:bool = False):
     chart = generate_pie_chart(data["values"], data["colors"])
     # 嵌入饼图到矢量图
     change_elem("pie_chart_row1", chart)
+
     # 3. 第二栏
     include_count = 0
 
-    cate_stat = {k:0 for k in ROW_2}
+    cate_stat = {k: 0 for k in ROW_2}
     for k in cate_stat:
-        if k!='other':
+        if k != "other":
             count = categories.get(k, 0)
             cate_stat[k] = count
             include_count += count
-    if 'other' in cate_stat:
-        cate_stat['other'] = total_count - include_count
+    if "other" in cate_stat:
+        cate_stat["other"] = total_count - include_count
         cate_stat_lst = list(cate_stat.items())
     if is_sort:
-        cate_stat_lst.sort(key=lambda a:a[1],reverse=True)
+        cate_stat_lst.sort(key=lambda a: a[1], reverse=True)
 
     index = 1
-    for key,count in cate_stat_lst:
+    for key, count in cate_stat_lst:
         main_color = cate_fmt[key][1]
-        pct = count / total_count if total_count>0 else 0
+        pct = count / total_count if total_count > 0 else 0
         lighter_color = lighter(main_color)
-        if index<=6:
+        if index <= 6:
             percent_x = 140 + 155 * pct
         else:
             percent_x = 425 + 155 * pct
@@ -179,7 +181,7 @@ def json_svg(json: dict,is_sort:bool = False):
         change_elem(f"cate_name{index}", cate_fmt[key][0])
         change_elem(f"cate_rect{index}", color=main_color)
         change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
-        index+=1
+        index += 1
 
     date_str = datetime.utcfromtimestamp(json["datetime"]).strftime("%Y年%m月%d日")
     ver = json["core_version"]
@@ -198,7 +200,7 @@ def json_svg(json: dict,is_sort:bool = False):
         )
     # 压缩图像保存
     scour_path = open(
-        Path(__file__).parent.parent.parent.parent/"build" / "scour_path.txt",
+        Path(__file__).parent.parent.parent.parent / "build" / "scour_path.txt",
         encoding="utf-8",
     ).read()
     scour_command = f"{scour_path} -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"

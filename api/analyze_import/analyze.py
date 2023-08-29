@@ -5,17 +5,22 @@ from .AnalyzeReport import AnalyzeReport
 from .block_info import *
 
 # 内核版本号
-CORE_VERSION = "analyze-7.1.0"
+CORE_VERSION = "analyze-7.1.1"
 # 分析报告
 report = AnalyzeReport(CORE_VERSION)
 
 
 def search_paragraph(id, isValidPara, blocks):
+    # print(id)
     def get_block_attr(attr):
         if attr in blocks[id]:
             return blocks[id][attr]
         else:
-            raise AnalyzeError(f"找不到{attr}")
+            if attr == 'next':
+                # CCW例外，可能存在无 next 的情况
+                return None
+            else:
+                raise AnalyzeError(f"找不到{attr}")
 
     def category_one_more_block(category):
         """报告中category分类下的积木数量+1"""
@@ -27,7 +32,6 @@ def search_paragraph(id, isValidPara, blocks):
     opcode = get_block_attr("opcode")
     next = get_block_attr("next")
     inputs = get_block_attr("inputs")
-    fields = get_block_attr("fields")
     shadow = get_block_attr("shadow")
 
     category = get_category(opcode)
@@ -39,6 +43,7 @@ def search_paragraph(id, isValidPara, blocks):
         # 处于有效段落中
         if isValidPara:
             report["valid_block_count"] += 1
+
         # 积木类型统计
         category_one_more_block(category)
 
@@ -59,6 +64,7 @@ def search_paragraph(id, isValidPara, blocks):
             report["total_block_count"] += 1
             if isValidPara:
                 report["valid_block_count"] += 1
+
         # no shadow (2) / shadow obsecured(3) 并且包含的不是形参
         elif (item_id in [2, 3]) and (
             category != "top-arg" or blocks[item_id]["opcode"] != "ccw_hat_parameter"
@@ -82,14 +88,14 @@ def search_paragraph(id, isValidPara, blocks):
         search_paragraph(id, isValidPara, blocks)
 
 
-def analyze(file_path, file_size=0):
+def analyze(file_path:str, file_size:float=0)->dict:
     """
     SJA分析器主程序
 
     Para:
         file_path: str
             json文件路径
-        file_size: float
+        file_size = 0: float
             原文件大小，单位为MB，精确到小数点后一位
 
     Return:
@@ -136,9 +142,11 @@ def analyze(file_path, file_size=0):
             found_flag = False
             for id in json_blocks:
                 block = json_blocks[id]
-                # 是一个变量积木
-                if isinstance(block, list):
-                    report["category_count"]["data"] += 1
+                # 是一个变量积木（长度大于3为针对TW的特判）
+                if (isinstance(block, list)
+                    and len(block)>3
+                ):
+                    report["category_count"]["data"] = report["category_count"].get("data", 0) + 1
                     report["total_block_count"] += 1
                 # 是新段落
                 elif (

@@ -13,6 +13,7 @@
     <p>本功能暂时仅供内测用户使用，敬请期待！</p>
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
+    <script src="./alpha.js"></script>
 </body>
 
 </html>
