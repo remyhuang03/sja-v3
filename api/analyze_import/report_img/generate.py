@@ -143,7 +143,7 @@ def json_svg(json: dict, is_sort: bool = False):
     data = {
         "values": [0, 0, 0, 0, 0],
         "labels": ["operation", "control", "art", "interact", "display"],
-        "colors": ["#4472c4", "#ffc000", "#da0000", "ec89ff", "#548235"],
+        "colors": ["#4472c4", "#ffc000", "#da0000", "#ec89ff", "#548235"],
     }
     for cate in categories:
         if cate in cate_fmt:
