@@ -16,7 +16,7 @@ def generate_pie_chart(values, colors):
     ret = ""
     total = sum(values)
     start_angle = 0
-    cx, cy = 510, 130  # 圆心坐标
+    cx, cy = 506, 130  # 圆心坐标
     radius = 30  # 半径
     index = 0
     for value in values:
