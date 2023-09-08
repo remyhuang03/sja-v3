@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="/includes/css/style.css">
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
 <header>
     <div id='header-left'>
         <!-- 大标题 -->
@@ -11,6 +15,7 @@
         <!-- links -->
         <ul>
             <li><a href='/analyze/index.php'>作品分析器</a></li>
+            <li><a href='/nav/index.php'>航站楼</a></li>
             <li><a href='/stat/index.php'><del>数据看板</del>(仅限内测)</a></li>
         </ul>
     </div>

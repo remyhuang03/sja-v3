@@ -3,7 +3,7 @@
 
 /**
  * 校验登录状态（自带token过滤）
- * @param string $token
+ * @param string $token 用户Cookie["login"]
  * @return null|int 登录成功则返回用户id，否则返回null
  */
 function verify_login($token)

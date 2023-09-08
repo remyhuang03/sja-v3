@@ -1,7 +1,21 @@
 [
     {
+        "version": "3.3.3-alpha",
+        "date": "2023-9-8",
+        "update":[
+            ["new","新增航站楼页面"]
+        ]
+    },
+    {
+        "version": "3.3.2-alpha",
+        "date": "2023-08-30",
+        "update":[
+            ["fixed","修复协议文件的显示异常 - 感谢SQY！"]
+        ]
+    },
+    {
         "version": "3.3.1-alpha",
-        "date": "2023-8-29",
+        "date": "2023-08-29",
         "update":[
             ["improved","细化分析器组分概述类型 [analyze-7.1.1]"],
             ["fixed","修复 CCW 不良格式文件缺 next 导致的分析失败问题 [analyze-7.1.1] - 感谢酷可mc & 佐小帅！"],

@@ -89,8 +89,6 @@ main {
 }
 #faq-btn {
     background-image: url(../img/faq-logo.svg);
-    cursor: not-allowed;
-    pointer-events: none;
 }
 #cmpr-btn {
     background-image: url(../img/cmpr-logo.svg);
@@ -99,4 +97,7 @@ main {
 }
 #stat-btn {
     background-image: url(../img/stat-logo.svg);
+}
+#nav-btn {
+    background-image: url(../img/nav-logo.svg);
 }

@@ -36,17 +36,20 @@
             <a href="analyze/index.php" class="tool-btn" id="analyze-btn">
                 <div>作品分析器</div>
             </a>
+            <a href="nav/index.php" class="tool-btn" id="nav-btn">
+                <div>航站楼</div>
+            </a>
             <a href="stat/index.php" class="tool-btn" id="stat-btn">
                 <div>数据看板</div>
             </a>
-            <a href="cmpr/index.php" class="tool-btn" id="cmpr-btn">
+            <!-- <a href="cmpr/index.php" class="tool-btn" id="cmpr-btn">
                 <div><del>抄袭对比器</del></div>
-            </a>
+            </a> -->
             <a href="update-log/index.php" id='update-log-btn' class="tool-btn">
                 <div>更新日志</div>
             </a>
-            <a href="faq/index.php" id='faq-btn' class="tool-btn">
-                <div><del>常见问题</del></div>
+            <a href="https://note.youdao.com/s/80ZZTzYW" target="_blank" id='faq-btn' class="tool-btn">
+                <div>常见问题</div>
             </a>
         </div>
     </main>

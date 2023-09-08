@@ -8,8 +8,6 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
-    <!-- debug -->
-    <link rel="stylesheet" href="/includes/css/style.css">
 </head>
 
 <body>
@@ -17,6 +15,13 @@
 
     <!-- 菜单栏 -->
     <ul id='menu'>
+        <li>
+            <a href="https://note.youdao.com/s/KT4Qt9tR" target="_blank">
+                <button type="button">
+                    帮助
+                </button>
+            </a>
+        </li>
         <li>
             <button type="button" id="manage-project-btn">
                 <img src="img/manage.svg" alt="">
@@ -31,7 +36,7 @@
                 <option value="work2">作品2</option>
             </select>
         </li>
-        <li>
+        <!-- <li>
             <select>
                 <option value="">【本功能尚未启用】</option>
                 <option value="all">全部</option>
@@ -39,43 +44,42 @@
                 <option value="1m">1个月内</option>
                 <option value="3m">3个月内</option>
             </select>
-        </li>
+        </li> -->
 
     </ul>
+    <section id="view">
+        <h2 class="board">👀 访问总览</h2>
+        <!-- 数据总览框 -->
+        <div class="board">
+            <section id='overview-box-wrapper'>
 
-    <!-- 数据总览框 -->
-    <div class="board">
-        <h2>数据总览</h2>
-        <section id='overview-box-wrapper'>
-
-            <div class='overview-box'>
-                <h3>昨日新增</h3>
-                <div class='figure' id='yesterday-cnt'>
-                    -
+                <div class='overview-box'>
+                    <h3>昨日新增</h3>
+                    <div class='figure' id='yesterday-cnt'>
+                        -
+                    </div>
                 </div>
-            </div>
 
-            <div class='overview-box'>
-                <h3>总访问量</h3>
-                <div class='figure' id='total-cnt'>
-                    -
+                <div class='overview-box'>
+                    <h3>总访问量</h3>
+                    <div class='figure' id='total-cnt'>
+                        -
+                    </div>
                 </div>
-            </div>
 
-            <div class='overview-box'>
-                <h3>最近趋势</h3>
-                <!-- trend: -2, -1, 0, 1, 2 (从显著下降到显著上升) -->
-                <div class='figure' id='trend'></div>
-            </div>
-        </section>
-    </div>
+                <div class='overview-box'>
+                    <h3>最近趋势</h3>
+                    <div class='figure' id='trend'></div>
+                </div>
+            </section>
+        </div>
+    </section>
 
     <!-- 统计图表框 -->
     <div class="board">
-        孤言开学啦！后面的内容就咕咕咕吧，国庆再见啦 [doge]
-        <div id="origin-pie-chart" style="width: 500px;height: 500px;">
-        </div>
-        <div id="view-line-chart" style="width: 800px;height: 400px;">
+        <h3>👀 每日访问量</h3>
+        <br>
+        <div id="view-line-chart" style="width: 80%;height: 300px;margin:auto">
         </div>
     </div>
 
@@ -104,6 +108,7 @@
     <div id="input-mask" class="mask"></div>
 
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/footer.php"; ?>
+    <!-- <script src="./draw_stat.js"></script> -->
     <script src='script.js'></script>
 </body>
 
