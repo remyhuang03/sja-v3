@@ -9,7 +9,7 @@ if (copy_md_btn) {
     copy_md_btn.addEventListener("click", function () {
         let url = document.getElementById("report").attributes["src"].value;
         let md = "";
-        if ($("").prop("checked"))
+        if ($("copy-md-btn").prop("checked"))
             md = `[![](${url})](${url})`;
         else
             md = `[![](${url})](https://sjaplus.top)`;
