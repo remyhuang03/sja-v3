@@ -80,7 +80,7 @@ button:hover {
     color: #222;
 }
 
-#file-name{
+#file-name {
     color: inherit;
 }
 
@@ -149,4 +149,16 @@ input[type="radio"]:checked::before {
         transform: translate(-50%, -50%) scale(1);
 
     }
+}
+
+hr {
+    display: block;
+    margin: 20px 0;
+    border: #333 1px solid;
+}
+
+fieldset>span:first-of-type
+{
+    display: inline-block;
+    width: 150px;
 }

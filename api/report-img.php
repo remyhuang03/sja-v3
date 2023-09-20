@@ -50,6 +50,10 @@ if (!isset($_GET['stamp'])) {
         $platform = 'sja';
     } elseif (is_referer_of($referer, 'localhost:3000')) {
         $platform = 'local';
+    } elseif (is_referer_of($referer, '40code.com')) {
+        $platform = 'fz';
+    } elseif (is_referer_of($referer, 'bcdou.cn')) {
+        $platform = 'bcd';
     } else {
         $platform = $referer;
     }

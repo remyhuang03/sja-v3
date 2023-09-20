@@ -27,6 +27,11 @@ output:
     url/err:
         分析报告对应时间戳（如果status为ok），否则为错误信息
 """
+is_debug = 0
+with open(Path(__file__).parent.parent / "build" / "is_debug.txt") as f:
+    if f.read() == "1":
+        is_debug = 1
+
 try:
     file_path = sys.argv[1]
     file_extension = file_path.split(".")[-1]
@@ -43,10 +48,10 @@ try:
         file_path = Path(temp_path) / "project.json"
     report = analyze(file_path, file_size)
 
-    if temp_path:
+    if temp_path and not is_debug:
         run(["rm", "-rf", temp_path], check=True)
 
-    file_name = json_svg(report, bool(int(sys.argv[2])))
+    file_name = json_svg(report, int(sys.argv[2]), int(sys.argv[3]))
     copy(
         (Path(__file__).parent / "analyze_import" / "report_img" / "temp" / file_name),
         (
@@ -65,4 +70,4 @@ try:
 except Exception as e:
     # 分析出错
     print("?err?", end="")
-    print(e)
+    print(e.with_traceback())

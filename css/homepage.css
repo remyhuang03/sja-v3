@@ -38,6 +38,7 @@ main {
     align-items: center;
     background: #333;
     border-radius: 5dvh;
+    box-sizing: border-box;
 }
 
 
@@ -79,6 +80,11 @@ main {
 #analyze-btn {
     background-image: url(../img/analyze-logo.svg);
 }
+/* #analyze-btn:hover
+{
+    border: 5px #be4dff solid;
+    box-shadow: #be4dff 0 0 10px;
+} */
 
 #update-log-btn {
     background-image: url(../img/update-log-logo.svg);

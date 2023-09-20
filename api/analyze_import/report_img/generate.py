@@ -7,6 +7,7 @@ import csv
 from subprocess import run
 import os
 import math
+from pprint import pprint
 
 
 def generate_pie_chart(values, colors):
@@ -51,9 +52,9 @@ with open(
     encoding="utf-8",
 ) as f:
     list_csv = list(csv.reader(f))
+    # cate_fmt = {row[0]: [" ".join(list(row[1]))] + row[2:] for row in list_csv}
     # en_cate: [zn_cate, color, main_cate]
     cate_fmt = {row[0]: row[1:] for row in list_csv}
-
 ROW_1 = [
     "file_size",
     "sprite_count",
@@ -77,7 +78,6 @@ ROW_2 = [
     "procedures",
     "pen",
     "canvas",
-    "other",
 ]
 
 
@@ -98,7 +98,7 @@ def lighter(color):
     return ret
 
 
-def json_svg(json: dict, is_sort: bool = False):
+def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False):
     def change_elem(id, text=None, color=None, **attrs):
         """
         以id更改对应项
@@ -143,7 +143,7 @@ def json_svg(json: dict, is_sort: bool = False):
     data = {
         "values": [0, 0, 0, 0, 0],
         "labels": ["operation", "control", "art", "interact", "display"],
-        "colors": ["#4472c4", "#ffc000", "#da0000", "#ec89ff", "#548235"],
+        "colors": ["#4472c4", "#ffc000", "#da0000", "#5332ee", "#548235"],
     }
     for cate in categories:
         if cate in cate_fmt:
@@ -153,39 +153,57 @@ def json_svg(json: dict, is_sort: bool = False):
     change_elem("pie_chart_row1", chart)
 
     # 3. 第二栏
-    include_count = 0
+    cate_stat = {}
+    if is_high_rank_cate:
 
-    cate_stat = {k: 0 for k in ROW_2}
-    for k in cate_stat:
-        if k != "other":
-            count = categories.get(k, 0)
-            cate_stat[k] = count
-            include_count += count
-    if "other" in cate_stat:
-        cate_stat["other"] = total_count - include_count
-        cate_stat_lst = list(cate_stat.items())
+        cate_sorted = [
+            a[0] for a in sorted(categories.items(), key=lambda x: x[1], reverse=True)
+        ][0:11]
+
+        cate_stat = categories
+        cates = list(cate_stat.keys()).copy()
+        for k in cates:
+            if k not in cate_sorted:
+                del cate_stat[k]
+
+    else:
+        cate_stat = {k:categories.get(k, 0) for k in ROW_2}
+
+    cate_stat["other"] = total_count - sum(cate_stat.values())
+    cate_max_cnt = max(cate_stat.values())
+
+    cate_stat_lst = list(cate_stat.items())
+
     if is_sort:
         cate_stat_lst.sort(key=lambda a: a[1], reverse=True)
 
     index = 1
-    for key, count in cate_stat_lst:
-        main_color = cate_fmt[key][1]
-        pct = count / total_count if total_count > 0 else 0
+    while index <= 12:
+        if len(cate_stat_lst) >= index:
+            key, count = cate_stat_lst[index - 1]
+            main_color = cate_fmt[key][1]
+            pct = count / total_count if total_count > 0 else 0
+            ui_pct = count / cate_max_cnt if cate_max_cnt > 0 else 0
+
+        else:
+            main_color = "ffffff"
+            pct = 0
+
         lighter_color = lighter(main_color)
         if index <= 6:
-            percent_x = 140 + 155 * pct
+            percent_x = 135 + 120 * ui_pct
         else:
-            percent_x = 425 + 155 * pct
+            percent_x = 419 + 120 * ui_pct
         change_elem(f"cate_count{index}", str(count), main_color)
         change_elem(f"percent{index}", f"{pct:.1%}", main_color, x=percent_x)
         change_elem(f"cate_name{index}", cate_fmt[key][0])
         change_elem(f"cate_rect{index}", color=main_color)
-        change_elem(f"bar{index}", color=lighter_color, width=48 + 155 * pct)
+        change_elem(f"bar{index}", color=lighter_color, width=46 + 120 * ui_pct)
         index += 1
 
     date_str = datetime.utcfromtimestamp(json["datetime"]).strftime("%Y年%m月%d日")
     ver = json["core_version"]
-    change_elem("footer_left", f"分析时间：{date_str}    内核版本号：{ver} ")
+    change_elem("footer_left", f"分析时间：{date_str}    内核版本：{ver} ")
 
     # 保存处理好的报告图
     file_name = str(time()).replace(".", "_")

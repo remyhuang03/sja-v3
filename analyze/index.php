@@ -16,6 +16,7 @@
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"; ?>
 
     <main>
+        <div style="margin:10px 0 15px; text-align:center;font-size:25px;">SJA作品分析器</div>
         <div class="report">
             <?php
             $status = "";
@@ -62,10 +63,11 @@
                     // 临时文件保存到指定路径
                     move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
                     $script_path = $_SERVER['DOCUMENT_ROOT'] . "/api/analyze.py";
-                    $is_sort = $_POST["is_sort"];
+                    $is_sort = filter_var($_POST["is_sort"], FILTER_VALIDATE_INT);
+                    $is_high_rank_cate = filter_var($_POST["is_high_rank_cate"], FILTER_VALIDATE_INT);
 
                     //执行python分析程序获得结果
-                    $result = shell_exec("python3 $script_path $target_file $is_sort 2>&1");
+                    $result = shell_exec("python3 $script_path $target_file $is_sort $is_high_rank_cate 2>&1");
 
                     // 删除上传的文件及临时文件夹
                     unlink($target_file);
@@ -105,13 +107,13 @@
 
                 <!-- 选择文件框 -->
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
-                    <span id="file-name">选择文件 (*可以直接上传作品)</span>
+                    <span id="file-name" style="font-size:24px;">上传作品（sb3/json/cc3）</span>
                     <input type="file" accept=".sb3,.json,.cc3" id="input-upload" name="file">
                 </label>
 
                 <!-- 是否排序单选按钮 -->
                 <fieldset>
-                    类型排序：
+                    <span>类型排序：</span>
                     <span class='radio-btn'>
                         <input type="radio" name="is_sort" value="1" id='is_sort-1'>
                         <label for='is_sort-1'>
@@ -122,6 +124,23 @@
                         <input type="radio" name="is_sort" value="0" id='is_sort-0' checked>
                         <label for='is_sort-0'>
                             默认
+                        </label>
+                    </span>
+                </fieldset>
+
+                <!-- 统计图类型 -->
+                <fieldset>
+                    <span>显示占比积木：</span>
+                    <span class='radio-btn'>
+                        <input type="radio" name="is_high_rank_cate" value="1" id='is_high_rank_cate-1'>
+                        <label for='is_high_rank_cate-1'>
+                            排名前12种积木
+                        </label>
+                    </span>
+                    <span class='radio-btn'>
+                        <input type="radio" name="is_high_rank_cate" value="0" id='is_high_rank_cate-0' checked>
+                        <label for='is_high_rank_cate-0'>
+                            经典类型
                         </label>
                     </span>
                 </fieldset>
@@ -137,7 +156,15 @@
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && $status == "ok") {
                 echo
-                "<ul id='result-menu'>
+                "
+                <hr>
+                <div>
+                    <input type='checkbox'>
+                        为报告图片提供点击放大功能（推荐用于CCW的小简介栏显示）
+                    </input>
+                </div>
+                <ul id='result-menu'>
+                
                 <li>
                     <button id='copy-md-btn' class='icon-btn'>
                         <img src='img/md_ico.svg' alt=''>

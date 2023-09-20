@@ -1,14 +1,20 @@
-// 防止表单重复提交
+// prevent form to be re-submitted
 if (window.history.replaceState) {
     window.history.replaceState(null, null, window.location.href);
 }
 
-// 复制Markdown功能
+// copy markdown
 copy_md_btn = document.getElementById("copy-md-btn")
 if (copy_md_btn) {
     copy_md_btn.addEventListener("click", function () {
         let url = document.getElementById("report").attributes["src"].value;
-        let md = "[![](" + url + ")](https://sjaplus.top)";
+        let md = "";
+        if ($("").prop("checked"))
+            md = `[![](${url})](${url})`;
+        else
+            md = `[![](${url})](https://sjaplus.top)`;
+
+        // copy to clipboard
         navigator.clipboard.writeText(md).then(function () {
             alert("Markdown 代码复制成功，可直接粘贴到作品简介。");
         }, function () {
