@@ -65,6 +65,7 @@ main {
 }
 
 .tool-btn:hover {
+    transition: all 200ms;
     background-color: #373737;
 }
 
@@ -79,12 +80,36 @@ main {
 
 #analyze-btn {
     background-image: url(../img/analyze-logo.svg);
+    background-color: rgba(161, 78, 255, 0.3);
 }
-/* #analyze-btn:hover
-{
-    border: 5px #be4dff solid;
-    box-shadow: #be4dff 0 0 10px;
-} */
+
+#analyze-btn:hover {
+    border: rgb(161, 78, 255) 5px solid;
+    box-shadow: rgba(161, 78, 255) 0 0 10px;
+    background-color: rgba(161, 78, 255, 0.5);
+}
+
+#nav-btn {
+    background-image: url(../img/nav-logo.svg);
+    background-color: rgba(255, 93, 67, 0.3);
+}
+
+#nav-btn:hover {
+    background-color: rgba(255, 93, 67, 0.5);
+    border: rgb(255, 93, 67) 5px solid;
+    box-shadow: rgba(255, 93, 67) 0 0 10px;
+}
+
+#stat-btn {
+    background-image: url(../img/stat-logo.svg);
+    background-color: rgba(61, 131, 255, 0.3);
+}
+
+#stat-btn:hover {
+    background-color: rgba(61, 131, 255, 0.5);
+    border: rgb(61, 131, 255) 5px solid;
+    box-shadow: rgb(61, 131, 255) 0 0 10px;
+}
 
 #update-log-btn {
     background-image: url(../img/update-log-logo.svg);
@@ -93,17 +118,16 @@ main {
 #donation-btn {
     background-image: url(../img/donation-logo.svg);
 }
+
 #faq-btn {
     background-image: url(../img/faq-logo.svg);
 }
+
 #cmpr-btn {
     background-image: url(../img/cmpr-logo.svg);
     cursor: not-allowed;
     pointer-events: none;
 }
-#stat-btn {
-    background-image: url(../img/stat-logo.svg);
-}
-#nav-btn {
-    background-image: url(../img/nav-logo.svg);
-}
+
+
+

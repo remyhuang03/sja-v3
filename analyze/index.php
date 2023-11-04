@@ -134,7 +134,7 @@
                     <span class='radio-btn'>
                         <input type="radio" name="is_high_rank_cate" value="1" id='is_high_rank_cate-1'>
                         <label for='is_high_rank_cate-1'>
-                            排名前12种积木
+                            排名前12的积木
                         </label>
                     </span>
                     <span class='radio-btn'>
@@ -159,7 +159,7 @@
                 "
                 <hr>
                 <div>
-                    <input type='checkbox'>
+                    <input type='checkbox' id='check_magnify'>
                         为报告图片提供点击放大功能（推荐用于CCW的小简介栏显示）
                     </input>
                 </div>

@@ -740,3 +740,4 @@ top.sparrowhe.console.execute,cc,top
 shiki.lollipop.hat,cc,top-input
 shiki.touch.whenstagepressed,cc,top
 shiki.touch.whenspritepressed,cc,top
+StrokeMoveExtensions_whenMarkChange,ccw,top-arg

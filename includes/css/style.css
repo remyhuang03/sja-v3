@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'logo-font';
-    src: url('/fonts/concert-one.ttf') format('truetype');
+    src: url(https://fonts.gstatic.font.im/s/concertone/v21/VEM1Ro9xs5PjtzCu-srDqSTsjP6yuQ.woff2) format('woff2');
 }
 
 @font-face {
     font-family: 'main-font';
-    src: url('/fonts/motosanssc.otf') format('opentype');
+    src: url(https://fonts.gstatic.font.im/s/notosanssc/v36/k3kCo84MPvpLmixcA63oeAL7Iqp5IZJF9bmaG9_FnYkldv7JjxkkgFsFSSOPMOkySAZ73y9ViAt3acb8NexQ2w.4.woff2) format('woff2');
 }
 
 ul {
@@ -16,6 +16,7 @@ ul {
     padding: 0;
     margin: 0;
     font-family: 'main-font', sans-serif;
+    /* transition: all 200ms; */
 }
 
 
@@ -109,11 +110,11 @@ footer a:hover {
     color: #fff;
 }
 
-footer>div{
+footer>div {
     margin: 10px 0;
 }
 
-footer li{
+footer li {
     display: inline-block;
     margin: 0 5px;
 }
@@ -175,6 +176,12 @@ header #account {
     background-color: #333;
 }
 
-header{
+header {
     z-index: 100;
+}
+
+footer li img {
+    display: inline-block;
+    width: 200px;
+    height: 150px;
 }

@@ -9,17 +9,20 @@ const sites = {
     "6": ["小码王", "https://world.xiaomawang.com/w/index", "https://world.xiaomawang.com/favicon.ico"],
     "7": ["Github", "https://github.com/", "https://github.githubassets.com/favicons/favicon-dark.png"],
     "8": ["阿儿法营", "https://aerfaying.com/", "https://aerfaying.com/Content/logo.ico"],
-    "9": ["Scratch吧", "https://tieba.baidu.com/f?kw=scratch&ie=utf-8", "https://gimg0.baidu.com/gimg/src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F5bafa40f4bfbfbedfccd934a74f0f736afc31f6a.jpg&app=0&size=b150,150&n=0&g=0n&q=a80"]
+    "9": ["Scratch吧", "https://tieba.baidu.com/f?kw=scratch&ie=utf-8", "https://gimg0.baidu.com/gimg/src=http%3A%2F%2Fimgsrc.baidu.com%2Fforum%2Fpic%2Fitem%2F5bafa40f4bfbfbedfccd934a74f0f736afc31f6a.jpg&app=0&size=b150,150&n=0&g=0n&q=a80"],
+    "10": ["40code", "https://www.40code.com/", "https://40code-cdn.zq990.com/static/internalapi/asset/360c5efe921dce64e13613251ccdbcd5.png"],
+    "11": ["有道小图灵", "https://icodeshequ.youdao.com/", "https://ydschool-video.nosdn.127.net/1564472204313logo.ico"],
+    "12": ["TW打包工具", "https://packager.turbowarp.org/", "https://turbowarp.org/favicon.ico"],
 }
 
 let cates = {
     "🏠 编程社区": {
-        "sites": [0, 1, 2, 6, 8],
-        "show": [0, 1, 8, 2, 6]
+        "sites": [0, 1, 2, 6, 8, 10],
+        "show": [0, 1, 8, 2, 6, 8, 10]
     },
     "🔧 实用工具": {
-        "sites": [3, 4, 5],
-        "show": [3, 5, 4]
+        "sites": [3, 4, 5, 12],
+        "show": [3, 5, 4, 5, 12]
     },
     "💻 开发者网站": {
         "sites": [7],
@@ -30,8 +33,8 @@ let cates = {
         "show": []
     },
     "📦 其它": {
-        "sites": [9],
-        "show": [9]
+        "sites": [9, 11],
+        "show": [9, 11]
     }
 }
 /**

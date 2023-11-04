@@ -181,7 +181,10 @@ def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False)
     while index <= 12:
         if len(cate_stat_lst) >= index:
             key, count = cate_stat_lst[index - 1]
-            main_color = cate_fmt[key][1]
+            if key in cate_fmt:
+                main_color = cate_fmt[key][1]
+            else:
+                main_color = "000000"
             pct = count / total_count if total_count > 0 else 0
             ui_pct = count / cate_max_cnt if cate_max_cnt > 0 else 0
 
