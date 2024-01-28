@@ -154,10 +154,13 @@ def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False)
 
     # 3. 第二栏
     cate_stat = {}
-    if is_high_rank_cate:
+    
+    # cates stat dict contaning only known cates
+    known_cates = {key:categories[key] for key in categories if key in cate_fmt}
 
+    if is_high_rank_cate:
         cate_sorted = [
-            a[0] for a in sorted(categories.items(), key=lambda x: x[1], reverse=True)
+            a[0] for a in sorted(known_cates.items(), key=lambda x: x[1], reverse=True)
         ][0:11]
 
         cate_stat = categories

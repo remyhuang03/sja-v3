@@ -132,13 +132,13 @@
                 <fieldset>
                     <span>显示占比积木：</span>
                     <span class='radio-btn'>
-                        <input type="radio" name="is_high_rank_cate" value="1" id='is_high_rank_cate-1'>
+                        <input type="radio" name="is_high_rank_cate" value="1" id='is_high_rank_cate-1' checked>
                         <label for='is_high_rank_cate-1'>
                             排名前12的积木
                         </label>
                     </span>
                     <span class='radio-btn'>
-                        <input type="radio" name="is_high_rank_cate" value="0" id='is_high_rank_cate-0' checked>
+                        <input type="radio" name="is_high_rank_cate" value="0" id='is_high_rank_cate-0'>
                         <label for='is_high_rank_cate-0'>
                             经典类型
                         </label>

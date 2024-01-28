@@ -5,3 +5,5 @@ __pycache__/
 uploads
 temp
 test
+sync.ffs_db
+dev/
