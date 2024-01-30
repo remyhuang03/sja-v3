@@ -1,5 +1,23 @@
 [
     {
+        "version": "3.3.7-alpha",
+        "date": "2024-01-30",
+        "update": [
+            [
+                "improved",
+                "CCW 新括展支持 [analyze-7.3.0]"
+            ],
+            [
+                "improved",
+                "导航楼内容更新"
+            ],
+            [
+                "removed",
+                "下线数据看板功能"
+            ]
+        ]
+    },
+    {
         "version": "3.3.6-alpha",
         "date": "2024-01-28",
         "update": [

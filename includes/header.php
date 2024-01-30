@@ -16,7 +16,7 @@
         <ul>
             <li><a href='/analyze/index.php'>作品分析器</a></li>
             <li><a href='/nav/index.php'>航站楼</a></li>
-            <li><a href='/stat/index.php'><del>数据看板</del>(仅限内测)</a></li>
+            <li><a href='/compare/index.php'><del>抄袭对比器</del>（开发中）</a></li>
         </ul>
     </div>
 

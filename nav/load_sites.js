@@ -13,24 +13,27 @@ const sites = {
     "10": ["40code", "https://www.40code.com/", "https://40code-cdn.zq990.com/static/internalapi/asset/360c5efe921dce64e13613251ccdbcd5.png"],
     "11": ["有道小图灵", "https://icodeshequ.youdao.com/", "https://ydschool-video.nosdn.127.net/1564472204313logo.ico"],
     "12": ["TW打包工具", "https://packager.turbowarp.org/", "https://turbowarp.org/favicon.ico"],
+    "13": ["Scratch中社", "https://www.scratch-cn.cn/", "https://www.scratch-cn.cn/img/favicon.ico"],
+    "14": ["编程猫", "https://shequ.codemao.cn/", "https://static.codemao.cn/whitef/favicon.ico"],
+    "15": ["爱给网", "https://www.aigei.com/", "https://cdn-sqn.aigei.com/assets/site/img/icon/favicon.ico"],
 }
 
 let cates = {
     "🏠 编程社区": {
-        "sites": [0, 1, 2, 6, 8, 10],
-        "show": [0, 1, 8, 2, 6, 8, 10]
+        "sites": [0, 1, 2, 6, 8, 10, 13, 14],
+        "show": [0, 1, 2, 6, 8, 10, 13, 14]
     },
     "🔧 实用工具": {
         "sites": [3, 4, 5, 12],
-        "show": [3, 5, 4, 5, 12]
+        "show": [3, 4, 5, 12]
     },
     "💻 开发者网站": {
         "sites": [7],
         "show": [7]
     },
     "🧩 素材资源": {
-        "sites": [],
-        "show": []
+        "sites": [15],
+        "show": [15]
     },
     "📦 其它": {
         "sites": [9, 11],

@@ -115,13 +115,13 @@
                 <fieldset>
                     <span>类型排序：</span>
                     <span class='radio-btn'>
-                        <input type="radio" name="is_sort" value="1" id='is_sort-1'>
+                        <input type="radio" name="is_sort" value="1" id='is_sort-1' checked>
                         <label for='is_sort-1'>
                             降序排序
                         </label>
                     </span>
                     <span class='radio-btn'>
-                        <input type="radio" name="is_sort" value="0" id='is_sort-0' checked>
+                        <input type="radio" name="is_sort" value="0" id='is_sort-0'>
                         <label for='is_sort-0'>
                             默认
                         </label>

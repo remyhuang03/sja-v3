@@ -17,10 +17,11 @@ Ent： entity
 NEnt： non-entity
 
 #### entity struct
+
 - unknown 未知积木
 
 - top-input [CCW] 内含填空的顶层块
-
+  
   ![](image.png)
   ![](image-1.png)
 
@@ -59,12 +60,13 @@ NEnt： non-entity
 - cmouth 控制语句，携带列表 cmouth，内容为 input 属性
 
 #### non-entity struct
+
 - special-menu 作为积木的列表
 - prototype 内含形参的 non-entity
 - menu 菜单
 
-
 ---
+
 - Para: 一个代码段
 - Category: 人为区分的积木类型（与前缀不一定相同）
 - id：project.json 中随机生成的一个标识符
@@ -96,7 +98,7 @@ NEnt： non-entity
 ### project.json
 
 - input
-
+  
   ```json
   "inputs": {
     "BACKDROP": [
@@ -108,7 +110,7 @@ NEnt： non-entity
       ],
     "WU/HnVSoORyWXyHv%$*U"
     ]
-
+  
     "SOUND_MENU": [
       1,
       "/uL^2][e5W/4T8jcz7IG"
@@ -116,7 +118,11 @@ NEnt： non-entity
   }
   ```
 
-
 ## Block Object
+
 原生情况
 ![Alt text](image-5.png)
+
+
+
+if a hat contains both input and arg, assign the block type to top-arg
