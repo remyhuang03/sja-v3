@@ -29,5 +29,5 @@ SJA 原版采用 Scratch 实现，旧版 SJA 网站采用 Python 后端实现。
 
 ## 联系方式
 
-- Email：chinaguyan@gmail.com
+- Email：daily@remyhuang.top
 - QQ：2191806401

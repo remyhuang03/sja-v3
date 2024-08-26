@@ -1,11 +1,21 @@
 [
     {
+        "version":"3.3.8-alpha",
+        "date":"2024-08-26",
+        "update":[
+            [
+                "fixed",
+                "修复 SJA report-img API 因数据库交互加载速度慢的问题"
+            ]
+        ]
+    },
+    {
         "version": "3.3.7-alpha",
         "date": "2024-01-30",
         "update": [
             [
                 "improved",
-                "CCW 新括展支持 [analyze-7.3.0]"
+                "CCW 新扩展支持 [analyze-7.3.0]"
             ],
             [
                 "improved",

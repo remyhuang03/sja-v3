@@ -24,6 +24,7 @@ if (!isset($_GET['stamp'])) {
         header('Location: ' . $svgURL);
     }
 
+    /* 此操作有引起图片访问变慢的风险，予以下架
     # 获取来源网址
     $referer = $_SERVER['HTTP_REFERER'];
     # 换算来源平台
@@ -84,6 +85,6 @@ if (!isset($_GET['stamp'])) {
         }
     } catch (Exception $e) {
         // do nothing
-    }
+    }*/
     exit;
 }
