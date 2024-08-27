@@ -11,7 +11,7 @@ header('Content-Type: application/json');
 
 # check the parameter `n`
 $project_num = filter_var($_GET['n'], FILTER_VALIDATE_INT);
-if ($project_num === false) {
+if ($project_num === false || $project_num <= 0) {
     echo json_encode(array('status' => 'error', 'message' => 'Invalid parameter `n`.'));
     exit();
 }
@@ -19,11 +19,15 @@ if ($project_num === false) {
 # query the database for projects
 require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/connect_db.php';
 $conn = connect_db('sja');
-$result = $conn->query('SELECT * 
+$result = $conn->query("SELECT * 
 FROM project_display
 ORDER BY RAND() 
-LIMIT $project_num');
+LIMIT $project_num");
 
+if (!$result) {
+    echo json_encode(array('status' => 'error', 'message' => 'Failed to query the database.'));
+    exit();
+}
 
 $projects = array();
 while ($row = $result->fetch_assoc()) {
