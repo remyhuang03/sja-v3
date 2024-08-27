@@ -36,7 +36,7 @@ function create_display_card(data) {
     ret.querySelector(".project-link").href = data['project_link'];
     ret.querySelector(".project-poster").src = assets_path+"poster/"+data['id']+'.png';
     ret.querySelector(".author-link").href = data['author_link'];
-    ret.querySelector(".author-avatar").src = assets_path+"avatar/"+data['author']+'.png';
+    ret.querySelector(".author-avatar").src = assets_path+"avatar/"+data['id']+'.png';
     ret.querySelector(".project-link").href = data['project_link'];
     ret.querySelector(".project-name").innerText = data['project_name'];
     ret.querySelector(".author").innerText = data['author'];
