@@ -31,7 +31,7 @@ function create_display_card(data) {
         </li>
     `
 
-    const assets_path = 'https://sjaplus.top/assets/';
+    const assets_path = 'https://sjaplus.top/assets/img/project-display/';
 
     ret.querySelector(".project-link").href = data['project_link'];
     ret.querySelector(".project-poster").src = assets_path+"poster/"+data['id']+'.png';
