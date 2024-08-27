@@ -198,12 +198,12 @@ h3 {
     color: #f0f0f0;
 }
 
-#display-box h3 {
+.project-name {
     font-weight: normal;
 }
 
-#display-box a:hover,
-#display-box h3:hover {
+.author:hover,
+.project-name:hover {
     color: #cbbffd;
 }
 
@@ -213,8 +213,8 @@ h3 {
 
 #display-list {
     display: flex;
-    padding: auto;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: 20px;
     text-align: left;
 }
 
@@ -224,8 +224,14 @@ h3 {
     border: 1px solid #555;
     box-shadow: 0 0 5px 0 #555;
     border-radius: 5px;
-    width: 20%;
+    width: calc(20% - (20px / 5 * 4));
     min-width: 180px;
+}
+
+.project-name, .author, .project-brief {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .project-poster {
@@ -237,15 +243,15 @@ h3 {
     margin: 3px 0 5px;
     padding: 0 10px;
     display: flex;
-    gap:10px;
+    gap: 10px;
     align-items: center;
 }
 
-/* .project-info div {
-    margin-left: 5px;
-} */
+.project-info div {
+    max-width: calc(80% - 10px);
+}
 
-.project-info li>a {
+.project-info a {
     width: 20%;
     height: 20%;
     border-radius: 50%;
@@ -264,4 +270,5 @@ h3 {
 
 #display-list hr {
     border: solid #666 1px;
+    margin: 8px 0;
 }
