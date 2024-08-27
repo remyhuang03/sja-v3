@@ -180,8 +180,88 @@ header {
     z-index: 100;
 }
 
-footer li img {
+#display-box {
+    padding: 10px 20px;
+    margin: 10px 30px;
+    background-color: #333;
+    border-radius: 10px;
+}
+
+#display-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#display-box h2,
+h3 {
+    color: #f0f0f0;
+}
+
+#display-box h3 {
+    font-weight: normal;
+}
+
+#display-box a:hover,
+#display-box h3:hover {
+    color: #cbbffd;
+}
+
+#display-box-header a {
     display: inline-block;
-    width: 200px;
-    height: 150px;
+}
+
+#display-list {
+    display: flex;
+    padding: auto;
+    gap: 10px;
+    text-align: left;
+}
+
+#display-list li {
+    margin: 15px 0;
+    background: #444;
+    border: 1px solid #555;
+    box-shadow: 0 0 5px 0 #555;
+    border-radius: 5px;
+    width: 20%;
+    min-width: 180px;
+}
+
+.project-poster {
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+}
+
+.project-info {
+    margin: 3px 0 5px;
+    padding: 0 10px;
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+
+/* .project-info div {
+    margin-left: 5px;
+} */
+
+.project-info li>a {
+    width: 20%;
+    height: 20%;
+    border-radius: 50%;
+}
+
+.project-info img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+#display-list p {
+    padding: 0 10px;
+    margin: 8px 0;
+}
+
+#display-list hr {
+    border: solid #666 1px;
 }

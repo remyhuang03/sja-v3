@@ -1,5 +1,27 @@
 [
     {
+        "version":"3.4.0-beta",
+        "date":"2024-08-26",
+        "update":[
+            [
+                "new",
+                "上线页脚作品展位功能"
+            ],
+            [
+                "new",
+                "上线新闻版底层功能"
+            ],
+            [
+                "improved",
+                "改用国内镜像（jsdmirror）加速报告图片相应速度"
+            ],
+            [
+                "added",
+                "添加 markdown 报告加载改良提示"
+            ]
+        ]
+    },
+    {
         "version":"3.3.8-alpha",
         "date":"2024-08-26",
         "update":[

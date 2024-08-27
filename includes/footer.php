@@ -1,18 +1,23 @@
-<footer>
-    <!-- <section id='dispay-box'>
-        <div>
-            <span>🐱 作品展位</span>
-            <a>展位资格申请</a>
-        </div>
+<script src="/includes/js/display-box.js" defer>
 
-        projects list 
-        <ul>
-            <li>
-                <img src="https://cdn.gitblock.cn/Media?name=B42D0E86812DD33C6F5670E3AC1F1C4B.png" alt="">
-                <div>SJA 分析器</div>
-            </li>
+</script>
+
+<footer>
+    <section id='display-box'>
+        <div id="display-box-header">
+            <h2>🐱 作品展位</h2>
+            <div>
+                <a href="https://www.wenjuan.com/s/UZBZJvZihe/" style="margin:0 10px">
+                    资格申请
+                </a>
+                <a href="https://sjaplus.top/news/index.php?a=display-review">
+                    申请进度
+                </a>
+            </div>
+        </div>
+        <ul id="display-list">
         </ul>
-    </section> -->
+    </section>
     <div>
         <ul>
             <li><a href="/legal/contract.html">用户协议</a></li>
@@ -20,7 +25,7 @@
         </ul>
     </div>
     <div>
-        Copyright &copy; 孤言. All rights reserved.
+        Copyright &copy; 孤言（Remy Huang）. All rights reserved.
     </div>
 
     <div>

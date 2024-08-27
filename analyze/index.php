@@ -152,12 +152,16 @@
                 </button>
             </form>
 
+
             <!-- 分析结果菜单（复制MD、下载报告图） -->
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST" && $status == "ok") {
                 echo
                 "
-                <hr>
+                <hr>        
+                <div class='notification'>
+                    SJA 报告 markdown 加载速度已大幅提升，推荐直接粘贴 markdown 到作品简介！
+                </div>
                 <div>
                     <input type='checkbox' id='check_magnify'>
                         为报告图片提供点击放大功能（推荐用于CCW的小简介栏显示）

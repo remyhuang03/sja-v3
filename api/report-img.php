@@ -20,7 +20,7 @@ if (!isset($_GET['stamp'])) {
         header('Content-Length: ' . strlen($svgContent));
         echo $svgContent;
     } else {
-        $svgURL = "https://cdn.jsdelivr.net/gh/h8p0/sja-reports/$stamp";
+        $svgURL = "https://cdn.jsdmirror.com/gh/h8p0/sja-reports/$stamp";
         header('Location: ' . $svgURL);
     }
 
