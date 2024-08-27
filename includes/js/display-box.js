@@ -1,4 +1,4 @@
-const display_num = 1;
+const display_num = 5;
 
 const display_list = document.getElementById("display-list");
 
@@ -11,36 +11,33 @@ function hide_display_box() {
 function create_display_card(data) {
     let ret = document.createElement("li");
     ret.innerHTML = `
-        <li>
-            <a href="" class="project-link">
-                <img class="project-poster" src="" alt="project poster">
+        <a href="" class="project-link">
+            <img class="project-poster" src="" alt="project poster">
+        </a>
+        <div class="project-info">
+            <a href="" class="author-link">
+                <img src="" class="author-avatar">
             </a>
-            <div class="project-info">
-                <a href="" class="author-link">
-                    <img src="" class="author-avatar">
+            <div>
+                <a href="" class="project-link">
+                    <h3 class="project-name"></h3>
                 </a>
-                <div>
-                    <a href="" class="project-link">
-                        <h3 class="project-name"></h3>
-                    </a>
-                    <a href="" class="author"></a>
-                </div>
+                <a href="" class="author"></a>
             </div>
-            <hr>
-            <p class="project_brief"></p>
-        </li>
-    `
+        </div>
+        <hr>
+        <p class="project-brief"></p>`;
 
     const assets_path = 'https://sjaplus.top/assets/img/project-display/';
 
     ret.querySelector(".project-link").href = data['project_link'];
-    ret.querySelector(".project-poster").src = assets_path+"poster/"+data['id']+'.png';
+    ret.querySelector(".project-poster").src = assets_path + "poster/" + data['id'] + '.png';
     ret.querySelector(".author-link").href = data['author_link'];
-    ret.querySelector(".author-avatar").src = assets_path+"avatar/"+data['id']+'.png';
+    ret.querySelector(".author-avatar").src = assets_path + "avatar/" + data['id'] + '.png';
     ret.querySelector(".project-link").href = data['project_link'];
     ret.querySelector(".project-name").innerText = data['project_name'];
     ret.querySelector(".author").innerText = data['author'];
-    ret.querySelector(".project_brief").innerText = data['project_brief'];
+    ret.querySelector(".project-brief").innerText = data['project_brief'];
 
     return ret;
 
