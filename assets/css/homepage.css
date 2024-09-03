@@ -79,7 +79,7 @@ main {
 
 
 #analyze-btn {
-    background-image: url(../img/analyze-logo.svg);
+    background-image: url(/assets/img/homepage/analyze-logo.svg);
     background-color: rgba(161, 78, 255, 0.3);
 }
 
@@ -90,7 +90,7 @@ main {
 }
 
 #nav-btn {
-    background-image: url(../img/nav-logo.svg);
+    background-image: url(/assets/img/homepage/nav-logo.svg);
     background-color: rgba(255, 93, 67, 0.3);
 }
 
@@ -101,7 +101,7 @@ main {
 }
 
 #stat-btn {
-    background-image: url(../img/stat-logo.svg);
+    background-image: url(/assets/img/homepage/stat-logo.svg);
     background-color: rgba(61, 131, 255, 0.3);
 }
 
@@ -112,19 +112,19 @@ main {
 }
 
 #update-log-btn {
-    background-image: url(../img/update-log-logo.svg);
+    background-image: url(/assets/img/homepage/update-log-logo.svg);
 }
 
 #donation-btn {
-    background-image: url(../img/donation-logo.svg);
+    background-image: url(/assets/img/homepage/donation-logo.svg);
 }
 
 #faq-btn {
-    background-image: url(../img/faq-logo.svg);
+    background-image: url(/assets/img/homepage/faq-logo.svg);
 }
 
 #cmpr-btn {
-    background-image: url(../img/cmpr-logo.svg);
+    background-image: url(/assets/img/homepage/cmpr-logo.svg);
     cursor: not-allowed;
     pointer-events: none;
 }

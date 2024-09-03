@@ -7,8 +7,8 @@
     <title>SJA分析器</title>
     <meta name="description" content="SJA分析器为您快速分析Scratch作品文件、提供抄袭比对、数据看板等多样化功能。">
     <link rel="icon" href="img/logo.svg">
-    <link rel="shortcut icon" href="img/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="shortcut icon" href="assets/img/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/homepage.css">
     <meta property="og:image" content="./img/seo-meta.png">
 
 </head>

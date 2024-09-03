@@ -1,5 +1,15 @@
 [
     {
+        "version":"3.4.2-beta",
+        "date":"2024-09-03",
+        "update":[
+            [
+                "improved",
+                "优化作品展示位显示"
+            ]
+        ]
+    },
+    {
         "version":"3.4.1-beta",
         "date":"2024-08-27",
         "update":[
@@ -23,7 +33,7 @@
             ],
             [
                 "improved",
-                "改用国内镜像（jsdmirror）加速报告图片相应速度"
+                "改用国内镜像（jsdmirror）加速报告图片响应速度"
             ],
             [
                 "added",

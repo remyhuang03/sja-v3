@@ -31,7 +31,7 @@
     <div>
         <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32050502001212"
             style="display:inline-block;height:20px;line-height:20px;">
-            <img src="/includes/img/beian_ico.png" style="float:left;" />
+            <img src="/assets/img/footer/beian_ico.png" style="float:left;" />
             <span>&nbsp;&nbsp;</span>
             苏公网安备 32050502001212号
         </a>

@@ -59,7 +59,7 @@ function createSection(cate) {
 
     let ret = `
         <section class="cate-section">
-            <h2>${cate}</h2>
+            <h2 class="site-cate">${cate}</h2>
             <ul class='site-list'>`;
 
     sites.forEach(site => {

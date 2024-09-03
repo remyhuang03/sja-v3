@@ -180,11 +180,14 @@ header {
     z-index: 100;
 }
 
+
 #display-box {
     padding: 10px 20px;
     margin: 30px 20px;
     background-color: #333;
     border-radius: 10px;
+    color: #f0f0f0;
+    font-weight: normal;
 }
 
 #display-box-header {
@@ -193,29 +196,22 @@ header {
     align-items: center;
 }
 
-#display-box h2,
-h3 {
-    color: #f0f0f0;
-}
-
-.project-name {
-    font-weight: normal;
-}
-
 .author:hover,
 .project-name:hover {
     color: #cbbffd;
 }
 
-#display-box-header a {
+/* #display-box-header a {
     display: inline-block;
-}
+} */
 
 #display-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px 20px;
     text-align: left;
+    justify-content: space-between;
+    overflow-x: auto;
+    flex-wrap: nowrap;
 }
 
 #display-list li {
@@ -224,11 +220,14 @@ h3 {
     border: 1px solid #555;
     box-shadow: 0 0 5px 0 #555;
     border-radius: 5px;
-    width: calc(20% - (20px / 5 * 4));
-    min-width: 180px;
+    flex: 0 1 calc(20% - 20px);
+    min-width: 160px;
+    flex-shrink: 0;
 }
 
-.project-name, .author, .project-brief {
+.project-name,
+.author,
+.project-brief {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -249,17 +248,22 @@ h3 {
 
 .project-info div {
     max-width: calc(80% - 10px);
+    display: flex;
+    flex-direction: column;
 }
 
-.project-info a {
+.author-link {
+    display: block;
     width: 20%;
     height: 20%;
     border-radius: 50%;
 }
 
-.project-info img {
+.author-avatar {
     width: 100%;
     height: 100%;
+    aspect-ratio: 1/1;
+    object-fit: fill;
     border-radius: 50%;
 }
 

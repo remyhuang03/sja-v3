@@ -1,4 +1,3 @@
-// import Cookies from 'js-cookie'
 // 查询登录状态
 let is_login = false;
 let is_login_checked = false;
