@@ -1,8 +1,34 @@
 [
     {
-        "version":"3.4.2-beta",
-        "date":"2024-09-03",
-        "update":[
+        "version": "3.4.3-beta",
+        "date": "2024-09-29",
+        "update": [
+            [
+                "added",
+                "首页增加新闻板列表"
+            ],
+            [
+                "improved",
+                "优化标题栏和作品分析器在移动设备上的显示"
+            ],
+            [
+                "fixed",
+                "修复作品展示位点击作品名称或作者时的跳转错误"
+            ],
+            [
+                "fixed",
+                "修复航站楼失效图标"
+            ],
+            [
+                "fixed",
+                "修复网站 favicon 的显示异常"
+            ]
+        ]
+    },
+    {
+        "version": "3.4.2-beta",
+        "date": "2024-09-03",
+        "update": [
             [
                 "improved",
                 "优化作品展示位显示"
@@ -10,9 +36,9 @@
         ]
     },
     {
-        "version":"3.4.1-beta",
-        "date":"2024-08-27",
-        "update":[
+        "version": "3.4.1-beta",
+        "date": "2024-08-27",
+        "update": [
             [
                 "fixed",
                 "修复作品展示位卡片显示错乱的问题"
@@ -20,9 +46,9 @@
         ]
     },
     {
-        "version":"3.4.0-beta",
-        "date":"2024-08-27",
-        "update":[
+        "version": "3.4.0-beta",
+        "date": "2024-08-27",
+        "update": [
             [
                 "new",
                 "上线页脚作品展位功能"
@@ -42,9 +68,9 @@
         ]
     },
     {
-        "version":"3.3.8-alpha",
-        "date":"2024-08-26",
-        "update":[
+        "version": "3.3.8-alpha",
+        "date": "2024-08-26",
+        "update": [
             [
                 "fixed",
                 "修复 SJA report-img API 因数据库交互加载速度慢的问题"

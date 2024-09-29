@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="assets/css/homepage.css">
     <meta property="og:image" content="./img/seo-meta.png">
 
+    <script src="assets/js/news-list.js" defer></script>
 </head>
 
 <body>
@@ -19,27 +20,27 @@
 
     <main>
 
-        <div class="left-column">
-            <!-- <ul id='news'>
-                <li>
-                    欢迎使用 SJA Plus 版！这是 SJA 继 Scratch 版本以来的一次重大更新。SJA Plus 版帮助你更准确、更快捷、更多样化地分析 Scratch 作品。
+        <div class="announcement">
+            <!-- <div class="banner">
+                <a href="">
+                    <img src="https://placehold.co/200x200">
+                </a>
+            </div> -->
+            <section class="news-wrapper">
+                <ul>
+                    <li>
+                        <a href="">
+                            <article class="news">
+                                <h2>SJA分析器 Plus版</h2>
+                                <p>
+                                    欢迎使用 SJA Plus 版！这是 SJA 继 Scratch 版本以来的一次重大更新。SJA Plus 版帮助你更准确、更快捷、更多样化地分析 Scratch 作品。
+                                </p>
+                            </article>
+                        </a>
+                    </li>
+                </ul>
 
-                    SJA 原名为 Scratch Json Analyzer，意为“分析 Scratch 项目中 json 文件的分析器”，原文实为中式英语的表达法，虽不妥当，但当时分析器已被广泛使用，为此分析器制作不久后就更名为了 SJA 分析器。
-                </li>
-            </ul> -->
-            <h2>SJA分析器 Plus版</h2>
-            <p>
-                欢迎使用 SJA Plus 版！这是 SJA 继 Scratch 版本以来的一次重大更新。SJA Plus 版帮助你更准确、更快捷、更多样化地分析 Scratch 作品。
-            </p>
-            <p>
-                SJA 原名为 Scratch Json Analyzer，意为“分析 Scratch 项目中 json
-                文件的分析器”，原文实为中式英语的表达法，虽不妥当，但当时分析器已被广泛使用，为此分析器制作不久后就更名为了 SJA 分析器。
-            </p>
-            <p>
-                SJA 分析器先后经 Scratch 版、旧 Python 版开发，积累了很多问题，也受到了大家的诸多反馈，为此我决定重新制作 SJA 分析器，修复目前已知的问题，提供更好的分析体验。SJA
-                分析器的制作初衷是为了反对作品抄袭现象而提供作品对比功能，作品分析功能仅为推广方便而制作。某平台关闭后，抄袭现象明显减少，但是作品分析的需求却增多了，SJA 分析器的重心也将转移到作品分析上。
-            </p>
-            <img src="/img/home-bg.svg" alt="">
+            </section>
         </div>
         <div class="right-column">
             <a href="analyze/index.php" class="tool-btn" id="analyze-btn">

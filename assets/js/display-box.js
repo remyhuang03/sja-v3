@@ -10,34 +10,26 @@ function hide_display_box() {
 // 创建一个作品的展示卡片
 function create_display_card(data) {
     let ret = document.createElement("li");
+
+    const assets_path = 'https://sjaplus.top/assets/img/project-display/';
+    
     ret.innerHTML = `
-        <a href="" class="project-link">
-            <img class="project-poster" src="" alt="project poster">
+        <a href="${data['project_link']}" class="project-link">
+            <img class="project-poster" src="${assets_path + "poster/" + data['id'] + ".png"}" alt="project poster">
         </a>
         <div class="project-info">
-            <a href="" class="author-link">
-                <img src="" class="author-avatar">
+            <a href="${data['author_link']}" class="author-link">
+                <img src="${assets_path + "avatar/" + data['id'] + '.png'}" class="author-avatar">
             </a>
             <div>
-                <a href="" class="project-link">
-                    <h3 class="project-name"></h3>
+                <a href="${data['project_link']}" class="project-link">
+                    <h3 class="project-name">${data['project_name']}</h3>
                 </a>
-                <a href="" class="author"></a>
+                <a href="${data['author_link']}" class="author">${data['author']}</a>
             </div>
         </div>
         <hr>
-        <p class="project-brief"></p>`;
-
-    const assets_path = 'https://sjaplus.top/assets/img/project-display/';
-
-    ret.querySelector(".project-link").href = data['project_link'];
-    ret.querySelector(".project-poster").src = assets_path + "poster/" + data['id'] + '.png';
-    ret.querySelector(".author-link").href = data['author_link'];
-    ret.querySelector(".author-avatar").src = assets_path + "avatar/" + data['id'] + '.png';
-    ret.querySelector(".project-link").href = data['project_link'];
-    ret.querySelector(".project-name").innerText = data['project_name'];
-    ret.querySelector(".author").innerText = data['author'];
-    ret.querySelector(".project-brief").innerText = data['project_brief'];
+        <p class="project-brief">${data['project_brief']}</p>`;
 
     return ret;
 

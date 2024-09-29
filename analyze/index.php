@@ -7,16 +7,15 @@
     <title>SJA作品分析器</title>
     <link rel="icon" href="/favicon.ico">
     <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/analyzer.css">
 
 </head>
 
 <body>
     <?php include $_SERVER['DOCUMENT_ROOT'] . "/includes/header.php"; ?>
 
+    <h2 class="analyzer-title">SJA作品分析器</h2>
     <main>
-        <div style="margin:10px 0 15px; text-align:center;font-size:25px;">SJA作品分析器</div>
         <div class="report">
             <?php
             $status = "";
@@ -96,7 +95,6 @@
             }
             ?>
         </div>
-
 
 
         <!-- 右侧栏 -->

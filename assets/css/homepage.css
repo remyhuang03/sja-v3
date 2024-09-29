@@ -7,22 +7,18 @@ main {
     height: auto;
 }
 
-.left-column {
-    flex: 1 200px;
+.announcement {
+    flex: 1 250px;
     padding-right: 20px;
     background-color: #333;
     border-radius: 20px;
-    padding: 25px;
+    padding: 15px;
     padding-bottom: 0;
     margin: 0 0 20px;
-    /* background-image: url('../img/home-bg.svg');
-    background-position: center bottom;
-    background-size: 80% auto;
-    background-repeat: no-repeat; */
 }
 
 .right-column {
-    flex: 1 350px;
+    flex: 2 300px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -33,25 +29,32 @@ main {
 .tool-btn {
     height: 100px;
     margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: #333;
     border-radius: 5dvh;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
-.left-column>h2 {
-    text-align: center;
-    font-size: 60px;
-    margin: 0 20px 10px;
+.news h2 {
+    font-size: 22px;
+    margin: 0 0 5px 0;
+    color:white;
 }
 
-.left-column>p {
-    font-size: 18px;
-    margin: 20px 0;
+.news p {
+    font-size: 16px;
+    color:grey;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2; 
+    line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
+
 
 .tool-btn:link,
 .tool-btn:hover,
@@ -67,6 +70,12 @@ main {
 .tool-btn:hover {
     transition: all 200ms;
     background-color: #373737;
+}
+
+.tool-btn div {
+    flex:1;
+    text-align: center;
+    margin-left: 95px;
 }
 
 .left-column>img {
@@ -129,5 +138,13 @@ main {
     pointer-events: none;
 }
 
+.news{
+    padding:15px;
+    border-radius: 10px;
+    color: white;
+}
 
-
+.news:hover{
+    background-color: #373737;
+    transition: all 200ms;
+}

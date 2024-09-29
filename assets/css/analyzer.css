@@ -1,22 +1,23 @@
 main {
-    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
     padding: 20px 0;
+}
+
+.analyzer-title {
+    margin: 20px 0 15px;
+    text-align: center;
+    font-size: 24px;
 }
 
 .report,
 .menu {
-    box-sizing: border-box;
-    width: calc(100% - 650px);
+    flex:1 200px;
     margin: 0 10px 20px;
     padding: 20px;
-    float: left;
     background-color: #292929;
     border-radius: 20px;
     font-size: 18px;
-}
-
-.report {
-    width: 600px;
 }
 
 input[type="file"] {
@@ -157,13 +158,12 @@ hr {
     border: #333 1px solid;
 }
 
-fieldset>span:first-of-type
-{
+fieldset>span:first-of-type {
     display: inline-block;
     width: 150px;
 }
 
-.notification{
+.notification {
     background-color: rgb(1, 148, 1);
     color: rgb(245, 254, 245);
     font: bold 16px;

@@ -47,22 +47,25 @@ h1 {
 
 #header-left {
     margin-left: 10px;
-    float: left;
     display: flex;
+    flex-wrap: wrap;
     justify-content: left;
-    align-items: flex-end;
+    align-items:flex-end;
+    gap: 5px 40px;
 }
 
 #header-left ul {
     display: flex;
-    align-items: left;
-    justify-content: space-between;
-    margin-left: 40px;
+    flex-wrap: wrap;
+    gap: 0 10px;
+}
+
+#header-left ul li {
+    display: inline-block;
 }
 
 #header-left ul a {
     display: inline-block;
-    margin: 0 5px;
     text-decoration: none;
     color: #eee;
     text-align: center;

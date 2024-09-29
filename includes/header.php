@@ -2,21 +2,24 @@
 <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" defer></script>
 <script
-  src="https://code.jquery.com/jquery-3.7.1.min.js"
-  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
-  crossorigin="anonymous"></script>
+    src="https://code.jquery.com/jquery-3.7.1.min.js"
+    integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+    crossorigin="anonymous"></script>
+<link rel="icon" href="/assets/img/logo/main-logo.svg">
+<link rel="shortcut icon" href="/assets/img/logo/favicon.ico" type="image/x-icon">
+
 <header>
     <div id='header-left'>
         <!-- 大标题 -->
         <a href="/index.php">
-            <img src='/img/title.svg' alt='SJA Plus'>
+            <img src='/assets/img/logo/white-banner-title.svg' alt='SJA Plus'>
         </a>
 
         <!-- links -->
         <ul>
             <li><a href='/analyze/index.php'>作品分析器</a></li>
             <li><a href='/nav/index.php'>航站楼</a></li>
-            <li><a href='/compare/index.php'><del>抄袭对比器</del>（开发中）</a></li>
+            <!-- <li><a href='/compare/index.php'>抄袭对比器</a></li> -->
         </ul>
     </div>
 

@@ -1,4 +1,4 @@
-<script src="/includes/js/display-box.js" defer>
+<script src="/assets/js/display-box.js" defer>
 
 </script>
 
