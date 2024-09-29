@@ -16,10 +16,8 @@ function append_news(news) {
 
 //get the news list
 fetch("/news/news-info.json").then(response => response.json()).then(data => {
-    //get top news
-    let topNews = data["top"];
-    //render top news
-    topNews.forEach(news => {
+    //render news
+    data.forEach(news => {
         append_news(news);
     });
 });

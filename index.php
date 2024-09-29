@@ -6,12 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SJA分析器</title>
     <meta name="description" content="SJA分析器为您快速分析Scratch作品文件、提供抄袭比对、数据看板等多样化功能。">
-    <link rel="icon" href="img/logo.svg">
-    <link rel="shortcut icon" href="assets/img/logo/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="assets/css/homepage.css">
+    <link rel="icon" href="/assets/img/logo/main-logo.svg">
+    <link rel="shortcut icon" href="/assets/img/logo/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/homepage.css">
     <meta property="og:image" content="./img/seo-meta.png">
 
-    <script src="assets/js/news-list.js" defer></script>
+    <script src="/assets/js/news-list.js" defer></script>
 </head>
 
 <body>
@@ -28,16 +28,6 @@
             </div> -->
             <section class="news-wrapper">
                 <ul>
-                    <li>
-                        <a href="">
-                            <article class="news">
-                                <h2>SJA分析器 Plus版</h2>
-                                <p>
-                                    欢迎使用 SJA Plus 版！这是 SJA 继 Scratch 版本以来的一次重大更新。SJA Plus 版帮助你更准确、更快捷、更多样化地分析 Scratch 作品。
-                                </p>
-                            </article>
-                        </a>
-                    </li>
                 </ul>
 
             </section>

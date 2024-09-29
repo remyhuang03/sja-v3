@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SJA作品分析器</title>
-    <link rel="icon" href="/favicon.ico">
+    <link rel="icon" href="/assets/img/logo/favicon.ico">
     <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/analyzer.css">
 
