@@ -13,6 +13,7 @@ main {
 .report,
 .menu {
     flex:1 200px;
+    font-size: 18px;
 }
 
 input[type="file"] {
