@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SJA Plus 分析器</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/assets/css/update-log.css">
 
 </head>
 
@@ -29,7 +29,7 @@
             echo "
             <section class='version'>
             <div class='version-title'>
-                <h2 class='square'>$version</h2>
+                <h2 class='square ver'>$version</h2>
                 <span class='date'>$date<span>
             </div>
             <ul>

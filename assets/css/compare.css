@@ -1,0 +1,30 @@
+#main-title{
+    text-align: center;
+    margin: 20px 0;
+}
+
+main{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.menu,
+.report-list{
+    flex: 1 300px;
+}
+
+.report-list img{
+    width: 50%;
+    height: auto;
+}
+
+.report-list[show="img"]{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.report-list[show="list"]{
+
+}
+

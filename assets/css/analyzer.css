@@ -13,11 +13,6 @@ main {
 .report,
 .menu {
     flex:1 200px;
-    margin: 0 10px 20px;
-    padding: 20px;
-    background-color: #292929;
-    border-radius: 20px;
-    font-size: 18px;
 }
 
 input[type="file"] {

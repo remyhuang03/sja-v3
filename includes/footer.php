@@ -1,9 +1,8 @@
-<script src="/assets/js/display-box.js" defer>
-
-</script>
+<script src="/assets/js/display-box.js" defer></script>
+<link rel="stylesheet" href="/assets/css/common.css">
 
 <footer>
-    <section id='display-box'>
+    <section id='display-box' class="sja-display">
         <div id="display-box-header">
             <h2>🐱 作品展位</h2>
             <div>

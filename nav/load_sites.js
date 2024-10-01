@@ -3,7 +3,7 @@ const sites = {
     "0": ["共创社区", "https://ccw.site", "https://m.ccw.site/community/images/logo-ccw.png",],
     "1": ["稽木世界", "https://gitblock.cn", "https://gitblock.cn/Content/gitblock.ico"],
     "2": ["别针社区", "https://codingclip.com", "https://codingclip.com/favicon.ico"],
-    "3": ["SJA分析器", "https://sjaplus.top", "https://sjaplus.top/img/logo/favicon.ico"],
+    "3": ["SJA分析器", "https://sjaplus.top", "https://sjaplus.top/assets/img/logo/favicon.ico"],
     "4": ["Snap编辑器", "https://snap.berkeley.edu/snap/snap.html", "https://snap.berkeley.edu/snap/src/favicon.ico"],
     "5": ["TurboWarp", "https://turbowarp.org/editor", "https://turbowarp.org/favicon.ico"],
     "6": ["小码王", "https://world.xiaomawang.com/w/index", "https://world.xiaomawang.com/favicon.ico"],

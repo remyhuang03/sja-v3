@@ -8,6 +8,7 @@
     <link rel="icon" href="/assets/img/logo/favicon.ico">
     <link rel="shortcut icon" href="../img/logo.svg" type="image/x-icon">
     <link rel="stylesheet" href="/assets/css/analyzer.css">
+    <link rel="stylesheet" href="/assets/css/common.css">
 
 </head>
 
@@ -16,7 +17,7 @@
 
     <h2 class="analyzer-title">SJA作品分析器</h2>
     <main>
-        <div class="report">
+        <div class="report sja-display">
             <?php
             $status = "";
             $url = "";
@@ -98,7 +99,7 @@
 
 
         <!-- 右侧栏 -->
-        <div class="menu">
+        <div class="menu sja-display">
             <form method="post" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) ?>">
                 <!-- 自动提交token，防止重复提交表单 -->
                 <input type="hidden" name="token">
