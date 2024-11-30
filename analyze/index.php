@@ -107,7 +107,7 @@
                 <!-- 选择文件框 -->
                 <label style="font-size: 20px; height: 100px;" class="btn" id="unloaded" for="input-upload">
                     <span id="file-name" style="font-size:24px;">上传作品（sb3/json/cc3）</span>
-                    <input type="file" accept=".sb3,.json,.cc3" id="input-upload" name="file">
+                    <input type="file" accept=".sb3,.json,.cc3,application/json,application/json, application/octet-stream" id="input-upload" name="file">
                 </label>
 
                 <!-- 是否排序单选按钮 -->
