@@ -9,3 +9,4 @@ sync.ffs_db
 dev/
 news/md-articles
 assets/project-display
+.goutputstream-*

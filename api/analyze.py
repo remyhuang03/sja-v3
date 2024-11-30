@@ -19,6 +19,8 @@ input:
         待分析的.sb3或.json文件
     is_sort:
         是否进行排序(0或1)
+    is_high_rank_cate:
+        显示最多积木类型还是显示经典类型(0或1)
 output:
     cmd_out:
         svg压缩程序过程性输出，无用

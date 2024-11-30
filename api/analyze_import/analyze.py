@@ -5,7 +5,7 @@ from .AnalyzeReport import AnalyzeReport
 from .block_info import *
 
 # 内核版本号
-CORE_VERSION = "analyze-7.3.0"
+CORE_VERSION = "analyze-7.3.1"
 # 分析报告
 report = AnalyzeReport(CORE_VERSION)
 
@@ -16,9 +16,12 @@ def search_paragraph(id, isValidPara, blocks):
         if attr in blocks[id]:
             return blocks[id][attr]
         else:
-            if attr == 'next':
+            if attr == "next":
                 # CCW例外，可能存在无 next 的情况
                 return None
+            elif attr == "shadow":
+                # TW例外，可能存在无 shadow 的情况，此时返回 False（未验证正确性）
+                return False
             else:
                 raise AnalyzeError(f"找不到{attr}")
 
@@ -88,7 +91,7 @@ def search_paragraph(id, isValidPara, blocks):
         search_paragraph(id, isValidPara, blocks)
 
 
-def analyze(file_path:str, file_size:float=0)->dict:
+def analyze(file_path: str, file_size: float = 0) -> dict:
     """
     SJA分析器主程序
 
@@ -111,7 +114,7 @@ def analyze(file_path:str, file_size:float=0)->dict:
             raise AnalyzeError("不是合法的json文件")
     report["file_size"] = file_size
     # 加载自身extension列表
-    extend_extensions(json_project['extensions'])
+    extend_extensions(json_project["extensions"])
     # get targets
     if "targets" in json_project:
         json_targets = json_project["targets"]
@@ -143,16 +146,17 @@ def analyze(file_path:str, file_size:float=0)->dict:
             for id in json_blocks:
                 block = json_blocks[id]
                 # 是一个变量积木（长度大于3为针对TW的特判）
-                if (isinstance(block, list)
-                    and len(block)>3
-                ):
-                    report["category_count"]["data"] = report["category_count"].get("data", 0) + 1
+                if isinstance(block, list) and len(block) > 3:
+                    report["category_count"]["data"] = (
+                        report["category_count"].get("data", 0) + 1
+                    )
                     report["total_block_count"] += 1
                 # 是新段落
                 elif (
                     isinstance(block, dict)
                     and block["topLevel"]
-                    and not block["shadow"]
+                    # 针对TW的特判
+                    and (("shadow" not in block) or (not block["shadow"]))
                 ):
                     found_flag = True
                     isValidPara = is_valid_top_block(block["opcode"])
