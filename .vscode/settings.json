@@ -1,0 +1,47 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "sjaplus.top",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "sja_site",
+            "database": "sja",
+            "username": "root",
+            "password": "221b698fa9e4afc1",
+            "connectionTimeout": 20
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "47.99.54.217",
+            "port": 3306,
+            "driver": "MySQL",
+            "database": "sja",
+            "username": "sja",
+            "name": "sja_site",
+            "password": "7725!!.coM@db"
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "47.99.54.217",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "sja_scfile_info",
+            "database": "scfile_info",
+            "username": "scfile_info",
+            "password": "2328!!.L0ve"
+        }
+    ]
+}

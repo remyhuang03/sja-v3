@@ -1,5 +1,15 @@
 [
     {
+        "version": "3.4.6-beta",
+        "date": "2025-01-21",
+        "update": [
+            [
+                "improved",
+                "航站楼数据例行更新"
+            ]
+        ]
+    },
+    {
         "version":"3.4.5-beta",
         "date":"2024-11-30",
         "update":[

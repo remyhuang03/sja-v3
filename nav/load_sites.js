@@ -16,24 +16,29 @@ const sites = {
     "13": ["Scratch中社", "https://www.scratch-cn.cn/", "https://www.scratch-cn.cn/img/favicon.ico"],
     "14": ["编程猫", "https://shequ.codemao.cn/", "https://static.codemao.cn/whitef/favicon.ico"],
     "15": ["爱给网", "https://www.aigei.com/", "https://cdn-sqn.aigei.com/assets/site/img/icon/favicon.ico"],
+    "16": ["编程豆", "https://bcdou.cn", "https://bcdou.cn/img/favicon.ico"],
+    "17": ["学而思编程", "https://code.xueersi.com", "https://static0.xesimg.com/talcode/assets/logo.ico"],
+    "18": ["洛谷", "https://www.luogu.com.cn/", "https://www.luogu.com.cn/favicon.ico"],
+    "19":["黑罐头","https://www.heycan.com/","https://sf1-cdn-tos.douyinstatic.com/obj/eden-cn/vhogeh7uvaflw/heycan_small.ico"],
+    "20":["CCW素材集市","https://assets.ccw.site","https://m.ccw.site/community/images/logo-ccw.png"]
 }
 
 let cates = {
     "🏠 编程社区": {
-        "sites": [0, 1, 2, 6, 8, 10, 13, 14],
-        "show": [0, 1, 2, 6, 8, 10, 13, 14]
+        "sites": [0, 1, 2, 6, 8, 10, 13, 14, 16, 17],
+        "show": [0, 1, 2, 6, 8, 10, 13, 14, 16, 17]
     },
     "🔧 实用工具": {
         "sites": [3, 4, 5, 12],
         "show": [3, 4, 5, 12]
     },
     "💻 开发者网站": {
-        "sites": [7],
-        "show": [7]
+        "sites": [7, 18],
+        "show": [7, 18]
     },
     "🧩 素材资源": {
-        "sites": [15],
-        "show": [15]
+        "sites": [15,19,20],
+        "show": [15,19,20]
     },
     "📦 其它": {
         "sites": [9, 11],
