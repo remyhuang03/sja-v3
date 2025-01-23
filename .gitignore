@@ -6,7 +6,5 @@ uploads
 temp
 test
 sync.ffs_db
-news/md-articles
-assets/project-display
 .goutputstream-*
 node_modules
