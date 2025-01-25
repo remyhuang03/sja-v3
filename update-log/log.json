@@ -1,5 +1,19 @@
 [
     {
+        "version": "3.4.7-beta",
+        "date": "2025-01-25",
+        "update": [
+            [
+                "improved",
+                "首页 margin 优化"
+            ],
+            [
+                "improved",
+                "用户协议更新"
+            ]
+        ]
+    },
+    {
         "version": "3.4.6-beta",
         "date": "2025-01-21",
         "update": [

@@ -1,7 +1,13 @@
 [
     {
         "article": "display-review",
-        "title": "作品展示位申请",
+        "title": "📡 SJA 服务器迁移公告",
+        "description": "SJA 拟定于北京时间 2 月 1 日晚 22 时至 2 月 2 日早 2 时进行服务器备份和迁移。",
+        "thumbnail": null
+    },
+    {
+        "article": "display-review",
+        "title": "📡 作品展示位申请",
         "description": "作品展示位申请中！",
         "thumbnail": null
     },

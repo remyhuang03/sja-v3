@@ -3,6 +3,7 @@ main {
     flex-wrap: wrap;
     height: calc(100vh - 60px);
     justify-content: space-between;
+    gap:10px;
     padding: 20px;
     height: auto;
 }
@@ -22,7 +23,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0 10px;
     font-size: 30px;
 }
 
