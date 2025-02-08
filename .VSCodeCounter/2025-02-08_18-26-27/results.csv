@@ -1,0 +1,68 @@
+"filename", "language", "Markdown", "TypeScript", "JSON with Comments", "XML", "JavaScript", "JSON", "Python", "TypeScript JSX", "CSS", "comment", "blank", "total"
+"/mnt/shareDsk/IT/repo/sja-v4/.prettierrc", "JSON", 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0, 5
+"/mnt/shareDsk/IT/repo/sja-v4/README.md", "Markdown", 23, 0, 0, 0, 0, 0, 0, 0, 0, 0, 14, 37
+"/mnt/shareDsk/IT/repo/sja-v4/app/HomeIcons.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 23, 0, 5, 1, 29
+"/mnt/shareDsk/IT/repo/sja-v4/app/analyze/Menu.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 88, 0, 0, 12, 100
+"/mnt/shareDsk/IT/repo/sja-v4/app/analyze/Result.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 44, 0, 6, 8, 58
+"/mnt/shareDsk/IT/repo/sja-v4/app/analyze/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 20, 0, 1, 5, 26
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/report-img/route.ts", "TypeScript", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/AnalyzeError.py", "Python", 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 3, 14
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/AnalyzeReport.py", "Python", 0, 0, 0, 0, 0, 0, 45, 0, 0, 13, 10, 68
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/analyze.py", "Python", 0, 0, 0, 0, 0, 0, 118, 0, 0, 33, 19, 170
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/block_info.py", "Python", 0, 0, 0, 0, 0, 0, 49, 0, 0, 11, 15, 75
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/generate.py", "Python", 0, 0, 0, 0, 0, 0, 185, 0, 0, 17, 36, 238
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/pie_chart.py", "Python", 0, 0, 0, 0, 0, 0, 15, 0, 0, 1, 4, 20
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/res/report_model.svg", "XML", 0, 0, 0, 1198, 0, 0, 0, 0, 0, 0, 13, 1211
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/upload.py", "Python", 0, 0, 0, 0, 0, 0, 14, 0, 0, 0, 5, 19
+"/mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/route.ts", "TypeScript", 0, 34, 0, 0, 0, 0, 0, 0, 0, 9, 3, 46
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 1, 12
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/ProjectDisplay.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 21, 0, 2, 4, 27
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/ProjectDisplay/ProjectItem.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 22, 0, 0, 3, 25
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/ProjectDisplay/ProjectList.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 25, 0, 0, 3, 28
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/SiteInfoFooter.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 24, 0, 0, 3, 27
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Header.module.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 4, 0, 0, 4
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Header.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 37, 0, 6, 4, 47
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Header/NavListItem.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 8, 0, 0, 1, 9
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/news/NewsBoard.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 31, 0, 0, 4, 35
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/news/NewsBoard/NewsItem.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 13, 0, 0, 2, 15
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/ui/Board.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 5
+"/mnt/shareDsk/IT/repo/sja-v4/app/components/ui/NetworkError.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 1, 8
+"/mnt/shareDsk/IT/repo/sja-v4/app/fonts/emojiFont.ts", "TypeScript", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4
+"/mnt/shareDsk/IT/repo/sja-v4/app/fonts/logoFont.ts", "TypeScript", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4
+"/mnt/shareDsk/IT/repo/sja-v4/app/fonts/mainFont.ts", "TypeScript", 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 4
+"/mnt/shareDsk/IT/repo/sja-v4/app/globals.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 19, 0, 2, 21
+"/mnt/shareDsk/IT/repo/sja-v4/app/homepage.module.css", "CSS", 0, 0, 0, 0, 0, 0, 0, 0, 69, 0, 16, 85
+"/mnt/shareDsk/IT/repo/sja-v4/app/layout.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 40, 0, 1, 9, 50
+"/mnt/shareDsk/IT/repo/sja-v4/app/legal/contract/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 92, 0, 0, 43, 135
+"/mnt/shareDsk/IT/repo/sja-v4/app/legal/privacy/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 28, 0, 0, 7, 35
+"/mnt/shareDsk/IT/repo/sja-v4/app/not-found.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 7
+"/mnt/shareDsk/IT/repo/sja-v4/app/page.tsx", "TypeScript JSX", 0, 0, 0, 0, 0, 0, 0, 14, 0, 0, 4, 18
+"/mnt/shareDsk/IT/repo/sja-v4/app/util/db/connectDB.ts", "TypeScript", 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 2, 17
+"/mnt/shareDsk/IT/repo/sja-v4/app/util/db/getProjectDisplay.ts", "TypeScript", 0, 18, 0, 0, 0, 0, 0, 0, 0, 0, 4, 22
+"/mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/202308110.md", "Markdown", 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 8
+"/mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/202502010.md", "Markdown", 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 15
+"/mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/display-review.md", "Markdown", 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 37
+"/mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/err-not-found.md", "Markdown", 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2
+"/mnt/shareDsk/IT/repo/sja-v4/data/news/news-info.json", "JSON", 0, 0, 0, 0, 0, 20, 0, 0, 0, 0, 0, 20
+"/mnt/shareDsk/IT/repo/sja-v4/data/update-log/log.json", "JSON", 0, 0, 0, 0, 0, 372, 0, 0, 0, 0, 0, 372
+"/mnt/shareDsk/IT/repo/sja-v4/dev/project_display/image_resizer.py", "Python", 0, 0, 0, 0, 0, 0, 22, 0, 0, 0, 5, 27
+"/mnt/shareDsk/IT/repo/sja-v4/eslint.config.mjs", "JavaScript", 0, 0, 0, 0, 12, 0, 0, 0, 0, 0, 5, 17
+"/mnt/shareDsk/IT/repo/sja-v4/next.config.ts", "TypeScript", 0, 4, 0, 0, 0, 0, 0, 0, 0, 1, 3, 8
+"/mnt/shareDsk/IT/repo/sja-v4/package-lock.json", "JSON", 0, 0, 0, 0, 0, 6137, 0, 0, 0, 0, 1, 6138
+"/mnt/shareDsk/IT/repo/sja-v4/package.json", "JSON", 0, 0, 0, 0, 0, 30, 0, 0, 0, 0, 1, 31
+"/mnt/shareDsk/IT/repo/sja-v4/postcss.config.mjs", "JavaScript", 0, 0, 0, 0, 6, 0, 0, 0, 0, 1, 2, 9
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/analyze-logo.svg", "XML", 0, 0, 0, 71, 0, 0, 0, 0, 0, 0, 1, 72
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/cmpr-logo.svg", "XML", 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 39
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/donation-logo.svg", "XML", 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 1, 40
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/faq-logo.svg", "XML", 0, 0, 0, 38, 0, 0, 0, 0, 0, 0, 1, 39
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/home-bg.svg", "XML", 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/nav-logo.svg", "XML", 0, 0, 0, 61, 0, 0, 0, 0, 0, 0, 1, 62
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/stat-logo.svg", "XML", 0, 0, 0, 61, 0, 0, 0, 0, 0, 0, 1, 62
+"/mnt/shareDsk/IT/repo/sja-v4/public/homepage/update-log-logo.svg", "XML", 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 1, 40
+"/mnt/shareDsk/IT/repo/sja-v4/public/meta/main-logo.svg", "XML", 0, 0, 0, 433, 0, 0, 0, 0, 0, 0, 1, 434
+"/mnt/shareDsk/IT/repo/sja-v4/public/meta/white-banner-title.svg", "XML", 0, 0, 0, 6, 0, 0, 0, 0, 0, 1, 1, 8
+"/mnt/shareDsk/IT/repo/sja-v4/public/project-display/readme.md", "Markdown", 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3
+"/mnt/shareDsk/IT/repo/sja-v4/public/ui/wifi_off.svg", "XML", 0, 0, 0, 39, 0, 0, 0, 0, 0, 0, 1, 40
+"/mnt/shareDsk/IT/repo/sja-v4/tailwind.config.ts", "TypeScript", 0, 19, 0, 0, 0, 0, 0, 0, 0, 0, 2, 21
+"/mnt/shareDsk/IT/repo/sja-v4/tsconfig.json", "JSON with Comments", 0, 0, 27, 0, 0, 0, 0, 0, 0, 0, 1, 28
+"Total", "-", 72, 96, 27, 2024, 18, 6564, 459, 560, 92, 108, 314, 10334

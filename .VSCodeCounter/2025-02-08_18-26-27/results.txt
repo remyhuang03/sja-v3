@@ -1,0 +1,141 @@
+Date : 2025-02-08 18:26:27
+Directory : /mnt/shareDsk/IT/repo/sja-v4
+Total : 66 files,  9912 codes, 108 comments, 314 blanks, all 10334 lines
+
+Languages
++--------------------+------------+------------+------------+------------+------------+
+| language           | files      | code       | comment    | blank      | total      |
++--------------------+------------+------------+------------+------------+------------+
+| JSON               |          5 |      6,564 |          0 |          2 |      6,566 |
+| XML                |         12 |      2,024 |          1 |         23 |      2,048 |
+| TypeScript JSX     |         20 |        560 |         21 |        115 |        696 |
+| Python             |          8 |        459 |         75 |         97 |        631 |
+| TypeScript         |          9 |         96 |         10 |         21 |        127 |
+| CSS                |          3 |         92 |          0 |         18 |        110 |
+| Markdown           |          6 |         72 |          0 |         30 |        102 |
+| JSON with Comments |          1 |         27 |          0 |          1 |         28 |
+| JavaScript         |          2 |         18 |          1 |          7 |         26 |
++--------------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                           | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                              |         66 |      9,912 |        108 |        314 |     10,334 |
+| . (Files)                                                                                      |          9 |      6,263 |          2 |         29 |      6,294 |
+| app                                                                                            |         38 |      2,360 |        105 |        254 |      2,719 |
+| app (Files)                                                                                    |          6 |        172 |          6 |         32 |        210 |
+| app/analyze                                                                                    |          3 |        152 |          7 |         25 |        184 |
+| app/api                                                                                        |         10 |      1,669 |         84 |        109 |      1,862 |
+| app/api/report-img                                                                             |          1 |          0 |          0 |          1 |          1 |
+| app/api/v2                                                                                     |          9 |      1,669 |         84 |        108 |      1,861 |
+| app/api/v2/analyze                                                                             |          9 |      1,669 |         84 |        108 |      1,861 |
+| app/api/v2/analyze (Files)                                                                     |          1 |         34 |          9 |          3 |         46 |
+| app/api/v2/analyze/analyze_import                                                              |          8 |      1,635 |         75 |        105 |      1,815 |
+| app/api/v2/analyze/analyze_import (Files)                                                      |          4 |        223 |         57 |         47 |        327 |
+| app/api/v2/analyze/analyze_import/report_img                                                   |          4 |      1,412 |         18 |         58 |      1,488 |
+| app/api/v2/analyze/analyze_import/report_img (Files)                                           |          3 |        214 |         18 |         45 |        277 |
+| app/api/v2/analyze/analyze_import/report_img/res                                               |          1 |      1,198 |          0 |         13 |      1,211 |
+| app/components                                                                                 |         12 |        208 |          8 |         26 |        242 |
+| app/components/layout                                                                          |          8 |        152 |          8 |         19 |        179 |
+| app/components/layout (Files)                                                                  |          3 |         52 |          6 |          5 |         63 |
+| app/components/layout/Footer                                                                   |          4 |         92 |          2 |         13 |        107 |
+| app/components/layout/Footer (Files)                                                           |          2 |         45 |          2 |          7 |         54 |
+| app/components/layout/Footer/ProjectDisplay                                                    |          2 |         47 |          0 |          6 |         53 |
+| app/components/layout/Header                                                                   |          1 |          8 |          0 |          1 |          9 |
+| app/components/news                                                                            |          2 |         44 |          0 |          6 |         50 |
+| app/components/news (Files)                                                                    |          1 |         31 |          0 |          4 |         35 |
+| app/components/news/NewsBoard                                                                  |          1 |         13 |          0 |          2 |         15 |
+| app/components/ui                                                                              |          2 |         12 |          0 |          1 |         13 |
+| app/fonts                                                                                      |          3 |          6 |          0 |          6 |         12 |
+| app/legal                                                                                      |          2 |        120 |          0 |         50 |        170 |
+| app/legal/contract                                                                             |          1 |         92 |          0 |         43 |        135 |
+| app/legal/privacy                                                                              |          1 |         28 |          0 |          7 |         35 |
+| app/util                                                                                       |          2 |         33 |          0 |          6 |         39 |
+| app/util/db                                                                                    |          2 |         33 |          0 |          6 |         39 |
+| data                                                                                           |          6 |        438 |          0 |         16 |        454 |
+| data/news                                                                                      |          5 |         66 |          0 |         16 |         82 |
+| data/news (Files)                                                                              |          1 |         20 |          0 |          0 |         20 |
+| data/news/md-articles                                                                          |          4 |         46 |          0 |         16 |         62 |
+| data/update-log                                                                                |          1 |        372 |          0 |          0 |        372 |
+| dev                                                                                            |          1 |         22 |          0 |          5 |         27 |
+| dev/project_display                                                                            |          1 |         22 |          0 |          5 |         27 |
+| public                                                                                         |         12 |        829 |          1 |         10 |        840 |
+| public/homepage                                                                                |          8 |        348 |          0 |          7 |        355 |
+| public/meta                                                                                    |          2 |        439 |          1 |          2 |        442 |
+| public/project-display                                                                         |          1 |          3 |          0 |          0 |          3 |
+| public/ui                                                                                      |          1 |         39 |          0 |          1 |         40 |
++------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| filename                                                                                       | language           | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
+| /mnt/shareDsk/IT/repo/sja-v4/.prettierrc                                                       | JSON               |          5 |          0 |          0 |          5 |
+| /mnt/shareDsk/IT/repo/sja-v4/README.md                                                         | Markdown           |         23 |          0 |         14 |         37 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/HomeIcons.tsx                                                 | TypeScript JSX     |         23 |          5 |          1 |         29 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/analyze/Menu.tsx                                              | TypeScript JSX     |         88 |          0 |         12 |        100 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/analyze/Result.tsx                                            | TypeScript JSX     |         44 |          6 |          8 |         58 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/analyze/page.tsx                                              | TypeScript JSX     |         20 |          1 |          5 |         26 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/report-img/route.ts                                       | TypeScript         |          0 |          0 |          1 |          1 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/AnalyzeError.py                 | Python             |         11 |          0 |          3 |         14 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/AnalyzeReport.py                | Python             |         45 |         13 |         10 |         68 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/analyze.py                      | Python             |        118 |         33 |         19 |        170 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/block_info.py                   | Python             |         49 |         11 |         15 |         75 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/generate.py          | Python             |        185 |         17 |         36 |        238 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/pie_chart.py         | Python             |         15 |          1 |          4 |         20 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/res/report_model.svg | XML                |      1,198 |          0 |         13 |      1,211 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/analyze_import/report_img/upload.py            | Python             |         14 |          0 |          5 |         19 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/api/v2/analyze/route.ts                                       | TypeScript         |         34 |          9 |          3 |         46 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer.tsx                                  | TypeScript JSX     |         11 |          0 |          1 |         12 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/ProjectDisplay.tsx                   | TypeScript JSX     |         21 |          2 |          4 |         27 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/ProjectDisplay/ProjectItem.tsx       | TypeScript JSX     |         22 |          0 |          3 |         25 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/ProjectDisplay/ProjectList.tsx       | TypeScript JSX     |         25 |          0 |          3 |         28 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Footer/SiteInfoFooter.tsx                   | TypeScript JSX     |         24 |          0 |          3 |         27 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Header.module.css                           | CSS                |          4 |          0 |          0 |          4 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Header.tsx                                  | TypeScript JSX     |         37 |          6 |          4 |         47 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/layout/Header/NavListItem.tsx                      | TypeScript JSX     |          8 |          0 |          1 |          9 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/news/NewsBoard.tsx                                 | TypeScript JSX     |         31 |          0 |          4 |         35 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/news/NewsBoard/NewsItem.tsx                        | TypeScript JSX     |         13 |          0 |          2 |         15 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/ui/Board.tsx                                       | TypeScript JSX     |          5 |          0 |          0 |          5 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/components/ui/NetworkError.tsx                                | TypeScript JSX     |          7 |          0 |          1 |          8 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/fonts/emojiFont.ts                                            | TypeScript         |          2 |          0 |          2 |          4 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/fonts/logoFont.ts                                             | TypeScript         |          2 |          0 |          2 |          4 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/fonts/mainFont.ts                                             | TypeScript         |          2 |          0 |          2 |          4 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/globals.css                                                   | CSS                |         19 |          0 |          2 |         21 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/homepage.module.css                                           | CSS                |         69 |          0 |         16 |         85 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/layout.tsx                                                    | TypeScript JSX     |         40 |          1 |          9 |         50 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/legal/contract/page.tsx                                       | TypeScript JSX     |         92 |          0 |         43 |        135 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/legal/privacy/page.tsx                                        | TypeScript JSX     |         28 |          0 |          7 |         35 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/not-found.tsx                                                 | TypeScript JSX     |          7 |          0 |          0 |          7 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/page.tsx                                                      | TypeScript JSX     |         14 |          0 |          4 |         18 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/util/db/connectDB.ts                                          | TypeScript         |         15 |          0 |          2 |         17 |
+| /mnt/shareDsk/IT/repo/sja-v4/app/util/db/getProjectDisplay.ts                                  | TypeScript         |         18 |          0 |          4 |         22 |
+| /mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/202308110.md                                | Markdown           |          4 |          0 |          4 |          8 |
+| /mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/202502010.md                                | Markdown           |          8 |          0 |          7 |         15 |
+| /mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/display-review.md                           | Markdown           |         32 |          0 |          5 |         37 |
+| /mnt/shareDsk/IT/repo/sja-v4/data/news/md-articles/err-not-found.md                            | Markdown           |          2 |          0 |          0 |          2 |
+| /mnt/shareDsk/IT/repo/sja-v4/data/news/news-info.json                                          | JSON               |         20 |          0 |          0 |         20 |
+| /mnt/shareDsk/IT/repo/sja-v4/data/update-log/log.json                                          | JSON               |        372 |          0 |          0 |        372 |
+| /mnt/shareDsk/IT/repo/sja-v4/dev/project_display/image_resizer.py                              | Python             |         22 |          0 |          5 |         27 |
+| /mnt/shareDsk/IT/repo/sja-v4/eslint.config.mjs                                                 | JavaScript         |         12 |          0 |          5 |         17 |
+| /mnt/shareDsk/IT/repo/sja-v4/next.config.ts                                                    | TypeScript         |          4 |          1 |          3 |          8 |
+| /mnt/shareDsk/IT/repo/sja-v4/package-lock.json                                                 | JSON               |      6,137 |          0 |          1 |      6,138 |
+| /mnt/shareDsk/IT/repo/sja-v4/package.json                                                      | JSON               |         30 |          0 |          1 |         31 |
+| /mnt/shareDsk/IT/repo/sja-v4/postcss.config.mjs                                                | JavaScript         |          6 |          1 |          2 |          9 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/analyze-logo.svg                                  | XML                |         71 |          0 |          1 |         72 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/cmpr-logo.svg                                     | XML                |         38 |          0 |          1 |         39 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/donation-logo.svg                                 | XML                |         39 |          0 |          1 |         40 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/faq-logo.svg                                      | XML                |         38 |          0 |          1 |         39 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/home-bg.svg                                       | XML                |          1 |          0 |          0 |          1 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/nav-logo.svg                                      | XML                |         61 |          0 |          1 |         62 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/stat-logo.svg                                     | XML                |         61 |          0 |          1 |         62 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/homepage/update-log-logo.svg                               | XML                |         39 |          0 |          1 |         40 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/meta/main-logo.svg                                         | XML                |        433 |          0 |          1 |        434 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/meta/white-banner-title.svg                                | XML                |          6 |          1 |          1 |          8 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/project-display/readme.md                                  | Markdown           |          3 |          0 |          0 |          3 |
+| /mnt/shareDsk/IT/repo/sja-v4/public/ui/wifi_off.svg                                            | XML                |         39 |          0 |          1 |         40 |
+| /mnt/shareDsk/IT/repo/sja-v4/tailwind.config.ts                                                | TypeScript         |         19 |          0 |          2 |         21 |
+| /mnt/shareDsk/IT/repo/sja-v4/tsconfig.json                                                     | JSON with Comments |         27 |          0 |          1 |         28 |
+| Total                                                                                          |                    |      9,912 |        108 |        314 |     10,334 |
++------------------------------------------------------------------------------------------------+--------------------+------------+------------+------------+------------+
