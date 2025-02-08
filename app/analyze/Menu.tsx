@@ -1,10 +1,12 @@
 import Board from "../components/ui/Board"
 
+import Image from "next/image";
+
 export default function Menu({ setReport, status, setStatus, setErrorMsg }) {
     function submitHandler(e) {
         e.preventDefault();
         setStatus('analyzing');
-
+        //TODO
     }
 
     return (<div className="menu sja-display">
