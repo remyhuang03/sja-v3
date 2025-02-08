@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply text-gray-50 bg-gray-950;
+  }
+  h1{
+    @apply text-lg font-bold;
+  }
+  h2,h3,h4,h5,h6{
+    @apply font-bold;
+  }
+}
+
+@layer components {
+  .sm-link-text {
+    @apply text-sm text-gray-300 hover:text-violet-300;
+  }
+}

@@ -1,0 +1,84 @@
+.toolBtn {
+    height: 80px;
+    margin-bottom: 15px;
+    background: #333;
+    border-radius: 4dvh;
+    box-sizing: borderBox;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.toolBtn:link,
+.toolBtn:hover,
+.toolBtn:visited,
+.toolBtn:active {
+    color: #fff;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: auto 130%;
+}
+
+.toolBtn:hover {
+    transition: all 200ms;
+    background-color: #373737;
+}
+
+.toolBtn div {
+    flex:1;
+    text-align: center;
+    margin-left: 95px;
+}
+
+
+.analyzeBtn {
+    background-image: url(/homepage/analyze-logo.svg);
+    background-color: rgba(161, 78, 255, 0.3);
+}
+
+.analyzeBtn:hover {
+    border: rgb(161, 78, 255) 5px solid;
+    box-shadow: rgba(161, 78, 255) 0 0 10px;
+    background-color: rgba(161, 78, 255, 0.5);
+}
+
+.navBtn {
+    background-image: url(/homepage/nav-logo.svg);
+    background-color: rgba(255, 93, 67, 0.3);
+}
+
+.navBtn:hover {
+    background-color: rgba(255, 93, 67, 0.5);
+    border: rgb(255, 93, 67) 5px solid;
+    box-shadow: rgba(255, 93, 67) 0 0 10px;
+}
+
+.statBtn {
+    background-image: url(/homepage/stat-logo.svg);
+    background-color: rgba(61, 131, 255, 0.3);
+}
+
+.statBtn:hover {
+    background-color: rgba(61, 131, 255, 0.5);
+    border: rgb(61, 131, 255) 5px solid;
+    box-shadow: rgb(61, 131, 255) 0 0 10px;
+}
+
+.updateLogBtn {
+    background-image: url(/homepage/update-log-logo.svg);
+}
+
+.donationBtn {
+    background-image: url(/homepage/donation-logo.svg);
+}
+
+.faqBtn {
+    background-image: url(/homepage/faq-logo.svg);
+}
+
+.cmprBtn {
+    background-image: url(/homepage/cmpr-logo.svg);
+    cursor: not-allowed;
+    pointer-events: none;
+}
