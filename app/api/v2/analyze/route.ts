@@ -6,28 +6,6 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse,
 ) {
-  const stamp = req.query.stamp as string;
-  const stampRegex = /^[0-9]+_[0-9]+\.svg$/;
-
-  if (!stampRegex.test(stamp) || !req.query.stamp) {
-    return res.status(400).send("Bad Request");
-  }
-
-  // check if local file exists
-  const localReportPath = path.join(
-    process.cwd(),
-    "data/var/reports/analyze",
-    stamp,
-  );
-
-  if (fs.existsSync(localReportPath)) {
-    const svgContent = fs.readFileSync(localReportPath, "utf8");
-    res.setHeader("Content-Type", "image/svg+xml");
-    res.setHeader("Content-Length", svgContent.length.toString());
-    return res.send(svgContent);
-  } else {
-    return res.status(400).send("Bad Request");
-  }
 }
 
 

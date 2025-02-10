@@ -1,16 +1,13 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { type NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-  const stamp = req.query.stamp as string;
+export default async function GET(req: NextRequest) {
+  const stamp = req.nextUrl.searchParams.get("stamp");
   const stampRegex = /^[0-9]+_[0-9]+\.svg$/;
 
-  if (!stampRegex.test(stamp) || !req.query.stamp) {
-    return res.status(400).send("Bad Request");
+  if (!stampRegex.test(stamp) || !stamp) {
+    return new Response("Bad Request!", { status: 400 });
   }
 
   // check if local file exists
@@ -22,11 +19,16 @@ export default async function handler(
 
   if (fs.existsSync(localReportPath)) {
     const svgContent = fs.readFileSync(localReportPath, "utf8");
-    res.setHeader("Content-Type", "image/svg+xml");
-    res.setHeader("Content-Length", svgContent.length.toString());
-    return res.send(svgContent);
+
+    return new Response(svgContent, {
+      status: 200,
+      headers: {
+        "Content-Type": "image/svg+xml",
+        "Content-Length": svgContent.length.toString(),
+      },
+    });
   } else {
-    return res.status(400).send("Bad Request");
+    return new Response("Bad Request!", { status: 400 });
   }
 
   /* 此操作有引起图片访问变慢的风险，予以下架
