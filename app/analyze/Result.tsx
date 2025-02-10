@@ -22,8 +22,6 @@ export default function Result({ status, report, errorMsg }) {
 
     return (
         <Board>
-            <div className="report sja-display">
-                {mainSection(status)}
-            </div>
+            {mainSection(status)}
         </Board>);
 }

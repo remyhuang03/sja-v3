@@ -18,7 +18,7 @@ export default function Page() {
 
     return <div>
         <h1 className="text-xl text-center m-5">SJA作品分析器</h1>
-        <div className="flex flex-wrap sm:flex-nowrap">
+        <div className="flex justify-center flex-wrap sm:flex-nowrap">
             <Result status={status} report={reportImageURL} errorMsg={errorMsg} />
             <Menu setReport={setReportImageURL} status={status} setStatus={setStatus} setErrorMsg={setErrorMsg}/>
         </div>
