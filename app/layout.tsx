@@ -37,7 +37,7 @@ export default function RootLayout({
 
       {/* <script src="/assets/js/news-list.js" defer></script> */}
 
-      <body className={`${mainFont.style} ${emojiFont.style}`}>
+      <body className={`${mainFont.className}`}>
         <Header />
         <main>
           {children}

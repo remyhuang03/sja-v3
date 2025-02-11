@@ -2,12 +2,12 @@ import { type NextRequest } from "next/server";
 import fs from "fs";
 import path from "path";
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const stamp = req.nextUrl.searchParams.get("stamp");
   const stampRegex = /^[0-9]+_[0-9]+\.svg$/;
 
   if (!stampRegex.test(stamp) || !stamp) {
-    return new Response("Bad Request!", { status: 400 });
+    return new Response("400 Bad Request", { status: 400 });
   }
 
   // check if local file exists
@@ -18,6 +18,7 @@ export default async function GET(req: NextRequest) {
   );
 
   if (fs.existsSync(localReportPath)) {
+    
     const svgContent = fs.readFileSync(localReportPath, "utf8");
 
     return new Response(svgContent, {
@@ -28,7 +29,7 @@ export default async function GET(req: NextRequest) {
       },
     });
   } else {
-    return new Response("Bad Request!", { status: 400 });
+    return new Response("400 Bad Request!", { status: 400 });
   }
 
   /* 此操作有引起图片访问变慢的风险，予以下架

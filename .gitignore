@@ -40,4 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# server-side generated data
 /data/var
+
+# igonre
+/ignore
