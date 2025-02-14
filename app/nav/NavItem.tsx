@@ -6,7 +6,7 @@ export default function NavItem({ key, icon, title, href }) {
         <Button className="hover:shadow-slate-800">
             <Link href={href} target="_blank" className="flex gap-2 justify-start items-center">
                 <img src={icon} alt="" className="w-[1em] h-[1em]" />
-                <span> {title} </span>
+                <span className="line-clamp-1"> {title} </span>
             </Link>
         </Button>
     </li>);

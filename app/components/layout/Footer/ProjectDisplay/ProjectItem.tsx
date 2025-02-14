@@ -9,7 +9,7 @@ export default function ProjectItem({ author, author_link, project_link, id, pro
                 </a>
                 <div className="m-2 ml-1 flex-[3] overflow-hidden">
                     <a href={project_link} className="text-[15px]">
-                        <h3 className="text-ellipsis text-violet-400 hover:text-violet-600">{project_name}</h3>
+                        <h3 className="text-violet-400 hover:text-violet-600 line-clamp-1">{project_name}</h3>
                     </a>
                     <a href={author_link} className="text-sm text-ellipsis text-violet-400 hover:text-violet-600">{author}</a>
                 </div>

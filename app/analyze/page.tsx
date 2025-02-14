@@ -1,7 +1,6 @@
 'use client'
 
 // TODO: change title to '作品分析器'
-import Head from "next/head";
 import Menu from "./Menu"
 import Result from "./Result"
 
@@ -18,9 +17,9 @@ export default function Page() {
 
     return <div>
         <h1 className="text-xl text-center m-5">SJA作品分析器</h1>
-        <div className="flex justify-center flex-wrap sm:flex-nowrap">
-            <Result status={status} report={reportImageURL} errorMsg={errorMsg} />
-            <Menu setReport={setReportImageURL} status={status} setStatus={setStatus} setErrorMsg={setErrorMsg}/>
+        <div className="flex justify-center flex-wrap md:flex-nowrap">
+            <Result status={status} report={reportImageURL} errorMsg={errorMsg} className="flex-1 min-w-[300px]"/>
+            <Menu setReport={setReportImageURL} status={status} setStatus={setStatus} setErrorMsg={setErrorMsg} className="flex-1 min-w-[350px]"/>
         </div>
     </div>
 }

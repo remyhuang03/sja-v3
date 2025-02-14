@@ -1,9 +1,9 @@
 import fs from "fs";
-import Path from "path";
+import absPath from "./absPath";
 
-export default function readFile(path: string): string | null {
-  const filePath = Path.join(process.cwd(), path);
+export default function readFile(path: string | string[]): string | null {
+  const filePath = absPath(path);
 
-  if (!fs.existsSync(path)) return null;
+  if (!fs.existsSync(filePath)) return null;
   return fs.readFileSync(filePath, "utf-8");
 }

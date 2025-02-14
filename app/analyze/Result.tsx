@@ -1,7 +1,7 @@
 import Board from "../components/ui/Board";
 
 
-export default function Result({ status, report, errorMsg }) {
+export default function Result({ status, report, errorMsg, className }) {
     const mainSection = (status) => {
         switch (status) {
             case 'init':
@@ -20,8 +20,9 @@ export default function Result({ status, report, errorMsg }) {
         }
     }
 
-    return (
-        <Board>
-            {mainSection(status)}
-        </Board>);
+    return (<div className={`${className}`}>
+            <Board>
+                {mainSection(status)}
+            </Board>
+        </div>);
 }

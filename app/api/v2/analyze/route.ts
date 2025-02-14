@@ -1,57 +1,75 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import fs from "fs";
-import path from "path";
+import Path from "path";
+import absPath from "@/app/util/absPath";
+import { NextRequest, NextResponse } from "next/server";
 
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse,
-) {
-}
+export default async function POST(req: NextRequest) {
+  function validationErr(msg: string) {
+    return NextResponse.json({ status: "error", msg: msg }, { status: 400 });
+  }
 
+  const formData = await req.formData();
 
-$target_dir = $_SERVER['DOCUMENT_ROOT']. "/uploads";
-if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0755);
-}
-// 创建本次上传所需的随机文件夹
-$target_dir = $target_dir . '/analyze_'
-. str_replace('.', '_', (string)microtime(true) . (string)mt_rand(1, 9999));
-if (!file_exists($target_dir)) {
-    mkdir($target_dir, 0755);
-}
-//扩展名
-$file_type = strtolower(pathinfo($_FILES["file"]["name"], PATHINFO_EXTENSION));
-// 保存文件路径
-$target_file = $target_dir . '/tmp.' . $file_type;
-//是否允许上传
-$upload_ok = true;
-if (isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["file"]["tmp_name"]);
-if (!$check) {
-    $upload_ok = false;
-    }
-}
-// 文件不得大于48MB
-if ($_FILES["file"]["size"] > 48 * 1024 * 1024) {
-    echo "抱歉，SJA分析器目前仅支持48MB以下大小的文件。";
-$upload_ok = false;
-}
-//文件格式错误
-if (!in_array($file_type, array("sb3", "cc3", "json"))) {
-    echo "抱歉，SJA分析器目前仅支持以下格式：sb3 / json / cc3 。";
-$upload_ok = false;
-}
+  // check root upload dir
+  const uploadDir = absPath("data/var/uploads");
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir, { mode: 0o755 });
+  }
 
-if ($upload_ok) {
-    // 临时文件保存到指定路径
-    move_uploaded_file($_FILES["file"]["tmp_name"], $target_file);
-$script_path = $_SERVER['DOCUMENT_ROOT'] . "/api/analyze.py";
-$is_sort = filter_var($_POST["is_sort"], FILTER_VALIDATE_INT);
-$is_high_rank_cate = filter_var($_POST["is_high_rank_cate"], FILTER_VALIDATE_INT);
+  // create sub upload dir for this task
+  const token =
+    new Date().getTime().toString() +
+    Math.floor(Math.random() * 10000).toString();
+  const targetDir = Path.join(uploadDir, "/analyze_" + token);
+  fs.mkdirSync(targetDir, { mode: 0o755 });
 
-    //执行python分析程序获得结果
-    $result = shell_exec("python3 $script_path $target_file $is_sort $is_high_rank_cate 2>&1");
+  ////// file validation //////
+  const file = formData.get("file") as File;
 
-// 删除上传的文件及临时文件夹
-unlink($target_file);
-rmdir($target_dir);
+  if (!file) {
+    return validationErr("No file uploaded.");
+  }
+
+  const fileExt = Path.extname(file.name).toLowerCase().substring(1);
+  const targetFilePath = Path.join(targetDir, "tmp." + fileExt);
+
+  // invalid file format
+  if (!["sb3", "cc3", "json"].includes(fileExt)) {
+    return validationErr(
+      "Invalid file format (supported: ['sb3','cc3','json']).",
+    );
+  }
+
+  // file size limit: 48MB
+  if (file.size > 48 * 1024 * 1024) {
+    return validationErr("File size limit exceeded (48MB).");
+  }
+
+  ////// param validation ///////
+  const is_sort = parseInt(formData.get("is_sort") as string);
+  if (![0, 1].includes(is_sort)) {
+    return validationErr("Invalid is_sort value.");
+  }
+
+  const is_high_rank_cate = parseInt(
+    formData.get("is_high_rank_cate") as string,
+  );
+  if (![0, 1].includes(is_high_rank_cate)) {
+    return validationErr("Invalid is_high_rank_cate value.");
+  }
+
+  ////// validation passed //////
+
+  // save file to target path
+  const arrayBuffer = await file.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+  fs.writeFileSync(targetFilePath, buffer);
+
+  // exec python analyze script
+  const scriptPath = "./modules";
+  const result = execSync(
+    `python3 ${scriptPath} ${targetFilePath} ${is_sort} ${is_high_rank_cate}`,
+  );
+//TODO
+  return NextResponse.json({ status: "ok", token });
+}
