@@ -4,7 +4,7 @@ from time import time
 import sys
 from lxml import etree
 import csv
-from subprocess import run
+from subprocess import run, PIPE
 import os
 import math
 from pprint import pprint
@@ -48,7 +48,10 @@ def generate_pie_chart(values, colors):
 
 # 第二行的分类显示格式
 with open(
-    Path(__file__).parent.parent.parent.parent / "doc" / "category_report_format.csv",
+    Path(__file__).parent.parent.parent.parent.parent.parent.parent
+    / "data"
+    / "blocks"
+    / "category_report_format.csv",
     encoding="utf-8",
 ) as f:
     list_csv = list(csv.reader(f))
@@ -154,9 +157,9 @@ def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False)
 
     # 3. 第二栏
     cate_stat = {}
-    
+
     # cates stat dict contaning only known cates
-    known_cates = {key:categories[key] for key in categories if key in cate_fmt}
+    known_cates = {key: categories[key] for key in categories if key in cate_fmt}
 
     if is_high_rank_cate:
         cate_sorted = [
@@ -170,7 +173,7 @@ def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False)
                 del cate_stat[k]
 
     else:
-        cate_stat = {k:categories.get(k, 0) for k in ROW_2}
+        cate_stat = {k: categories.get(k, 0) for k in ROW_2}
 
     cate_stat["other"] = total_count - sum(cate_stat.values())
     cate_max_cnt = max(cate_stat.values())
@@ -207,7 +210,7 @@ def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False)
         change_elem(f"bar{index}", color=lighter_color, width=46 + 120 * ui_pct)
         index += 1
 
-    date_str = datetime.utcfromtimestamp(json["datetime"]).strftime("%Y年%m月%d日")
+    date_str = datetime.fromtimestamp(json["datetime"]).strftime("%Y年%m月%d日")
     ver = json["core_version"]
     change_elem("footer_left", f"分析时间：{date_str}    内核版本：{ver} ")
 
@@ -223,12 +226,8 @@ def json_svg(json: dict, is_sort: bool = False, is_high_rank_cate: bool = False)
             .replace("&lt;", "<")
         )
     # 压缩图像保存
-    scour_path = open(
-        Path(__file__).parent.parent.parent.parent / "build" / "scour_path.txt",
-        encoding="utf-8",
-    ).read()
-    scour_command = f"{scour_path} -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"
-    run(scour_command, shell=True)
+    scour_command = f"scour -i {Path(__file__).parent /'temp'/(file_name+'_t.svg')} -o {Path(__file__).parent /'temp'/(file_name+'.svg')} --enable-viewboxing --enable-id-stripping --enable-comment-stripping --shorten-ids --indent=none"
+    run(scour_command, shell=True, stdout=PIPE, stderr=PIPE)
     os.remove(Path(__file__).parent / "temp" / (file_name + "_t.svg"))
     return file_name + ".svg"
 

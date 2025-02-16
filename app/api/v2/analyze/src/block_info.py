@@ -1,23 +1,18 @@
 import csv
 from pathlib import Path
 
-# if os.name == "nt":
-#     csv_path = (
-#         r"doc\blocks_release.csv"
-#     )
-# elif os.name == "posix":
-#     csv_path = "/www/wwwroot/www.sjaplus.top/doc/blocks_release.csv"
-
+SITE_ROOT = Path(__file__).parent.parent.parent.parent.parent.parent
 # 加载积木信息表
-csv_path = Path(__file__).parent.parent.parent / "doc" / "blocks_release.csv"
+csv_path = SITE_ROOT / "data" / "blocks" / "blocks_release.csv"
 csv_file = csv.reader(open(csv_path, "r", encoding="utf-8"))
 csv_file = list(csv_file)
 block_info = {i[0]: i[1:] for i in csv_file}
 
 # 加载Sc括展信息表
-csv_path = Path(__file__).parent.parent.parent / "doc" / "category_report_format.csv"
+csv_path = SITE_ROOT / "data" / "blocks" / "category_report_format.csv"
 csv_file = csv.reader(open(csv_path, "r", encoding="utf-8"))
 extensions = {row[0] for row in list(csv_file)}
+
 
 def extend_extensions(lst):
     extensions.update(lst)

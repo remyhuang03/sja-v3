@@ -5,7 +5,7 @@ export default function VersionItem({ version, date, update, isFirst }) {
         const cate = (item[0]).toLowerCase();
         const cate_upper = cate.toUpperCase();
         const content = item[1];
-        return (<li>
+        return (<li key={content}>
             <span className={`${styles.square} ${styles[cate]}`}>{cate_upper}</span>
             <span>{content}</span>
         </li>);

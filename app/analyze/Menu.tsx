@@ -1,40 +1,89 @@
 import Board from "../components/ui/Board"
 import BigButton from "./BigButton";
+import FileUpload from "../components/ui/FileUpload";
 
 import Image from "next/image";
+import { useContext, useState } from "react";
+import { GlobalContext } from "./context";
 
 import styles from './Menu.module.css'
 
-export default function Menu({ setReport, status, setStatus, setErrorMsg, className }) {
+export default function Menu({ className }) {
+    const states = useContext(GlobalContext);
+    const [files, setFiles] = useState();
+
     function submitHandler(e) {
-        // console.log("DBG submitBtn clicked");
         e.preventDefault();
-        if (status === 'analyzing')
+        if (states.status() === 'analyzing')
             return;
 
-        setStatus('analyzing');
-        //检查参数
+        states.setStatus('analyzing');
+
+        const formData = new FormData();
+        if (files && files[0]) {
+            formData.append("file", files[0]);
+        }
+        else {
+            states.setErrorMsg("请先上传作品！");
+            states.setStatus('analyze_error');
+            return;
+        }
+        formData.append("is_sort", e.currentTarget.is_sort.value);
+        formData.append("is_high_rank_cate", e.currentTarget.is_high_rank_cate.value);
 
         fetch('/api/v2/analyze', {
             method: 'POST',
-            body: {
+            body: formData
+        }).then(response => response.json())
+            .then(data => {
+                if (data.status === 'ok') {
+                    states.setReportUrl(data.token);
+                    states.setStatus('analyzed');
+                } else {
+                    states.setErrorMsg(data.msg);
+                    states.setStatus('analyze_error');
+                }
+            }).catch(error => {
+                states.setErrorMsg(error.message);
+                states.setStatus('analyze_error');
+            });
+    }
 
-            }
+    function markdownHandler(e) {
+        const url = states.reportUrl();
+
+        let md = "";
+        if (e.currentTarget.checked)
+            md = `[![](${url})](${url})`;
+        else
+            md = `[![](${url})](https://sjaplus.top)`;
+
+        // copy to clipboard
+        navigator.clipboard.writeText(md).then(function () {
+            alert("Markdown 代码复制成功，可直接粘贴到作品简介。");
+        }, function () {
+            alert("Markdown 代码复制失败！");
         })
-
     }
 
     return (<div className={`menu sja-display ${className}`}>
         <Board>
             <form onSubmit={submitHandler}>
-                {/* <!-- 选择文件框 --> */}
-                <label className="h-24" htmlFor="input-upload">
-                    <div className="mb-4 cursor-pointer hover:bg-[#333] text-lg py-5 text-center border-dashed border-4 border-[#eee] rounded-lg flex items-center justify-center gap-2">
-                        <Image className="w-[1em]" src="/ui/upload.svg" width={24} height={24} alt="" />
-                        <span>上传作品（sb3/json/cc3）</span>
-                    </div>
-                    <input className="hidden" type="file" accept=".sb3,.json,.cc3,application/json,application/json, application/octet-stream" id="input-upload" name="file" />
-                </label>
+                {/* <!-- 上传文件 --> */}
+                <FileUpload fileLoadedHandler={(files) => { setFiles(files); }} accept=".sb3,.json,.cc3,application/json, application/octet-stream" id="input-upload" name="file">
+                    <label className="h-24" htmlFor="input-upload">
+                        <div className="mb-4 cursor-pointer hover:bg-[#333] text-lg py-5 text-center border-dashed border-4 border-[#eee] rounded-lg flex items-center justify-center gap-2">
+                            {
+                                !(files && files[0] && files[0].name) ? <>
+                                    <Image className="w-[1em]" src="/ui/upload.svg" width={24} height={24} alt="" />
+                                    <span>上传作品（sb3/json/cc3）</span>
+                                </> :
+                                    <span>{files[0].name}</span>
+                            }
+
+                        </div>
+                    </label>
+                </FileUpload>
 
                 {/* <!-- 是否排序单选按钮 --> */}
                 <fieldset className="flex flex-wrap my-1 items-center">
@@ -77,21 +126,21 @@ export default function Menu({ setReport, status, setStatus, setErrorMsg, classN
                 </fieldset>
 
                 {/* <!-- 开始分析按钮 --> */}
-                <BigButton icon="/ui/start.svg" text="开始分析" />
+                <BigButton icon="/ui/start.svg" text="开始分析" className="w-full" />
             </form>
 
 
             {/* <!-- 分析结果菜单（复制MD、下载报告图） --> */}
             {/* {status === 'analyzed' && */}
-            <hr className="my-6"/>
+            <hr className="my-6" />
             <div>
                 <div className="flex items-center">
-                    <input type="radio" className={styles.radioBtn}/>
+                    <input type="checkbox" className={styles.radioBtn} />
                     为报告图片提供点击放大功能（推荐用于CCW的小简介栏显示）
                 </div>
 
                 <div className="gap-3 flex flex-wrap">
-                    <BigButton icon='/ui/markdown.svg' text="复制Markdown" />
+                    <BigButton icon='/ui/markdown.svg' text="复制Markdown" onClick={markdownHandler} />
                     <a href='$url' download='SJA分析报告.svg' className="flex-1">
                         <BigButton icon='/ui/download.svg' text="下载报告图" />
                     </a>

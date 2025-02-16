@@ -5,7 +5,7 @@ from .AnalyzeReport import AnalyzeReport
 from .block_info import *
 
 # 内核版本号
-CORE_VERSION = "analyze-7.3.1"
+CORE_VERSION = "analyze-7.3.2"
 # 分析报告
 report = AnalyzeReport(CORE_VERSION)
 

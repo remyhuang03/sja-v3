@@ -1,7 +1,10 @@
 import Board from "../components/ui/Board";
+import { useContext } from "react";
+import { GlobalContext } from "./context";
 
+export default function Result({ className }) {
+    const states = useContext(GlobalContext);
 
-export default function Result({ status, report, errorMsg, className }) {
     const mainSection = (status) => {
         switch (status) {
             case 'init':
@@ -11,10 +14,10 @@ export default function Result({ status, report, errorMsg, className }) {
                 return <p>正在分析中，请稍等...</p>;
                 break;
             case 'analyze_error':
-                return <p>分析过程中遇到了错误，请将如下信息反馈给我们: {errorMsg}。</p>;
+                return <p>分析出错: {states.errorMsg()}</p>;
                 break;
             case 'analyzed':
-                return <img src={`/data/var/analyze/${report}`} />
+                return <img src={`/data/var/analyze/${states.reportUrl()}`} />
             default:
                 break;
         }
@@ -22,7 +25,7 @@ export default function Result({ status, report, errorMsg, className }) {
 
     return (<div className={`${className}`}>
             <Board>
-                {mainSection(status)}
+                {mainSection(states.status())}
             </Board>
         </div>);
 }
