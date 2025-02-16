@@ -10,7 +10,7 @@ import styles from './Menu.module.css'
 
 export default function Menu({ className }) {
     const states = useContext(GlobalContext);
-    const [files, setFiles] = useState();
+    const [files, setFiles] = useState<File>();
 
     function submitHandler(e) {
         e.preventDefault();

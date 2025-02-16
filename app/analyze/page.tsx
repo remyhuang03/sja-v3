@@ -4,7 +4,6 @@
 import Menu from "./Menu"
 import Result from "./Result"
 import ContextProvider from "./context"
-import { useState } from "react"
 
 // type Status = 'init' | 'analyzing' | 'analyzed' | 'analyze_error';
 // type ReportImageURL = string | undefined;
