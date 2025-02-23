@@ -10,7 +10,7 @@ module.exports = {
       host: '139.196.178.129',
       ref: 'origin/main',
       repo: 'https://github.com/remyhuang03/sja-v3',
-      path: '/home/site',
+      path: '/root',
       'pre-deploy-local': '',
       'post-deploy': 'source ~/.nvm/nvm.sh && npm install && npm run build && pm2 reload ecosystem.config.js --env production',
       'pre-setup': '',
