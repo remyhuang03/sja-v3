@@ -6,7 +6,7 @@ module.exports = {
   deploy: {
     production: {
       key: 'key.pem',
-      user: 'site',
+      user: 'root',
       host: '139.196.178.129',
       ref: 'origin/main',
       repo: 'https://github.com/remyhuang03/sja-v3',
