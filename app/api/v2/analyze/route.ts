@@ -69,7 +69,7 @@ export async function POST(req: NextRequest) {
 
     // exec python analyze script
     const scriptPath = absPath("/app/api/v2/analyze/analyze.py");
-    const dest_dir = absPath(`/data/var/reports`);
+    const dest_dir = absPath(`/data/var/reports/analyze`);
 
     console.log("done1");
 
