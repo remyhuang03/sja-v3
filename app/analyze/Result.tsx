@@ -17,7 +17,7 @@ export default function Result({ className }) {
                 return <p>分析出错: {states.errorMsg()}</p>;
                 break;
             case 'analyzed':
-                return <img src={`${states.reportUrl()}`} />
+                return <img src={`${states.reportUrl()}`} alt=""/>
             default:
                 break;
         }
