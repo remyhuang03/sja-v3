@@ -34,7 +34,17 @@ export default function Menu({ className }) {
         fetch('/api/v2/analyze', {
             method: 'POST',
             body: formData
-        }).then(response => response.json())
+        }).then(response => {
+            if (response.status === 413) {
+                throw new Error('您所上传的文件已超出大小限制，请解压作品后直接上传 project.json 文件。');
+            }
+            if (response.status !== 200) {
+                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+            }
+            else
+                return response.json();
+        }
+        )
             .then(data => {
                 if (data.status === 'ok') {
                     states.setReportUrl(data.token);

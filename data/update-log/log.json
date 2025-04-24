@@ -1,5 +1,19 @@
 [
     {
+        "version": "3.5.1-beta",
+        "date": "2025-04-24",
+        "update": [
+            [
+                "fixed",
+                "修复作品展示位未动态加载的问题"
+            ],
+            [
+                "improved",
+                "优化 header 和 footer 在移动端的显示"
+            ]
+        ]
+    },
+    {
         "version": "3.5.0-beta",
         "date": "2025-02-24",
         "update": [
@@ -46,9 +60,9 @@
         ]
     },
     {
-        "version":"3.4.5-beta",
-        "date":"2024-11-30",
-        "update":[
+        "version": "3.4.5-beta",
+        "date": "2024-11-30",
+        "update": [
             [
                 "fixed",
                 "错别字修正 - 感谢数学君！"

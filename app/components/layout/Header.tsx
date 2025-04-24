@@ -11,19 +11,19 @@ export default function Header() {
             href: '/analyze',
         },
         {
+            name: '抄袭对比器(未开放)',
+            href: '/compare',
+        },
+        {
             name: '航站楼',
             href: '/nav',
         },
-        // {
-        //     name: '抄袭对比器',
-        //     href: '/compare/index.php
-        // },
     ];
 
     return (
         <header className={`${style.header} z-100 sticky top-0 flex justify-start items-center px-3 py-3`}>
             {/* Logo */}
-            <h1 className={`${logoFont.style} mr-7`}>
+            <h1 className={`${logoFont.style} mr-7 hidden sm:block`}>
                 <Link href="/">
                     <Image width={98} height={19} src='/meta/white-banner-title.svg' alt='SJA Plus' />
                 </Link>

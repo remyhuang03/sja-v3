@@ -34,7 +34,7 @@
 
 .analyzeBtn {
     background-image: url(/homepage/analyze-logo.svg);
-    background-color: rgba(161, 78, 255, 0.3);
+    background-color: rgba(161, 78, 255, 0.4);
 }
 
 .analyzeBtn:hover {
@@ -45,7 +45,7 @@
 
 .navBtn {
     background-image: url(/homepage/nav-logo.svg);
-    background-color: rgba(255, 93, 67, 0.3);
+    background-color: rgba(255, 93, 67, 0.4);
 }
 
 .navBtn:hover {
@@ -56,7 +56,6 @@
 
 .statBtn {
     background-image: url(/homepage/stat-logo.svg);
-    background-color: rgba(61, 131, 255, 0.3);
 }
 
 .statBtn:hover {
@@ -79,6 +78,11 @@
 
 .cmprBtn {
     background-image: url(/homepage/cmpr-logo.svg);
-    cursor: not-allowed;
-    pointer-events: none;
+    background-color: rgba(61, 131, 255, 0.3);
+}
+
+.cmprBtn:hover {
+    background-color: rgba(61, 131, 255, 0.5);
+    border: rgb(61, 131, 255) 5px solid;
+    box-shadow: rgb(61, 131, 255) 0 0 10px;
 }

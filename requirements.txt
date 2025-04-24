@@ -1,0 +1,5 @@
+lxml
+numpy>=1.7
+editdist
+zss
+argparse

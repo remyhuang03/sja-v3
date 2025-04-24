@@ -9,7 +9,7 @@ export default function Home() {
         <NewsBoard />
       </div>
 
-      <div className="flex-[3] min-w-[300px] m-4 sm:m-0 sm:mr-2 sm:mt-6 text-2xl">
+      <div className="flex-[3] min-w-[300px] m-4 mt-2 sm:m-0 sm:mr-2 sm:mt-6 text-2xl">
         <HomeIcons />
       </div>
     </div>

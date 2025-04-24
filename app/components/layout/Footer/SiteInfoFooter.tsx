@@ -13,7 +13,7 @@ export default function SiteInfoFooter() {
             Copyright &copy; 孤言（Remy Huang）. All rights reserved.
         </div>
 
-        <div className="flex justify-center gap-8 my-2">
+        <div className="flex justify-center gap-x-8 gap-y-2 my-2 flex-wrap">
             <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32050502001212" className="flex justify-center gap-2">
                 <Image width={20} height={20} src="/footer/beian_ico.png" alt="" />
                 <span className="sm-link-text">苏公网安备 32050502001212号</span>
