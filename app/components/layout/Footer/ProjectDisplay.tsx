@@ -1,9 +1,10 @@
+import dynamic from "next/dynamic";
 import Board from "../../ui/Board";
 import Link from "next/link";
 
-import ProjectList from "./ProjectDisplay/ProjectList";
+const ProjectList = dynamic(() => import("./ProjectDisplay/ProjectList"));
 
-export default async function ProjectDisplay() {
+export default function ProjectDisplay() {
     return (<section>
         <Board>
             {/* Header */}
@@ -21,7 +22,7 @@ export default async function ProjectDisplay() {
 
             {/* Projects */}
             <ProjectList />
-           
+
         </Board>
     </section >);
 } 
