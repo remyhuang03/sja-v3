@@ -21,11 +21,15 @@ export async function POST(req: NextRequest) {
     }
 
     // create sub upload dir for this task
-    const token =
-      new Date().getTime().toString() +
-      Math.floor(Math.random() * 10000).toString();
-    const targetDir = Path.join(uploadDir, "/analyze_" + token);
-    fs.mkdirSync(targetDir, { mode: 0o755 });
+    const cmpFileDir = Path.join(
+      uploadDir,
+      "/compare_" +
+        new Date().getTime().toString() +
+        "_" +
+        Math.floor(Math.random() * 10000).toString(),
+    );
+
+    fs.mkdirSync(cmpFileDir, { mode: 0o755 });
 
     ////// file validation //////
     const file = formData.get("file") as File;

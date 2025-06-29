@@ -14,7 +14,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "showdown": "^2.1.0",
-    "xmldom": "^0.6.0"
+    "xmldom": "^0.7.7"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
