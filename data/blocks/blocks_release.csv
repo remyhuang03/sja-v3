@@ -714,3 +714,13 @@ advancedControls_whenProjectStopped,ccw,top
 advancedControls_beforeWindowClosed,ccw,top
 lmscomments_commentHat,ccw,top
 witCat.dollyPro_receiveMyBroadcast,ccw,top-arg
+kukemcWebhooks_webHookRequestCompleted,ccw,top-arg
+WitCatGameVoice_addRoom,ccw,top
+WitCatGameVoice_disconectRoom,ccw,top
+WitCatGameVoice_participantChanges,ccw,top-arg
+WitCatGameVoice_speakerChanges,ccw,top-arg
+qxsckvarandlist_forEach,ccw,cmouth
+qxsckvarandlist_forEachList,ccw,cmouth
+advancedControls_whenProjectPaused,ccw,top
+Cappu.panel_whenPropertyChange,ccw,top-arg
+Cappu.panel_whenButtonClicked,ccw,top-arg

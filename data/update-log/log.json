@@ -1,4 +1,14 @@
 [
+     {
+        "version": "3.5.2-beta",
+        "date": "2025-07-26",
+        "update": [
+            [
+                "improved",
+                "CCW 新拓展数据更新 [analyze-7.3.3]"
+            ]
+        ]
+    },
     {
         "version": "3.5.1-beta",
         "date": "2025-04-24",

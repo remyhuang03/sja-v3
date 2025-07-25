@@ -93,7 +93,7 @@ WitCatBBcode,BBcode,d1648b,display
 WitCatIndexedDB,本地存储,1b86a1,interact
 KYSTEAM.BlockStyle,积木样式,2e3644,display
 layerManager,图层,9a4bb3,display
-qxsckvarandlist,高级数据,ed6b00,operation
+qxsckvarandlist,变量列表,ed6b00,operation
 DilemmaGX.3dm,3D,00b080,art
 advancedControls,高级控制,ffb403,control
 qxsckeasystruct,结构体,0e7bed,operation
@@ -108,3 +108,23 @@ shikiScopeVar,局部变量,9999ff,operation
 Animator,动画,023020,display
 qxsckdataanalysis,统计,ff9494,operation
 sipc.ink.CloudMusic,云音乐,4d4d4f,art
+rxfs,rxFS,192d50,control
+cocreaFetch,cocreaFetch,fdf304,interact
+wtkzq.complex_j,复数,565656,operation
+kukemcWebhooks,WebHook,1300ca,interact
+betterquake,Quake+,6645f6,art
+WitCatGameVoice,游戏语音,66c275,interact
+WitCatZip,压缩文件,97b1be,control
+Project0832,项目,0fbd8c,operation
+xeltallivclipblend,裁剪混合,9966ff,display
+stretch,角色拉伸,4287f5,display
+nonameawacomparisons,高级比较,00a889,operation
+WitCatMarkDowns,Markdown,1c7321,display
+WitCatGamePad,游戏手柄,70a1ff,interact
+KukeMCI18n,I18n,13003a,display
+WitCatSensoryControl,体感控制,fcb103,interact
+moreSensing,更多侦测,57bae5,interact
+qxsckmatrix,矩阵,6caa04,operation
+sipc.ink.Recording,录音,696969,interact
+DilemmaGX,  三  ,00b080,operation
+Cappu.panel,面板,56b98f,control
