@@ -1,5 +1,10 @@
 .radioBtn {
-  margin: 0.3em;
-  width: 1em;
-  height: 1em;
+  margin: 0;
+  width: 1.1em;
+  height: 1.1em;
+  accent-color: #3b82f6;
+}
+
+.radioBtn:checked {
+  transform: scale(1.05);
 }

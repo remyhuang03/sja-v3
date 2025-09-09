@@ -1,13 +1,13 @@
 import type { Metadata,Viewport } from "next";
 
 import "./globals.css";
-import "./homepage.module.css"
+// import "./homepage.module.css"
 
 import Header from "@/app/components/layout/Header";
-import Footer from "@/app/components/layout/Footer";
+import ModernFooter from "@/app/components/layout/ModernFooter";
+import RouteTransition from "@/app/components/RouteTransition";
 
 import { mainFont } from "./fonts/mainFont";
-import { emojiFont } from "./fonts/emojiFont";
 
 export const metadata: Metadata = {
   title: "SJA 分析器",
@@ -33,16 +33,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="zh-Hans" className="dark">
+      <head>
+        <link 
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=optional" 
+        />
+      </head>
 
       {/* <script src="/assets/js/news-list.js" defer></script> */}
 
       <body className={`${mainFont.className}`}>
         <Header />
-        <main>
-          {children}
+        <main className="relative">
+          <RouteTransition>
+            {children}
+          </RouteTransition>
         </main>
-        <Footer />
+        <ModernFooter />
       </body>
     </html>
   );

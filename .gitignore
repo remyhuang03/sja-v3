@@ -19,6 +19,7 @@
 
 # production
 /build
+/dev
 
 # misc
 .DS_Store
@@ -43,9 +44,8 @@ next-env.d.ts
 # server-side generated data
 /data/var
 
-# igonre
-/ignore
 
 __pycache__/
 
-.VSCodeCounter
+/.VSCodeCounter
+/.idea

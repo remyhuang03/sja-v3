@@ -11,6 +11,7 @@ import styles from './Menu.module.css'
 export default function Menu({ className }) {
     const states = useContext(GlobalContext);
     const [files, setFiles] = useState<File>();
+    const [enableClickableReport, setEnableClickableReport] = useState(false);
 
     function submitHandler(e) {
         e.preventDefault();
@@ -60,10 +61,11 @@ export default function Menu({ className }) {
     }
 
     function markdownHandler(e) {
+        e.preventDefault();
         const url = states.reportUrl();
 
         let md = "";
-        if (e.currentTarget.checked)
+        if (enableClickableReport)
             md = `[![](${url})](${url})`;
         else
             md = `[![](${url})](https://sjaplus.top)`;
@@ -96,67 +98,72 @@ export default function Menu({ className }) {
                 </FileUpload>
 
                 {/* <!-- 是否排序单选按钮 --> */}
-                <fieldset className="flex flex-wrap my-1 items-center">
-                    <Image src='/ui/sort.svg' width={24} height={24} className="w-[1em] mr-1" alt="" />
-                    <span className="font-bold">类型排序：</span>
-                    <div>
-                        <span className='mr-5 items-center'>
+                <fieldset className="my-4">
+                    <div className="flex items-center mb-2">
+                        <Image src='/ui/sort.svg' width={24} height={24} className="w-[1em] mr-2" alt="" />
+                        <span className="font-bold">类型排序：</span>
+                    </div>
+                    <div className="flex flex-wrap gap-4 ml-6">
+                        <label className="flex items-center cursor-pointer">
                             <input className={styles.radioBtn} type="radio" name="is_sort" value="1" id='is_sort-1' defaultChecked />
-                            <label htmlFor='is_sort-1'>
-                                降序排序
-                            </label>
-                        </span>
-                        <span>
+                            <span className="ml-1">降序排序</span>
+                        </label>
+                        <label className="flex items-center cursor-pointer">
                             <input className={styles.radioBtn} type="radio" name="is_sort" value="0" id='is_sort-0' />
-                            <label htmlFor='is_sort-0'>
-                                默认
-                            </label>
-                        </span>
+                            <span className="ml-1">默认</span>
+                        </label>
                     </div>
                 </fieldset>
 
                 {/* <!-- 统计图类型 --> */}
-                <fieldset className="flex flex-wrap my-1 items-center">
-                    <Image src='/ui/block.svg' width={24} height={24} className="w-[1em] mr-1" alt="" />
-                    <span className="font-bold">显示占比积木：</span>
-                    <div>
-                        <span className='mr-5'>
+                <fieldset className="my-4">
+                    <div className="flex items-center mb-2">
+                        <Image src='/ui/block.svg' width={24} height={24} className="w-[1em] mr-2" alt="" />
+                        <span className="font-bold">显示占比积木：</span>
+                    </div>
+                    <div className="flex flex-wrap gap-4 ml-6">
+                        <label className="flex items-center cursor-pointer">
                             <input className={styles.radioBtn} type="radio" name="is_high_rank_cate" value="1" id='is_high_rank_cate-1' defaultChecked />
-                            <label htmlFor='is_high_rank_cate-1'>
-                                排名前12的积木
-                            </label>
-                        </span>
-                        <span>
+                            <span className="ml-1">排名前12的积木</span>
+                        </label>
+                        <label className="flex items-center cursor-pointer">
                             <input className={styles.radioBtn} type="radio" name="is_high_rank_cate" value="0" id='is_high_rank_cate-0' />
-                            <label htmlFor='is_high_rank_cate-0'>
-                                经典类型
-                            </label>
-                        </span>
+                            <span className="ml-1">经典类型</span>
+                        </label>
                     </div>
                 </fieldset>
 
                 {/* <!-- 开始分析按钮 --> */}
-                <BigButton icon="/ui/start.svg" text="开始分析" className="w-full" />
+                <div className="mt-6">
+                    <BigButton icon="/ui/start.svg" text="开始分析" className="w-full" />
+                </div>
             </form>
 
-
             {/* <!-- 分析结果菜单（复制MD、下载报告图） --> */}
-            {/* {status === 'analyzed' && */}
             <hr className="my-6" />
-            <div>
-                <div className="flex items-center">
-                    <input type="checkbox" className={styles.radioBtn} />
-                    为报告图片提供点击放大功能（推荐用于CCW的小简介栏显示）
-                </div>
+            <div className="space-y-4">
+                <label className="flex items-center cursor-pointer gap-2">
+                    <input 
+                        type="checkbox" 
+                        className={`${styles.radioBtn} mr-4`} 
+                        checked={enableClickableReport}
+                        onChange={(e) => setEnableClickableReport(e.target.checked)}
+                    />
+                    <span className="text-sm">为报告图片提供点击放大功能（推荐用于CCW的小简介栏显示）</span>
+                </label>
 
-                <div className="gap-3 flex flex-wrap">
-                    <BigButton icon='/ui/markdown.svg' text="复制Markdown" onClick={markdownHandler} />
-                    <a href='$url' download='SJA分析报告.svg' className="flex-1">
-                        <BigButton icon='/ui/download.svg' text="下载报告图" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <BigButton icon='/ui/markdown.svg' text="复制Markdown" onClick={markdownHandler} className="w-full" />
+                    <a 
+                        href='$url' 
+                        download='SJA分析报告.svg' 
+                        className="px-3 cursor-pointer bg-[#333] hover:bg-[#373737] rounded-lg text-xl font-bold flex gap-2 justify-center items-center py-3 mt-2 transition-colors duration-200 w-full text-white no-underline"
+                    >
+                        <Image src='/ui/download.svg' height={38} width={28} alt="" className="h-[1em]" />
+                        <span>下载报告图</span>
                     </a>
                 </div>
             </div>
-            {/* } */}
 
         </Board >
     </div >

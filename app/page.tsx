@@ -1,16 +1,19 @@
-
-import NewsBoard from "./components/news/NewsBoard";
-import HomeIcons from "./HomeIcons";
+import ModernNewsBoard from "./components/news/ModernNewsBoard";
+import HomeIcons from "./components/HomeIcons";
 
 export default function Home() {
   return (
-    <div className="flex flex-wrap sm:flex-nowrap gap-2">
-      <div className="flex-[2] min-w-[300px]">
-        <NewsBoard />
-      </div>
+    <div className="container mx-auto px-4 py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* News Board */}
+        <div className="lg:col-span-1">
+          <ModernNewsBoard />
+        </div>
 
-      <div className="flex-[3] min-w-[300px] m-4 mt-2 sm:m-0 sm:mr-2 sm:mt-6 text-2xl">
-        <HomeIcons />
+        {/* Tool Icons */}
+        <div className="lg:col-span-2">
+          <HomeIcons />
+        </div>
       </div>
     </div>
   );

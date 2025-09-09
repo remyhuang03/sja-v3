@@ -11,11 +11,11 @@ export default function ProjectDisplay() {
             <div className="flex justify-between">
                 <h2>🐱 作品展位</h2>
                 <div className="flex gap-3">
-                    <Link href="https://www.wenjuan.com/s/UZBZJvZihe/" className="sm-link-text" target="_blank">
-                        资格申请
+                    <Link href="/project-display-apply" className="sm-link-text">
+                        申请展位
                     </Link>
-                    <Link href="/news?a=display-review" className="sm-link-text" target="_blank">
-                        申请进度
+                    <Link href="/project-display-review" className="sm-link-text">
+                        审核管理
                     </Link>
                 </div>
             </div>

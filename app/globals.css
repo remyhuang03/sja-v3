@@ -2,20 +2,105 @@
 @tailwind components;
 @tailwind utilities;
 
+/* React Image Crop styles */
+@import 'react-image-crop/dist/ReactCrop.css';
+
 @layer base {
-  body {
-    @apply text-gray-50 bg-gray-950;
+  * {
+    @apply border-border;
   }
-  h1{
+  
+  body {
+    @apply bg-background text-foreground;
+  }
+  
+  h1 {
     @apply text-lg font-bold;
   }
-  h2,h3,h4,h5,h6{
+  
+  h2, h3, h4, h5, h6 {
     @apply font-bold;
+  }
+  
+  :root {
+    /* Balanced Gray Dark theme with Purple accents */
+    --background: 220 14% 11%;
+    --foreground: 220 10% 95%;
+    --card: 220 12% 16%;
+    --card-foreground: 220 10% 95%;
+    --popover: 220 12% 16%;
+    --popover-foreground: 220 10% 95%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 220 12% 20%;
+    --secondary-foreground: 220 10% 75%;
+    --muted: 220 12% 20%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 220 12% 20%;
+    --accent-foreground: 220 10% 75%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 12% 22%;
+    --input: 220 12% 20%;
+    --ring: 262 83% 58%;
+    --chart-1: 262 83% 58%;
+    --chart-2: 280 100% 70%;
+    --chart-3: 240 100% 75%;
+    --chart-4: 300 76% 66%;
+    --chart-5: 270 87% 67%;
+    --radius: 0.5rem;
   }
 }
 
 @layer components {
   .sm-link-text {
-    @apply text-sm text-gray-300 hover:text-violet-300;
+    @apply text-sm text-muted-foreground hover:text-primary;
+  }
+  
+  /* Custom gradients and effects for dark-gray theme */
+  .gradient-purple-bg {
+    @apply bg-gradient-to-br from-purple-900/20 via-slate-800/30 to-blue-900/20;
+  }
+  
+  .glass-card {
+    @apply backdrop-blur-sm bg-card/80 border border-border/60 shadow-lg;
+  }
+  
+  /* Scrollbar styling */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/40 rounded-full;
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/60;
+  }
+  
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Focus ring with purple theme */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
   }
 }
