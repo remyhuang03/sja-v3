@@ -2,70 +2,95 @@
 
 import Image from "next/image";
 import React from "react";
+import { Globe } from "lucide-react";
 
 interface SiteIconProps {
-    src: string;
+    src?: string;
     alt: string;
-    websiteUrl: string; // 用于生成多个favicon URL
+    websiteUrl: string;
 }
 
-// 自动获取网站图标的函数 - 使用中国友好的方式
-const getFaviconUrl = (url: string): string => {
-    try {
-        const domain = new URL(url).hostname;
-        // 优先使用网站的 favicon.ico
-        return `https://${domain}/favicon.ico`;
-    } catch {
-        // 如果URL解析失败，返回一个默认的占位符
-        return '/favicon.ico';
+const getFaviconUrls = (url: string, providedIcon?: string): string[] => {
+    const urls: string[] = [];
+    
+    // 如果提供了icon，先尝试使用
+    if (providedIcon && providedIcon.trim() !== '') {
+        urls.push(providedIcon);
     }
-};
-
-// 获取多个可能的favicon URL作为备用选项
-const getFaviconUrls = (url: string): string[] => {
+    
     try {
-        const domain = new URL(url).hostname;
-        return [
+        const urlObj = new URL(url);
+        const domain = urlObj.hostname;
+        const origin = urlObj.origin;
+        
+        urls.push(
+            // 标准 favicon 路径
+            `${origin}/favicon.ico`,
+            `${origin}/favicon.png`,
+            `${origin}/favicon.svg`,
             `https://${domain}/favicon.ico`,
             `https://${domain}/favicon.png`,
-            `https://${domain}/apple-touch-icon.png`,
-            `https://${domain}/apple-touch-icon-precomposed.png`,
-        ];
-    } catch {
-        return ['/favicon.ico'];
+            `https://${domain}/favicon.svg`,
+            // Apple Touch 图标
+            `${origin}/apple-touch-icon.png`,
+            `${origin}/apple-touch-icon-precomposed.png`,
+            `${origin}/apple-icon.png`,
+            // 常见的 logo 路径
+            `${origin}/logo.png`,
+            `${origin}/logo.svg`,
+            `${origin}/logo.ico`,
+            // 其他路径
+            `${origin}/static/favicon.ico`,
+            `${origin}/assets/favicon.ico`,
+            `${origin}/images/favicon.ico`,
+            `${origin}/img/favicon.ico`,
+            `${origin}/icon.png`,
+            `${origin}/icon.svg`,
+        );
+    } catch (error) {
+        console.warn('Invalid URL:', url, error);
     }
+    
+    return urls;
 };
 
-// 单独的客户端组件来处理图标
+
 const SiteIcon = ({ src, alt, websiteUrl }: SiteIconProps) => {
-    const [currentSrc, setCurrentSrc] = React.useState(src);
-    const [fallbackIndex, setFallbackIndex] = React.useState(0);
-    const [showIcon, setShowIcon] = React.useState(true);
+    const faviconUrls = React.useMemo(() => getFaviconUrls(websiteUrl, src), [websiteUrl, src]);
+    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [showFallback, setShowFallback] = React.useState(false);
+    const currentSrc = faviconUrls[currentIndex];
 
     const handleError = () => {
-        // 获取所有可能的favicon URL
-        const fallbackUrls = getFaviconUrls(websiteUrl);
-
-        if (fallbackIndex < fallbackUrls.length - 1) {
-            // 尝试下一个备用URL
-            setCurrentSrc(fallbackUrls[fallbackIndex + 1]);
-            setFallbackIndex(fallbackIndex + 1);
+        // 尝试备用URL
+        if (currentIndex < faviconUrls.length - 1) {
+            setCurrentIndex(prev => prev + 1);
         } else {
-            // 所有URL都失败了，隐藏图标
-            setShowIcon(false);
+            setShowFallback(true);
         }
     };
 
-    if (!showIcon) return null;
+    if (showFallback) {
+        return (
+            <div className="w-4 h-4 flex items-center justify-center bg-muted rounded-sm flex-shrink-0">
+                <Globe className="w-3 h-3 text-muted-foreground" />
+            </div>
+        );
+    }
 
     return (
-        <Image
-            src={currentSrc}
-            alt={alt}
-            width={16}
-            height={16}
-            className="flex-shrink-0 rounded-sm"
-            onError={handleError}
-        />
+        <div className="w-4 h-4 flex items-center justify-center flex-shrink-0">
+            <Image
+                src={currentSrc}
+                alt={alt}
+                width={16}
+                height={16}
+                className="rounded-sm object-contain"
+                onError={handleError}
+                unoptimized // 允许外部图片
+            />
+        </div>
     );
-};export default SiteIcon;
+};
+
+export default SiteIcon;

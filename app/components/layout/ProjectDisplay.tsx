@@ -14,7 +14,7 @@ interface Project {
   brief: string
 }
 
-export default function ModernProjectDisplay() {
+export default function ProjectDisplay() {
   const [projects, setProjects] = useState<Project[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
@@ -52,9 +52,6 @@ export default function ModernProjectDisplay() {
           <div className="flex gap-3">
             <Link href="/project-display-apply" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
               申请展位
-            </Link>
-            <Link href="/project-display-review" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              审核管理
             </Link>
           </div>
         </div>

@@ -2,7 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Upload } from "lucide-react";
-import ModernNavSection from "./ModernNavSection";
+import ModernNavSection from "./NavSection";
 import fs from "fs";
 import path from "path";
 

@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import ModernNewsItem from "./ModernNewsItem";
+import ModernNewsItem from "./NewsItem";
 
 import fs from 'fs'
 import path from 'path'

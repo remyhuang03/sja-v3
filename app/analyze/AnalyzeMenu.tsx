@@ -2,10 +2,10 @@ import { useState, useContext } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
-import { Upload, Settings, Download, Copy, FileText } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Upload, Settings, Download, Copy, FileText, Hash } from "lucide-react";
 import { GlobalContext } from "./context";
 import FileUploadZone from "./FileUploadZone";
 
@@ -39,7 +39,7 @@ export default function ModernAnalyzeMenu() {
             body: formData
         }).then(response => {
             if (response.status === 413) {
-                throw new Error('您所上传的文件已超出大小限制，请解压作品后直接上传 project.json 文件。');
+                throw new Error('您所上传的文件已超出大小限制，请尝试解压作品后直接上传 project.json 文件。');
             }
             if (response.status !== 200) {
                 throw new Error(`HTTP ${response.status}: ${response.statusText}`);
@@ -94,7 +94,7 @@ export default function ModernAnalyzeMenu() {
                         <FileUploadZone
                             onFileChange={setFiles}
                             currentFile={files?.[0] || null}
-                            accept=".sb3,.sb2,.json,.cc3,application/json,application/octet-stream"
+                            accept=".sb3,.json,.cc3,application/json,application/octet-stream"
                             maxSize={50}
                         />
                     </div>
@@ -102,38 +102,39 @@ export default function ModernAnalyzeMenu() {
                     <Separator />
 
                     {/* 排序设置 */}
-                    <div className="space-y-3">
-                        <Label className="flex items-center gap-2">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                        <Label className="flex items-center gap-2 sm:min-w-[100px]">
                             <Settings className="h-4 w-4" />
                             类型排序
                         </Label>
-                        <RadioGroup value={sortOrder} onValueChange={setSortOrder}>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="desc" id="sort-desc" />
-                                <Label htmlFor="sort-desc">降序排序</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="default" id="sort-default" />
-                                <Label htmlFor="sort-default">默认</Label>
-                            </div>
-                        </RadioGroup>
+                        <Select value={sortOrder} onValueChange={setSortOrder}>
+                            <SelectTrigger className="sm:flex-1">
+                                <SelectValue placeholder="选择排序方式" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="desc">降序排序</SelectItem>
+                                <SelectItem value="default">默认</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
 
                     <Separator />
 
                     {/* 显示积木数 */}
-                    <div className="space-y-3">
-                        <Label>显示积木数</Label>
-                        <RadioGroup value={rankCategory} onValueChange={setRankCategory}>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="top12" id="rank-top12" />
-                                <Label htmlFor="rank-top12">排名前12的积木</Label>
-                            </div>
-                            <div className="flex items-center space-x-2">
-                                <RadioGroupItem value="classic" id="rank-classic" />
-                                <Label htmlFor="rank-classic">经典类型</Label>
-                            </div>
-                        </RadioGroup>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                        <Label className="flex items-center gap-2 sm:min-w-[100px]">
+                            <Hash className="h-4 w-4" />
+                            显示积木数
+                        </Label>
+                        <Select value={rankCategory} onValueChange={setRankCategory}>
+                            <SelectTrigger className="sm:flex-1">
+                                <SelectValue placeholder="选择显示方式" />
+                            </SelectTrigger>
+                            <SelectContent>
+                                <SelectItem value="top12">排名前12的积木</SelectItem>
+                                <SelectItem value="classic">经典类型</SelectItem>
+                            </SelectContent>
+                        </Select>
                     </div>
 
                     <Separator />

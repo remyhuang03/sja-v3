@@ -1,8 +1,8 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import ModernAnalyzeMenu from "./ModernAnalyzeMenu";
-import ModernAnalyzeResult from "./ModernAnalyzeResult";
+import ModernAnalyzeMenu from "./AnalyzeMenu";
+import ModernAnalyzeResult from "./AnalyzeResult";
 import ContextProvider from "./context";
 
 export default function ModernAnalyzePage() {

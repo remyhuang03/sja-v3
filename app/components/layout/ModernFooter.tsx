@@ -1,17 +1,17 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github, Mail, Shield } from "lucide-react";
+import { ExternalLink} from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import ModernProjectDisplay from "./ModernProjectDisplay";
+import ProjectDisplay from "./ProjectDisplay";
 
 export default function ModernFooter() {
     return (
         <footer className="border-t border-border/40 bg-muted/30 mt-auto">
             <div className="container mx-auto px-4 py-8">
                 {/* Project Display Section */}
-                <ModernProjectDisplay />
+                <ProjectDisplay />
 
                 <Separator className="my-8" />
 

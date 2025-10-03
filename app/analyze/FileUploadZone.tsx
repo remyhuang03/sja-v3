@@ -18,7 +18,7 @@ interface FileUploadZoneProps {
 export default function FileUploadZone({
     onFileChange,
     currentFile,
-    accept = ".sb3,.sb2,.json,.cc3,application/json,application/octet-stream",
+    accept = ".sb3,.json,.cc3,application/json,application/octet-stream",
     maxSize = 50,
     className
 }: FileUploadZoneProps) {
@@ -39,8 +39,8 @@ export default function FileUploadZone({
 
         // 检查文件扩展名
         const fileExtension = file.name.split('.').pop()?.toLowerCase();
-        if (!fileExtension || !acceptedFormats.some(format => 
-            format.toLowerCase().includes(fileExtension) || 
+        if (!fileExtension || !acceptedFormats.some(format =>
+            format.toLowerCase().includes(fileExtension) ||
             fileExtension === format.toLowerCase()
         )) {
             setError(`不支持的文件格式，请上传 ${acceptedFormats.join(', ')} 格式的文件`);
@@ -172,13 +172,9 @@ export default function FileUploadZone({
                                         拖拽文件到这里或点击选择文件
                                     </p>
                                     <p className="text-xs text-muted-foreground">
-                                        支持 .sb3, .sb2, .json, .cc3 格式，大小不超过 {maxSize}MB
+                                        支持 .sb3, .json, .cc3 格式，大小不超过 {maxSize}MB
                                     </p>
                                 </div>
-                                <Button variant="outline" className="flex items-center gap-2">
-                                    <Upload className="w-4 h-4" />
-                                    选择文件
-                                </Button>
                             </div>
                         )}
                     </div>
