@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { AlertCircle, Plus, Trash2, Upload, FileText, Link, CheckCircle } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import Board from "@/app/components/ui/Board";
 
 interface ProjectLink {
     id: string;

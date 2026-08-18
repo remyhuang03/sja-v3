@@ -1,9 +1,8 @@
+@import 'react-image-crop/dist/ReactCrop.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* React Image Crop styles */
-@import 'react-image-crop/dist/ReactCrop.css';
 
 @layer base {
   * {

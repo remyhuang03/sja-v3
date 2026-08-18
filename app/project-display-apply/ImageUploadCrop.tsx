@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Upload, Image as ImageIcon } from "lucide-react";
@@ -9,7 +9,7 @@ interface ImageUploadCropProps {
     aspectRatio?: number;
     cropSize?: { width: number; height: number };
     onImageChange: (file: File | null) => void;
-    currentImage?: string;
+    currentImage?: string | File;
     placeholder?: string;
     maxSize?: number; // MB
 }
@@ -23,7 +23,24 @@ export default function ImageUploadCrop({
     maxSize = 5
 }: ImageUploadCropProps) {
     const [dragActive, setDragActive] = useState(false);
+    const [previewUrl, setPreviewUrl] = useState<string>();
     const fileInputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {
+        if (!currentImage) {
+            setPreviewUrl(undefined);
+            return;
+        }
+
+        if (typeof currentImage === 'string') {
+            setPreviewUrl(currentImage);
+            return;
+        }
+
+        const url = URL.createObjectURL(currentImage);
+        setPreviewUrl(url);
+        return () => URL.revokeObjectURL(url);
+    }, [currentImage]);
 
     const handleFiles = (files: FileList | null) => {
         if (!files || files.length === 0) return;
@@ -77,7 +94,7 @@ export default function ImageUploadCrop({
                     className={`
                         border-2 border-dashed rounded-lg p-6 text-center cursor-pointer transition-all
                         ${dragActive ? 'border-purple-400 bg-purple-50' : 'border-gray-300 hover:border-purple-400'}
-                        ${currentImage ? 'min-h-[200px]' : 'min-h-[150px]'}
+                        ${previewUrl ? 'min-h-[200px]' : 'min-h-[150px]'}
                     `}
                     onDragEnter={handleDrag}
                     onDragLeave={handleDrag}
@@ -93,11 +110,11 @@ export default function ImageUploadCrop({
                         className="hidden"
                     />
 
-                    {currentImage ? (
+                    {previewUrl ? (
                         <div className="space-y-4">
                             <div className="relative inline-block">
                                 <img
-                                    src={currentImage}
+                                    src={previewUrl}
                                     alt="预览"
                                     className="max-w-full max-h-48 object-contain rounded"
                                     style={{
