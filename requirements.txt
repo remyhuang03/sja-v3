@@ -1,5 +1,2 @@
-lxml
-numpy>=1.7
-editdist
-zss
-argparse
+lxml>=6.1.1
+zss>=1.2.0

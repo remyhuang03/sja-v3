@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
     }
 
     const fileExt = Path.extname(file.name).toLowerCase().substring(1);
-    const targetFilePath = Path.join(targetDir, "tmp." + fileExt);
+    const targetFilePath = Path.join(cmpFileDir, "tmp." + fileExt);
 
     // invalid file format
     if (!["sb3", "cc3", "json"].includes(fileExt)) {

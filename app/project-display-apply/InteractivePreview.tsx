@@ -258,7 +258,6 @@ export default function InteractivePreview({ formData, setFormData }: Interactiv
                             }}
                             currentImage={avatarUrl || undefined}
                             placeholder="选择头像图片"
-                            label=""
                         />
                         <div className="flex gap-3 mt-6">
                             <button 
@@ -290,7 +289,6 @@ export default function InteractivePreview({ formData, setFormData }: Interactiv
                             }}
                             currentImage={coverUrl || undefined}
                             placeholder="选择封面图片"
-                            label=""
                         />
                         <div className="flex gap-3 mt-6">
                             <button 
