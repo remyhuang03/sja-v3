@@ -19,7 +19,7 @@ export default function FileUploadZone({
     onFileChange,
     currentFile,
     accept = ".sb3,.json,.cc3,application/json,application/octet-stream",
-    maxSize = 50,
+    maxSize = 48,
     className
 }: FileUploadZoneProps) {
     const [dragActive, setDragActive] = useState(false);

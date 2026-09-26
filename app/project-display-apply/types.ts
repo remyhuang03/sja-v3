@@ -1,6 +1,6 @@
 /**
  * Unified types for Project Display Apply interactive card.
- * API Endpoint: https://api.sjaplus.top/project-apply
+ * API Endpoint: /api/v2/project-display-apply
  * API Documentation: /docs/api-project-apply.md
  */
 export interface ProjectLinkItem {
@@ -38,7 +38,7 @@ export interface BackendSubmissionDraft {
 }
 
 /**
- * Build FormData payload for submission to https://api.sjaplus.top/project-apply
+ * Build FormData payload for submission to /api/v2/project-display-apply
  * 
  * FormData structure:
  * - meta: JSON string containing project metadata
@@ -92,9 +92,11 @@ export function getValidationErrors(state: ShowcaseCardState): string[] {
   if (!state.projectBrief) errors.push('请填写作品简介');
   if (state.projectBrief && state.projectBrief.length > 20) errors.push('作品简介不能超过20字');
   if (!state.coverFile) errors.push('请上传封面图片');
+  if (state.coverFile && state.coverFile.size > 5 * 1024 * 1024) errors.push('封面图片不得超过 5 MiB');
   if (!state.avatarFile) errors.push('请上传头像图片');
+  if (state.avatarFile && state.avatarFile.size > 2 * 1024 * 1024) errors.push('头像图片不得超过 2 MiB');
   if (state.links.length === 0) errors.push('请至少添加一个作品链接');
-  if (!state.defaultLinkId) errors.push('请设置默认作品链接');
+  if (!state.links.some(link => link.id === state.defaultLinkId)) errors.push('请设置默认作品链接');
   if (!state.agreedNotice) errors.push('请阅读并同意申请须知');
   if (!state.confirmedAuthor) errors.push('请确认已获得作者授权');
   if (!state.confirmedContent) errors.push('请确认作品内容健康');

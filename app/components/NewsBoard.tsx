@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import ModernNewsItem from "./NewsItem";
 
 import fs from 'fs'
@@ -19,9 +18,6 @@ export default function ModernNewsBoard() {
             <CardHeader className="pb-3">
                 <CardTitle className="flex items-center gap-2">
                     <span className="text-xl font-bold">最新动态</span>
-                    <Badge variant="secondary" className="text-xs">
-                        {newsList.length} 条消息
-                    </Badge>
                 </CardTitle>
             </CardHeader>
             <CardContent className="space-y-0">

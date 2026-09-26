@@ -25,7 +25,7 @@ export default function ModernFooter() {
                         </h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
                             SJA Plus 是一个专为 Scratch 社区打造的服务平台，
-                            提供作品分析、抄袭检测、资源导航等多样化功能。
+                            提供作品分析、相似度对比、资源导航等多样化功能。
                         </p>
                     </div>
 
@@ -84,21 +84,8 @@ export default function ModernFooter() {
 
                 {/* Copyright */}
                 <div className="text-center text-xs">
-                    <div className="mb-3 flex items-center gap-3 md:gap-6 justify-center flex-wrap">
-                        <div>
-                            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32050502001212" className="flex justify-center gap-2">
-                                <Image width={16} height={16} src="/footer/beian_ico.png" alt="" />
-                                <span>苏公网安备 32050502001212号</span>
-                            </a>
-                        </div>
-                        <div>
-                            <a href="https://beian.miit.gov.cn/" target="_blank">
-                                <span>苏ICP备2023024793号-1</span>
-                            </a>
-                        </div>
-                    </div>
                     <p>
-                        Copyright &copy; 2024-2025 SJA Plus. Made with ❤️ for the Scratch community.
+                        Copyright &copy; 2024–2026 SJA Plus. Made with ❤️ for the Scratch community.
                     </p>
                 </div>
             </div>

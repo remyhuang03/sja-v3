@@ -49,3 +49,4 @@ __pycache__/
 
 /.VSCodeCounter
 /.idea
+!.env.example

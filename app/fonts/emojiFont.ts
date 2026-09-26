@@ -1,3 +1,2 @@
-import { Noto_Color_Emoji } from "next/font/google";
-
-export const emojiFont = Noto_Color_Emoji({ weight: "400",subsets:["emoji"] });
+// Use local system fonts so builds do not depend on Google Fonts.
+export const emojiFont = { className: "font-sans" };

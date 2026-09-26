@@ -1,25 +1,11 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: '**',
-      },
-      {
-        protocol: 'http',
-        hostname: '**',
-      },
-    ],
-  },
+import type { NextConfig } from "next";
+
+const backend = process.env.API_INTERNAL_URL || "http://127.0.0.1:8080";
+const nextConfig: NextConfig = {
+  output: "standalone",
+  poweredByHeader: false,
   async rewrites() {
-    return [
-      {
-        source: '/api/:path*.php', // 捕获所有 /api/*.php 的请求
-        destination: '/api/:path*', // 去掉 .php 后映射到 Next.js 的 API 路由
-      },
-    ];
+    return [{ source: "/api/:path*", destination: `${backend}/api/:path*` }];
   },
 };
-
 export default nextConfig;

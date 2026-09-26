@@ -1,17 +1,18 @@
 import Path from 'path';
 
-import readFile from '../util/readFile';
+import { readFile } from 'node:fs/promises';
+import { notFound } from 'next/navigation';
 import Markdown from '../components/layout/Markdown';
 import NotFound from '../not-found';
 
-export default function Page({ searchParams }) {
-    const articleName = searchParams['a'];
+export default async function Page({ searchParams }: { searchParams: Promise<{ a?: string }> }) {
+    const articleName = (await searchParams).a;
     const validPattern = /^[a-zA-Z0-9-]+$/;
 
     if (!validPattern.test(articleName) || !articleName)
         return (<NotFound />);
 
-    const MarkdownFile = readFile(Path.join("data/news/md-articles", articleName + '.md'))
+    const MarkdownFile = await readFile(Path.join(process.cwd(), "data/news/md-articles", articleName + '.md'), 'utf8').catch(() => null);
 
     if (!MarkdownFile)
         return (<NotFound />);

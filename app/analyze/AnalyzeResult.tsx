@@ -110,6 +110,7 @@ export default function ModernAnalyzeResult() {
                         
                         <div className="rounded-lg border bg-card overflow-hidden">
                             <Image 
+                                unoptimized
                                 src={reportUrl} 
                                 alt="分析报告" 
                                 width={800}

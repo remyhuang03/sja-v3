@@ -77,11 +77,11 @@ export default function HomeIcons() {
       variant: "analyze" as const
     },
     {
-      title: "抄袭对比器",
+      title: "作品相似度对比",
       href: "/compare",
       icon: "/homepage/cmpr-logo.svg",
-      description: "对比作品相似度，检测抄袭行为",
-      disabled: true,
+      description: "比较积木类型与连接关系",
+      disabled: false,
       variant: "compare" as const
     },
     // {

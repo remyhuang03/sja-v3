@@ -11,6 +11,8 @@ interface Project {
   author: string
   author_link: string
   project_link: string
+  cover_image_path: string
+  avatar_image_path: string
   brief: string
 }
 
@@ -79,6 +81,8 @@ export default function ProjectDisplay() {
           <div className="text-center py-4 text-muted-foreground">
             <p>无法加载作品列表</p>
           </div>
+        ) : projects.length === 0 ? (
+          <p className="py-4 text-sm text-muted-foreground">还没有展示作品，欢迎申请展位。</p>
         ) : (
   <div className="flex gap-4 overflow-x-auto py-4 custom-scrollbar snap-x snap-mandatory">
             {projects.map((project) => (
@@ -92,7 +96,7 @@ export default function ProjectDisplay() {
                     <Image
                       width={36}
                       height={36}
-                      src={`/project-display/avatar/${project.id}.png`}
+                      src={project.avatar_image_path}
                       className="w-9 h-9 rounded-full ring-2 ring-primary/30 object-cover"
                       alt={project.author}
                       onError={(e) => {
@@ -122,7 +126,7 @@ export default function ProjectDisplay() {
                       width={224}
             height={168}
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05] group-hover:rotate-[0.3deg]"
-                      src={`/project-display/poster/${project.id}.png`}
+                      src={project.cover_image_path}
                       alt={project.name}
                       onError={(e) => {
                         const target = e.target as HTMLImageElement

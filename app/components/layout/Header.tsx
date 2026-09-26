@@ -17,9 +17,9 @@ export default function Header() {
       href: '/analyze',
     },
     {
-      name: '抄袭对比器',
+      name: '相似度对比',
       href: '/compare',
-      disabled: true,
+      disabled: false,
     },
     // {
     //   name: '作品展示',
@@ -42,7 +42,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 max-w-screen-2xl items-center">
         {/* Logo */}
-        <div className={cn("mr-6 flex items-center space-x-2", logoFont.className)}>
+        <div className={cn("mr-3 sm:mr-6 flex items-center space-x-2", logoFont.className)}>
           <Link href="/" className="flex items-center space-x-2">
             <Image 
               width={98} 
@@ -95,7 +95,9 @@ export default function Header() {
 
         {/* Mobile Navigation Button */}
         <div className="flex flex-1 items-center justify-end md:hidden">
-          {/* Mobile menu will be added later if needed */}
+          <nav aria-label="移动导航" className="flex gap-3 text-xs">
+            {navLinks.map(link => <Link key={link.href} href={link.href} className={cn("py-2", isActiveRoute(link.href) && "text-primary")}>{link.name.replace('作品分析器', '分析').replace('相似度对比', '对比')}</Link>)}
+          </nav>
         </div>
       </div>
     </header>

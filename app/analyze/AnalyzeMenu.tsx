@@ -6,6 +6,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload, Settings, Download, Copy, FileText, Hash } from "lucide-react";
+import { requestJSON } from '@/lib/api';
 import { GlobalContext } from "./context";
 import FileUploadZone from "./FileUploadZone";
 
@@ -34,20 +35,12 @@ export default function ModernAnalyzeMenu() {
         formData.append("is_sort", sortOrder);
         formData.append("is_high_rank_cate", rankCategory);
 
-        fetch('/api/v2/analyze', {
+        requestJSON<{ status: string; token: string; msg?: string }>('/api/v2/analyze', {
             method: 'POST',
             body: formData
-        }).then(response => {
-            if (response.status === 413) {
-                throw new Error('您所上传的文件已超出大小限制，请尝试解压作品后直接上传 project.json 文件。');
-            }
-            if (response.status !== 200) {
-                throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-            }
-            return response.json();
         }).then(data => {
             if (data.status === 'ok') {
-                states.setReportUrl(data.token);
+                states.setReportUrl(new URL(data.token, window.location.origin).href);
                 states.setStatus('analyzed');
             } else {
                 states.setErrorMsg(data.msg);
@@ -65,7 +58,7 @@ export default function ModernAnalyzeMenu() {
         if (enableClickableReport) {
             md = `[![](${url})](${url})`;
         } else {
-            md = `[![](${url})](https://sjaplus.top)`;
+            md = `[![](${url})](https://sja.remya.top)`;
         }
 
         navigator.clipboard.writeText(md).then(() => {
@@ -95,7 +88,7 @@ export default function ModernAnalyzeMenu() {
                             onFileChange={setFiles}
                             currentFile={files?.[0] || null}
                             accept=".sb3,.json,.cc3,application/json,application/octet-stream"
-                            maxSize={50}
+                            maxSize={48}
                         />
                     </div>
 
@@ -113,7 +106,7 @@ export default function ModernAnalyzeMenu() {
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="desc">降序排序</SelectItem>
-                                <SelectItem value="default">默认</SelectItem>
+                                <SelectItem value="none">默认</SelectItem>
                             </SelectContent>
                         </Select>
                     </div>

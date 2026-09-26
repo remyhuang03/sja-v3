@@ -83,9 +83,6 @@ export default function ModernNavSection({ cate, items }: ModernNavSectionProps)
         <div className="space-y-4">
             <div className="flex items-center gap-3">
                 <h2 className="text-2xl font-bold text-foreground">{cate}</h2>
-                <Badge variant="outline" className="text-sm">
-                    {navItems.length} 个网站
-                </Badge>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4 max-w-7xl mx-auto">

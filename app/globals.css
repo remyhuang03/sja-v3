@@ -1,8 +1,7 @@
 @import 'react-image-crop/dist/ReactCrop.css';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 @layer base {
   * {
@@ -103,3 +102,5 @@
     @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
   }
 }
+
+body { font-family: Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif; }

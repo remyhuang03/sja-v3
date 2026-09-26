@@ -1,3 +1,2 @@
-import { Noto_Sans_SC } from "next/font/google";
-
-export const mainFont = Noto_Sans_SC({ weight: ["400", "700"],subsets:["latin","cyrillic"] });
+// Use local system fonts so builds do not depend on Google Fonts.
+export const mainFont = { className: "font-sans" };

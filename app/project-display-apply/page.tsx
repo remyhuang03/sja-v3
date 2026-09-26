@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -45,6 +45,19 @@ export default function ProjectDisplayApplyPage() {
     const coverInputRef = useRef<HTMLInputElement>(null);
     const avatarInputRef = useRef<HTMLInputElement>(null);
 
+    const [coverPreviewUrl, setCoverPreviewUrl] = useState<string | null>(null);
+    const [avatarPreviewUrl, setAvatarPreviewUrl] = useState<string | null>(null);
+    useEffect(() => {
+        const url = state.coverFile ? URL.createObjectURL(state.coverFile) : null;
+        setCoverPreviewUrl(url);
+        return () => { if (url) URL.revokeObjectURL(url); };
+    }, [state.coverFile]);
+    useEffect(() => {
+        const url = state.avatarFile ? URL.createObjectURL(state.avatarFile) : null;
+        setAvatarPreviewUrl(url);
+        return () => { if (url) URL.revokeObjectURL(url); };
+    }, [state.avatarFile]);
+
     const handleCoverChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
             setState({ ...state, coverFile: e.target.files[0] });
@@ -65,8 +78,8 @@ export default function ProjectDisplayApplyPage() {
             url: newLinkUrl.trim(),
         };
         const newLinks = [...state.links, newLink];
-        setState({ 
-            ...state, 
+        setState({
+            ...state,
             links: newLinks,
             defaultLinkId: newLinks.length === 1 ? newLink.id : state.defaultLinkId
         });
@@ -75,29 +88,29 @@ export default function ProjectDisplayApplyPage() {
 
     const removeLink = (id: string) => {
         const newLinks = state.links.filter(l => l.id !== id);
-        setState({ 
-            ...state, 
+        setState({
+            ...state,
             links: newLinks,
             defaultLinkId: state.defaultLinkId === id ? (newLinks[0]?.id || '') : state.defaultLinkId
         });
     };
 
     const handleSubmit = async () => {
+        if (submitting) return;
         const errors = getValidationErrors(state);
         if (errors.length > 0) {
             alert('请完成以下必填项：\n\n' + errors.map((e, i) => `${i + 1}. ${e}`).join('\n'));
             return;
         }
-        
+
         setSubmitting(true);
         try {
             const fd = buildSubmissionFormData(state);
-            // 提交到外部 API: api.sjaplus.top/project-apply
-            const res = await fetch('https://api.sjaplus.top/project-apply', { 
-                method: 'POST', 
-                body: fd 
+            const res = await fetch('/api/v2/project-display-apply', {
+                method: 'POST',
+                body: fd
             });
-            
+
             if (!res.ok) {
                 // 尝试解析 JSON 错误响应
                 let errorMessage = '提交失败';
@@ -130,8 +143,6 @@ export default function ProjectDisplayApplyPage() {
     };
 
     // 获取预览图片URL
-    const coverPreviewUrl = state.coverFile ? URL.createObjectURL(state.coverFile) : null;
-    const avatarPreviewUrl = state.avatarFile ? URL.createObjectURL(state.avatarFile) : null;
     const getPlatformLabel = (platform: string) => platformOptions.find(p => p.value === platform)?.label || platform;
 
     return (
@@ -419,6 +430,11 @@ export default function ProjectDisplayApplyPage() {
                                             我确认所提交作品为个人原创作品，请作品内容符合法律法规。
                                         </Label>
                                     </div>
+                                </div>
+
+                                <div className="flex items-start gap-2">
+                                    <Checkbox id="confirmedContent" checked={state.confirmedContent} onCheckedChange={checked => setState({ ...state, confirmedContent: !!checked })} />
+                                    <Label htmlFor="confirmedContent">我确认作品内容符合展示要求。</Label>
                                 </div>
 
                                 <Button
