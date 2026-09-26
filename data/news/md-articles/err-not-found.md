@@ -1,2 +1,3 @@
-# 404 NOT FOUND
-找不到您请求的文章/(ㄒoㄒ)/~~
+# 404 Not Found
+
+The requested article could not be found.

@@ -1,118 +1,144 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from "react"
-import { Card, CardContent } from "@/components/ui/card"
-import Link from "next/link"
-import Image from "next/image"
+import { useTranslations } from "next-intl";
+import { useState, useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Project {
-  id: string
-  name: string
-  author: string
-  author_link: string
-  project_link: string
-  cover_image_path: string
-  avatar_image_path: string
-  brief: string
+  id: string;
+  name: string;
+  author: string;
+  author_link: string;
+  project_link: string;
+  cover_image_path: string;
+  avatar_image_path: string;
+  brief: string;
 }
 
 export default function ProjectDisplay() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
+  const t = useTranslations("ui");
+
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-  async function fetchProjects() {
+    async function fetchProjects() {
       try {
-  const response = await fetch('/api/v2/projects-display?n=5', {
+        const response = await fetch("/api/v2/projects-display?n=5", {
           cache: "no-store",
-        })
+        });
         if (response.ok) {
-          const data = await response.json()
-          setProjects(data)
+          const data = await response.json();
+          setProjects(data);
         } else {
-          setError(true)
+          setError(true);
         }
       } catch (err) {
-        setError(true)
+        setError(true);
       } finally {
-        setLoading(false)
+        setLoading(false);
       }
     }
 
-    fetchProjects()
-  }, [])
+    fetchProjects();
+  }, []);
 
   return (
     <Card className="mb-8">
       <CardContent className="p-6">
         {/* Header */}
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-bold flex items-center gap-2 tracking-wide text-foreground">
-            🐱 <span>作品展位</span>
+        <div className="mb-4 flex items-center justify-between">
+          <h2 className="text-foreground flex items-center gap-2 text-xl font-bold tracking-wide">
+            🐱 <span>{t("projectShowcase")}</span>
           </h2>
           <div className="flex gap-3">
-            <Link href="/project-display-apply" target="_blank" rel="noopener noreferrer" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              申请展位
+            <Link
+              href="/project-display-apply"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-primary text-sm transition-colors"
+            >
+              {t("submitAProject")}
             </Link>
           </div>
         </div>
 
         {/* Projects */}
         {loading ? (
-          <div className="flex gap-4 overflow-x-auto py-4 custom-scrollbar snap-x snap-mandatory">
+          <div className="custom-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto py-4">
             {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="snap-start w-56 flex-shrink-0 rounded-xl border border-border/50 bg-card/60 animate-pulse overflow-hidden">
-                <div className="flex p-3 gap-3">
-                  <div className="w-9 h-9 bg-muted-foreground/15 rounded-full" />
+              <div
+                key={i}
+                className="border-border/50 bg-card/60 w-56 flex-shrink-0 animate-pulse snap-start overflow-hidden rounded-xl border"
+              >
+                <div className="flex gap-3 p-3">
+                  <div className="bg-muted-foreground/15 h-9 w-9 rounded-full" />
                   <div className="flex-1 space-y-2">
-                    <div className="h-3 bg-muted-foreground/15 rounded w-4/5" />
-                    <div className="h-2 bg-muted-foreground/15 rounded w-2/3" />
+                    <div className="bg-muted-foreground/15 h-3 w-4/5 rounded" />
+                    <div className="bg-muted-foreground/15 h-2 w-2/3 rounded" />
                   </div>
                 </div>
-                <div className="aspect-[4/3] bg-muted-foreground/10" />
+                <div className="bg-muted-foreground/10 aspect-[4/3]" />
                 <div className="p-3">
-                  <div className="h-2 bg-muted-foreground/15 rounded w-full" />
+                  <div className="bg-muted-foreground/15 h-2 w-full rounded" />
                 </div>
               </div>
             ))}
           </div>
         ) : error ? (
-          <div className="text-center py-4 text-muted-foreground">
-            <p>无法加载作品列表</p>
+          <div className="text-muted-foreground py-4 text-center">
+            <p>{t("couldNotLoadProjects")}</p>
           </div>
         ) : projects.length === 0 ? (
-          <p className="py-4 text-sm text-muted-foreground">还没有展示作品，欢迎申请展位。</p>
+          <p className="text-muted-foreground py-4 text-sm">
+            {t("noProjectsYetBeTheFirstToSubmitYours")}
+          </p>
         ) : (
-  <div className="flex gap-4 overflow-x-auto py-4 custom-scrollbar snap-x snap-mandatory">
+          <div className="custom-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto py-4">
             {projects.map((project) => (
               <div
                 key={project.id}
-        className="group snap-start w-56 flex-shrink-0 rounded-2xl border border-border/60 bg-[hsl(var(--card)_/_85%)] hover:bg-[hsl(var(--card)_/_95%)] transition-colors overflow-hidden shadow-md hover:shadow-primary/20 ring-1 ring-border/40 hover:ring-primary/50 duration-500"
+                className="group border-border/60 hover:shadow-primary/20 ring-border/40 hover:ring-primary/50 w-56 flex-shrink-0 snap-start overflow-hidden rounded-2xl border bg-[hsl(var(--card)_/_85%)] shadow-md ring-1 transition-colors duration-500 hover:bg-[hsl(var(--card)_/_95%)]"
               >
                 {/* Author and Project Info */}
-        <div className="flex p-3 pb-2 gap-3 items-center">
-                  <Link href={project.author_link} target="_blank" rel="noopener noreferrer" className="flex-shrink-0">
+                <div className="flex items-center gap-3 p-3 pb-2">
+                  <Link
+                    href={project.author_link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-shrink-0"
+                  >
                     <Image
                       width={36}
                       height={36}
                       src={project.avatar_image_path}
-                      className="w-9 h-9 rounded-full ring-2 ring-primary/30 object-cover"
+                      className="ring-primary/30 h-9 w-9 rounded-full object-cover ring-2"
                       alt={project.author}
                       onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.style.display = 'none'
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = "none";
                       }}
                     />
                   </Link>
-                  <div className="flex-1 min-w-0">
-                    <Link href={project.project_link} target="_blank" rel="noopener noreferrer">
-          <h3 className="text-sm font-semibold text-white group-hover:text-primary line-clamp-1 tracking-wide">
+                  <div className="min-w-0 flex-1">
+                    <Link
+                      href={project.project_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <h3 className="group-hover:text-primary line-clamp-1 text-sm font-semibold tracking-wide text-white">
                         {project.name}
                       </h3>
                     </Link>
-                    <Link href={project.author_link} target="_blank" rel="noopener noreferrer">
-          <p className="text-xs text-muted-foreground hover:text-primary/80 truncate leading-tight">
+                    <Link
+                      href={project.author_link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <p className="text-muted-foreground hover:text-primary/80 truncate text-xs leading-tight">
                         {project.author}
                       </p>
                     </Link>
@@ -120,27 +146,31 @@ export default function ProjectDisplay() {
                 </div>
 
                 {/* Project Poster */}
-                <Link href={project.project_link} target="_blank" rel="noopener noreferrer">
-          <div className="aspect-[4/3] relative bg-muted overflow-hidden">
+                <Link
+                  href={project.project_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="bg-muted relative aspect-[4/3] overflow-hidden">
                     <Image
                       width={224}
-            height={168}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.05] group-hover:rotate-[0.3deg]"
+                      height={168}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05] group-hover:rotate-[0.3deg]"
                       src={project.cover_image_path}
                       alt={project.name}
                       onError={(e) => {
-                        const target = e.target as HTMLImageElement
-                        target.style.display = 'none'
+                        const target = e.target as HTMLImageElement;
+                        target.style.display = "none";
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-background/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="from-background/40 via-background/5 absolute inset-0 bg-gradient-to-t to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </div>
                 </Link>
 
                 {/* Brief */}
                 <div className="p-3 pt-2">
-                  <p className="text-[12px] text-muted-foreground line-clamp-2 leading-relaxed min-h-[2.9rem]">
-                    {project.brief || '暂无简介'}
+                  <p className="text-muted-foreground line-clamp-2 min-h-[2.9rem] text-[12px] leading-relaxed">
+                    {project.brief || t("noDescription")}
                   </p>
                 </div>
               </div>
@@ -149,5 +179,5 @@ export default function ProjectDisplay() {
         )}
       </CardContent>
     </Card>
-  )
+  );
 }

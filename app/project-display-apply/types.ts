@@ -4,22 +4,22 @@
  * API Documentation: /docs/api-project-apply.md
  */
 export interface ProjectLinkItem {
-  id: string;           // unique id (uuid or timestamp)
-  platform: string;     // e.g. scratch | 40code | ccw | aerfaying | github | other
-  url: string;          // validated URL
+  id: string; // unique id (uuid or timestamp)
+  platform: string; // e.g. scratch | 40code | ccw | aerfaying | github | other
+  url: string; // validated URL
 }
 
 export interface ShowcaseCardState {
   projectName: string;
   authorName: string;
-  authorLink: string;        // required: author homepage link
-  projectBrief: string;      // required: <= 20 chars
-  links: ProjectLinkItem[];  // at least 1
-  defaultLinkId: string;     // one of links.id
-  coverFile: File | null;    // 4:3 cover image
-  avatarFile: File | null;   // 1:1 avatar image
-  agreedNotice: boolean;     // read notice
-  confirmedAuthor: boolean;  // author rights
+  authorLink: string; // required: author homepage link
+  projectBrief: string; // required: <= 20 chars
+  links: ProjectLinkItem[]; // at least 1
+  defaultLinkId: string; // one of links.id
+  coverFile: File | null; // 4:3 cover image
+  avatarFile: File | null; // 1:1 avatar image
+  agreedNotice: boolean; // read notice
+  confirmedAuthor: boolean; // author rights
   confirmedContent: boolean; // healthy content
 }
 
@@ -32,19 +32,19 @@ export interface BackendPayloadMetaLink {
 export interface BackendSubmissionDraft {
   project_name: string;
   author_name: string;
-  author_link: string;      // required
-  brief: string;            // required
+  author_link: string; // required
+  brief: string; // required
   links: BackendPayloadMetaLink[];
 }
 
 /**
  * Build FormData payload for submission to /api/v2/project-display-apply
- * 
+ *
  * FormData structure:
  * - meta: JSON string containing project metadata
  * - cover: Image file (cover.jpg)
  * - avatar: Image file (avatar.jpg)
- * 
+ *
  * See /docs/api-project-apply.md for complete API documentation
  */
 export function buildSubmissionFormData(state: ShowcaseCardState): FormData {
@@ -54,16 +54,16 @@ export function buildSubmissionFormData(state: ShowcaseCardState): FormData {
     author_name: state.authorName.trim(),
     author_link: state.authorLink.trim(),
     brief: state.projectBrief.trim(),
-    links: state.links.map(l => ({
+    links: state.links.map((l) => ({
       platform: l.platform,
       url: l.url,
       is_default: l.id === state.defaultLinkId || undefined,
     })),
   };
 
-  fd.append('meta', JSON.stringify(draft));
-  if (state.coverFile) fd.append('cover', state.coverFile, 'cover.jpg');
-  if (state.avatarFile) fd.append('avatar', state.avatarFile, 'avatar.jpg');
+  fd.append("meta", JSON.stringify(draft));
+  if (state.coverFile) fd.append("cover", state.coverFile, "cover.jpg");
+  if (state.avatarFile) fd.append("avatar", state.avatarFile, "avatar.jpg");
   return fd;
 }
 
@@ -84,21 +84,31 @@ export function isSubmissionReady(state: ShowcaseCardState): boolean {
   );
 }
 
-export function getValidationErrors(state: ShowcaseCardState): string[] {
+export function getValidationErrors(
+  state: ShowcaseCardState,
+  t: (key: string) => string,
+): string[] {
   const errors: string[] = [];
-  if (!state.projectName) errors.push('请填写作品名称');
-  if (!state.authorName) errors.push('请填写作者名称');
-  if (!state.authorLink) errors.push('请填写作者主页链接');
-  if (!state.projectBrief) errors.push('请填写作品简介');
-  if (state.projectBrief && state.projectBrief.length > 20) errors.push('作品简介不能超过20字');
-  if (!state.coverFile) errors.push('请上传封面图片');
-  if (state.coverFile && state.coverFile.size > 5 * 1024 * 1024) errors.push('封面图片不得超过 5 MiB');
-  if (!state.avatarFile) errors.push('请上传头像图片');
-  if (state.avatarFile && state.avatarFile.size > 2 * 1024 * 1024) errors.push('头像图片不得超过 2 MiB');
-  if (state.links.length === 0) errors.push('请至少添加一个作品链接');
-  if (!state.links.some(link => link.id === state.defaultLinkId)) errors.push('请设置默认作品链接');
-  if (!state.agreedNotice) errors.push('请阅读并同意申请须知');
-  if (!state.confirmedAuthor) errors.push('请确认已获得作者授权');
-  if (!state.confirmedContent) errors.push('请确认作品内容健康');
+  if (!state.projectName) errors.push(t("enterAProjectName2"));
+  if (!state.authorName) errors.push(t("enterAnAuthorName2"));
+  if (!state.authorLink) errors.push(t("enterTheAuthorProfileUrl"));
+  if (!state.projectBrief) errors.push(t("enterAProjectDescription"));
+  if (state.projectBrief && state.projectBrief.length > 20)
+    errors.push(t("theDescriptionMustNotExceed20Characters"));
+  if (!state.coverFile) errors.push(t("uploadACoverImage"));
+  if (state.coverFile && state.coverFile.size > 5 * 1024 * 1024)
+    errors.push(t("theCoverImageMustNotExceed5Mib"));
+  if (!state.avatarFile) errors.push(t("uploadAnAvatar"));
+  if (state.avatarFile && state.avatarFile.size > 2 * 1024 * 1024)
+    errors.push(t("theAvatarMustNotExceed2Mib"));
+  if (state.links.length === 0) errors.push(t("addAtLeastOneProjectLink"));
+  if (!state.links.some((link) => link.id === state.defaultLinkId))
+    errors.push(t("chooseADefaultProjectLink"));
+  if (!state.agreedNotice)
+    errors.push(t("readAndAcceptTheSubmissionRequirements"));
+  if (!state.confirmedAuthor)
+    errors.push(t("confirmThatYouHavePermissionFromTheAuthor"));
+  if (!state.confirmedContent)
+    errors.push(t("confirmThatTheContentIsAppropriate"));
   return errors;
 }

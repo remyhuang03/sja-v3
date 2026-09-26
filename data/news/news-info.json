@@ -1,26 +1,26 @@
 [
-    {
-        "article": "202502240",
-        "title": "🎊 SJA 服务现在已经恢复啦！",
-        "description": "很抱歉给大家带来困扰，SJA 服务当前已全面恢复。",
-        "thumbnail": null
-    },
-    {
-        "article": "202502010",
-        "title": "📡 SJA 服务器迁移公告",
-        "description": "SJA 拟定于北京时间 2 月 1 日晚 22 时至 2 月 2 日早 2 时进行服务器备份和迁移。",
-        "thumbnail": null
-    },
-    {
-        "article": "display-review",
-        "title": "📡 作品展示位申请",
-        "description": "作品展示位申请中！",
-        "thumbnail": null
-    },
-    {
-        "article": "202308110",
-        "title": "欢迎使用SJA分析器！",
-        "description": "欢迎使用 SJA Plus 版！这是 SJA 继 Scratch 版本以来的一次重大更新。SJA Plus 版帮助你更准确、更快捷、更多样化地分析 Scratch 作品。",
-        "thumbnail": null
-    }
+  {
+    "article": "202502240",
+    "thumbnail": null,
+    "titleKey": "newsTitle_202502240",
+    "descriptionKey": "newsDescription_202502240"
+  },
+  {
+    "article": "202502010",
+    "thumbnail": null,
+    "titleKey": "newsTitle_202502010",
+    "descriptionKey": "newsDescription_202502010"
+  },
+  {
+    "article": "display-review",
+    "thumbnail": null,
+    "titleKey": "newsTitle_display-review",
+    "descriptionKey": "newsDescription_display-review"
+  },
+  {
+    "article": "202308110",
+    "thumbnail": null,
+    "titleKey": "newsTitle_202308110",
+    "descriptionKey": "newsDescription_202308110"
+  }
 ]

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "next typegen && tsc --noEmit"
+    "typecheck": "next typegen && tsc --noEmit",
+    "check:i18n": "node scripts/check-i18n.mjs"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "1.1.15",
@@ -26,6 +27,7 @@
     "lucide-react": "1.48.0",
     "markdown-it": "15.0.2",
     "next": "16.3.6",
+    "next-intl": "4.14.7",
     "react": "19.3.0",
     "react-dom": "19.3.0",
     "tailwind-merge": "3.7.0",

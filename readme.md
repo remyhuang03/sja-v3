@@ -1,42 +1,51 @@
-# SJA Plus 前端
+# SJA Plus frontend
 
-## 运行
+SJA Plus analyzes and compares Scratch projects. The production site is [sja.remya.top](https://sja.remya.top).
 
-线上地址：https://sja.remya.top。
+This repository contains the Next.js application, shadcn/ui components, and static content. The adjacent [sja-backend](https://github.com/remyhuang03/sja-backend) repository owns analysis, comparison, SVG reports, showcase submissions, review, and PostgreSQL access.
 
-本仓库只负责 Next.js 页面、shadcn/ui 组件和静态内容。作品分析、相似度对比、报告生成、申请审核与 PostgreSQL 数据访问均由相邻的 `sja-backend` 仓库负责。
+## Run with Docker
 
-将两个仓库放在同一目录下，在本仓库执行：
+Clone both repositories into the same parent directory, then run here:
 
 ```sh
 cp .env.example .env
-# 将两次 openssl rand -hex 32 的结果分别填入 POSTGRES_PASSWORD 和 ADMIN_TOKEN。
+# Generate separate values with openssl rand -hex 32 for POSTGRES_PASSWORD and ADMIN_TOKEN.
 docker compose up -d --build --wait
 ```
 
-访问 `http://localhost:3030`。前端和 API 只绑定回环地址，数据库不开放主机端口。数据库与上传图片分别保存在 `postgres_data`、`backend_data` 卷中。不要在保留数据的部署上执行 `docker compose down -v`。
+Open `http://localhost:3030`. Frontend and API ports bind only to loopback. PostgreSQL has no published host port. The `postgres_data` and `backend_data` volumes retain database records and uploaded images. Do not run `docker compose down -v` on a deployment whose data you intend to keep.
 
-## 开发与检查
+## Development
 
-运行环境为 Node.js 24 LTS、Next.js 16、React 19、Tailwind CSS 4。依赖锁定在 `package-lock.json`。TypeScript 6 和 ESLint 9 是当前 Next.js 检查插件支持的版本，因此没有强行升级到不兼容的大版本。
+Use Node.js 24 LTS. The application uses Next.js 16, React 19, and Tailwind CSS 4. Exact dependency versions are recorded in `package-lock.json`; TypeScript 6 and ESLint 9 match the current Next.js tooling requirements.
 
 ```sh
 npm ci
 API_INTERNAL_URL=http://127.0.0.1:3031 npm run dev
 npm run lint
 npm run typecheck
+npm run check:i18n
 npm run build
 ```
 
-`API_INTERNAL_URL` 在 Next.js 启动开发服务器或构建时读取。生产镜像默认指向 Compose 内的 `backend:8080`；公网部署由 Caddy 将 `/api/*` 直接转发给 Go，其余请求交给 Next.js。
+`API_INTERNAL_URL` is read when starting the development server or building. Production images default to `http://backend:8080`. The public deployment uses Caddy to send `/api/*` directly to Go and all other requests to Next.js.
 
-## 功能
+## Internationalization
 
-- 分析 SB3、CC3 和 JSON，生成 SVG 报告，支持分类与排序。
-- 双文件对比展示积木类型和连接关系的相似度。算法不检测素材或代码语义，分数不能独立证明抄袭。
-- 展位申请上传图片、添加作品链接；管理员使用审核密钥访问 `/project-display-review`。
-- 新闻、导航和更新日志是前端仓库内的静态编辑内容。
+The site supports Simplified Chinese (`zh`, the default), English (`en`), and Japanese (`ja`) through `next-intl`. The header selector stores the choice in the `sja_locale` cookie for one year. Server rendering, metadata, client components, API messages, and newly generated reports use that preference. Existing URLs and query parameters are preserved; the site does not add locale path prefixes. Reports retain the language selected when they were generated.
 
-上传原作品只用于当前请求，处理完后清理临时文件。报告保留 30 天。展位申请及图片保存供审核，审核通过后进入展示列表。审核密钥仅保存在页面内存中，刷新页面后需要重新输入。
+Translations live in `messages/{zh,en,ja}.json`. Keep keys stable and update all three catalogs together. The `ui` namespace contains interface and legal text, `content` contains news summaries and changelog entries, and `articles` contains localized Markdown. English article source files are retained under `data/news/md-articles`. Proper names and user-submitted content are not automatically translated. API/report catalogs live in the backend repository.
 
-部署、备份和自动发布见 [部署文档](deploy/README.md)，API 约定见 [后端仓库](https://github.com/remyhuang03/sja-backend)。
+`npm run check:i18n` checks catalog parity, message syntax, interpolation variables, and message references. Write technical documentation and source comments in English; translated interface content belongs in the locale catalogs.
+
+## Features and data handling
+
+- Analyze SB3, CC3, and JSON projects and generate sortable SVG reports.
+- Compare block types and connections. Scores do not compare assets or prove plagiarism.
+- Submit showcase images and links; administrators review them at `/project-display-review` using the review key.
+- Browse localized news, resources, and historical release notes.
+
+Successfully processed original projects are retained privately for 30 days, then deleted by an hourly cleanup task. Reports remain available permanently. Multipart temporary files are cleaned when requests finish. Showcase submissions and images persist for review and publication. The review key stays in page memory and must be entered again after a reload.
+
+See [deployment and backups](deploy/README.md) and the [showcase API](docs/api-project-apply.md). Contact: [me@remya.top](mailto:me@remya.top).

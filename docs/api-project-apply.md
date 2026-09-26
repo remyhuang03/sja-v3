@@ -1,7 +1,7 @@
-# 作品展位接口
+# Showcase submission API
 
-接口已迁至 Go 后端。前端使用同域 `/api/v2/project-display-apply`，不再连接外部旧域名。
+The Go backend owns this API. The frontend uses the same-origin endpoint `/api/v2/project-display-apply`.
 
-提交 multipart 表单，包含 `meta` JSON、`cover` 和 `avatar`。成功返回 HTTP 201；校验失败返回带 `message` 的 JSON。审核接口使用 Bearer 密钥，并通过 PostgreSQL 事务将通过的申请写入展示列表。
+Send a multipart form containing `meta` JSON, `cover`, and `avatar`. Successful submissions return HTTP 201 with an application ID. Validation errors return JSON with a localized `message`. The `sja_locale` cookie selects `zh`, `en`, or `ja`; API clients can also send `X-SJA-Locale` when no preference cookie is present.
 
-完整参数、限制与响应说明见 [后端 API 文档](https://github.com/remyhuang03/sja-backend#api)。
+Review endpoints require a Bearer key. PostgreSQL transactions publish approved applications atomically. See the [backend API documentation](https://github.com/remyhuang03/sja-backend#api) for fields, limits, and response details.
