@@ -1,53 +1,30 @@
 import { useTranslations } from "next-intl";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Upload } from "lucide-react";
-import ModernNavSection from "./NavSection";
-import categories from "@/data/nav/cates.json";
+import ResourceDirectory from "./ResourceDirectory";
 
 export default function Page() {
   const t = useTranslations("ui");
-  const content = useTranslations("content");
-
-  const cates: Record<string, { show: number[] }> = categories;
   return (
-    <div className="container mx-auto px-4 py-8">
-      {/* Header */}
-      <div className="mb-8 text-center">
-        <h1 className="text-foreground mb-2 text-3xl font-bold">
-          {t("sjaResources")}
-        </h1>
-        <p className="text-muted-foreground">
-          {t("discoverScratchWebsitesAndResources")}
-        </p>
-      </div>
-
-      {/* Submit Button */}
-      <div className="mb-8 flex justify-end">
-        <Button asChild className="gap-2">
-          <a
-            href="https://www.wenjuan.com/s/UZBZJvXfgl/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Upload className="h-4 w-4" />
+    <div className="mx-auto max-w-6xl px-6 py-12 sm:px-10">
+      <div className="mb-12 flex flex-wrap items-end justify-between gap-6">
+        <div>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            {t("sjaResources")}
+          </h1>
+          <p className="text-muted-foreground mt-3">
+            {t("discoverScratchWebsitesAndResources")}
+          </p>
+        </div>
+        <Button asChild>
+          <Link href="/nav/submit">
+            <Plus aria-hidden="true" />
             {t("suggestAWebsite")}
-            <ExternalLink className="h-3 w-3" />
-          </a>
+          </Link>
         </Button>
       </div>
-
-      {/* Categories */}
-      <div className="space-y-8">
-        {Object.keys(cates).map((cate) => (
-          <ModernNavSection
-            key={cate}
-            cate={content(`category_${cate}`)}
-            items={cates[cate].show}
-          />
-        ))}
-      </div>
+      <ResourceDirectory />
     </div>
   );
 }

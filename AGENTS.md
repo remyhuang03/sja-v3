@@ -1,7 +1,7 @@
 # Repository conventions
 
 - Write documentation, code comments, and commit messages in English.
-- Keep user-facing text in the Chinese, English, and Japanese message catalogs. Preserve proper names and user-authored content.
+- Keep user-facing text in the Simplified Chinese, Traditional Chinese, English, and Japanese message catalogs. Preserve proper names and user-authored content.
 - Keep this repository frontend-only. Business APIs and database access belong in `sja-backend`.
 - Run lint, type checking, translation validation, and a production build for application changes.
 - Deploy application changes through the existing GitHub Actions workflow on `main`.

@@ -1,11 +1,11 @@
-/* dark */
+/* Use shared theme tokens for article content. */
 .md {
-  color-scheme: dark;
+  color-scheme: inherit;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
-  color: #f0f6fc;
-  background-color: #0d1117;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
     Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
   font-size: 16px;
@@ -50,7 +50,7 @@
 
 .md a {
   background-color: transparent;
-  color: #4493f8;
+  color: hsl(var(--primary));
   text-decoration: none;
 }
 
@@ -75,12 +75,12 @@
   font-weight: 600;
   padding-bottom: 0.3em;
   font-size: 2em;
-  border-bottom: 1px solid #3d444db3;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .md mark {
   background-color: #bb800926;
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
 }
 
 .md small {
@@ -125,11 +125,11 @@
   box-sizing: content-box;
   overflow: hidden;
   background: transparent;
-  border-bottom: 1px solid #3d444db3;
+  border-bottom: 1px solid hsl(var(--border));
   height: 0.25em;
   padding: 0;
   margin: 1.5rem 0;
-  background-color: #3d444d;
+  background-color: hsl(var(--border));
   border: 0;
 }
 
@@ -182,7 +182,7 @@
 }
 
 .md ::placeholder {
-  color: #9198a1;
+  color: hsl(var(--muted-foreground));
   opacity: 1;
 }
 
@@ -220,7 +220,7 @@
 .md [role="button"]:focus,
 .md input[type="radio"]:focus,
 .md input[type="checkbox"]:focus {
-  outline: 2px solid #1f6feb;
+  outline: 2px solid hsl(var(--primary));
   outline-offset: -2px;
   box-shadow: none;
 }
@@ -236,7 +236,7 @@
 .md [role="button"]:focus-visible,
 .md input[type="radio"]:focus-visible,
 .md input[type="checkbox"]:focus-visible {
-  outline: 2px solid #1f6feb;
+  outline: 2px solid hsl(var(--primary));
   outline-offset: -2px;
   box-shadow: none;
 }
@@ -266,7 +266,7 @@
   font-weight: 600;
   padding-bottom: 0.3em;
   font-size: 1.5em;
-  border-bottom: 1px solid #3d444db3;
+  border-bottom: 1px solid hsl(var(--border));
 }
 
 .md h3 {
@@ -287,7 +287,7 @@
 .md h6 {
   font-weight: 600;
   font-size: 0.85em;
-  color: #9198a1;
+  color: hsl(var(--muted-foreground));
 }
 
 .md p {
@@ -298,8 +298,8 @@
 .md blockquote {
   margin: 0;
   padding: 0 1em;
-  color: #9198a1;
-  border-left: 0.25em solid #3d444d;
+  color: hsl(var(--muted-foreground));
+  border-left: 0.25em solid hsl(var(--border));
 }
 
 .md ul,
@@ -436,7 +436,7 @@
 .md h4 .octicon-link,
 .md h5 .octicon-link,
 .md h6 .octicon-link {
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
   vertical-align: middle;
   visibility: hidden;
 }
@@ -550,7 +550,7 @@
 .md table th,
 .md table td {
   padding: 6px 13px;
-  border: 1px solid #3d444d;
+  border: 1px solid hsl(var(--border));
 }
 
 .md table td > :last-child {
@@ -558,12 +558,12 @@
 }
 
 .md table tr {
-  background-color: #0d1117;
-  border-top: 1px solid #3d444db3;
+  background-color: hsl(var(--background));
+  border-top: 1px solid hsl(var(--border));
 }
 
 .md table tr:nth-child(2n) {
-  background-color: #151b23;
+  background-color: hsl(var(--muted));
 }
 
 .md table img {
@@ -596,7 +596,7 @@
   padding: 7px;
   margin: 13px 0 0;
   overflow: hidden;
-  border: 1px solid #3d444d;
+  border: 1px solid hsl(var(--border));
 }
 
 .md span.frame span img {
@@ -608,7 +608,7 @@
   display: block;
   padding: 5px 0 0;
   clear: both;
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
 }
 
 .md span.align-center {
@@ -678,7 +678,7 @@
   margin: 0;
   font-size: 85%;
   white-space: break-spaces;
-  background-color: #656c7633;
+  background-color: hsl(var(--muted));
   border-radius: 6px;
 }
 
@@ -723,8 +723,8 @@
   overflow: auto;
   font-size: 85%;
   line-height: 1.45;
-  color: #f0f6fc;
-  background-color: #151b23;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--muted));
   border-radius: 6px;
 }
 
@@ -754,7 +754,7 @@
 .md .csv-data .blob-num {
   padding: 10px 0.5rem 9px;
   text-align: right;
-  background: #0d1117;
+  background: hsl(var(--background));
   border: 0;
 }
 
@@ -764,7 +764,7 @@
 
 .md .csv-data th {
   font-weight: 600;
-  background: #151b23;
+  background: hsl(var(--muted));
   border-top: 0;
 }
 
@@ -778,8 +778,8 @@
 
 .md .footnotes {
   font-size: 12px;
-  color: #9198a1;
-  border-top: 1px solid #3d444d;
+  color: hsl(var(--muted-foreground));
+  border-top: 1px solid hsl(var(--border));
 }
 
 .md .footnotes ol {
@@ -804,12 +804,12 @@
   left: calc(1.5rem * -1);
   pointer-events: none;
   content: "";
-  border: 2px solid #1f6feb;
+  border: 2px solid hsl(var(--primary));
   border-radius: 6px;
 }
 
 .md .footnotes li:target {
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
 }
 
 .md .footnotes .data-footnote-backref g-emoji {
@@ -821,7 +821,7 @@
 }
 
 .md .pl-c {
-  color: #9198a1;
+  color: hsl(var(--muted-foreground));
 }
 
 .md .pl-c1,
@@ -836,7 +836,7 @@
 
 .md .pl-smi,
 .md .pl-s .pl-s1 {
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
 }
 
 .md .pl-ent {
@@ -867,12 +867,12 @@
 }
 
 .md .pl-ii {
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
   background-color: #8e1519;
 }
 
 .md .pl-c2 {
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
   background-color: #b62324;
 }
 
@@ -889,17 +889,17 @@
 .md .pl-mh .pl-en,
 .md .pl-ms {
   font-weight: bold;
-  color: #1f6feb;
+  color: hsl(var(--primary));
 }
 
 .md .pl-mi {
   font-style: italic;
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
 }
 
 .md .pl-mb {
   font-weight: bold;
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
 }
 
 .md .pl-md {
@@ -918,7 +918,7 @@
 }
 
 .md .pl-mi2 {
-  color: #f0f6fc;
+  color: hsl(var(--foreground));
   background-color: #1158c7;
 }
 
@@ -928,11 +928,11 @@
 }
 
 .md .pl-ba {
-  color: #9198a1;
+  color: hsl(var(--muted-foreground));
 }
 
 .md .pl-sg {
-  color: #3d444d;
+  color: hsl(var(--border));
 }
 
 .md .pl-corl {
@@ -1020,7 +1020,7 @@
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
   color: inherit;
-  border-left: 0.25em solid #3d444d;
+  border-left: 0.25em solid hsl(var(--border));
 }
 
 .md .markdown-alert > :first-child {
@@ -1039,11 +1039,11 @@
 }
 
 .md .markdown-alert.markdown-alert-note {
-  border-left-color: #1f6feb;
+  border-left-color: hsl(var(--primary));
 }
 
 .md .markdown-alert.markdown-alert-note .markdown-alert-title {
-  color: #4493f8;
+  color: hsl(var(--primary));
 }
 
 .md .markdown-alert.markdown-alert-important {

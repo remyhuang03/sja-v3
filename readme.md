@@ -33,9 +33,9 @@ npm run build
 
 ## Internationalization
 
-The site supports Simplified Chinese (`zh`, the default), English (`en`), and Japanese (`ja`) through `next-intl`. The header selector stores the choice in the `sja_locale` cookie for one year. Server rendering, metadata, client components, API messages, and newly generated reports use that preference. Existing URLs and query parameters are preserved; the site does not add locale path prefixes. Reports retain the language selected when they were generated.
+The site supports Simplified Chinese (`zh`, the default), Traditional Chinese (`zh-Hant`), English (`en`), and Japanese (`ja`) through `next-intl`. The header selector stores the choice in the `sja_locale` cookie for one year. Server rendering, metadata, client components, API messages, and newly generated reports use that preference. Existing URLs and query parameters are preserved; the site does not add locale path prefixes. Reports retain the language selected when they were generated.
 
-Translations live in `messages/{zh,en,ja}.json`. Keep keys stable and update all three catalogs together. The `ui` namespace contains interface and legal text, `content` contains news summaries and changelog entries, and `articles` contains localized Markdown. English article source files are retained under `data/news/md-articles`. Proper names and user-submitted content are not automatically translated. API/report catalogs live in the backend repository.
+Translations live in `messages/{zh,zh-Hant,en,ja}.json`. Keep keys stable and update all four catalogs together. The `ui` namespace contains interface and legal text, `content` contains news summaries and changelog entries, and `articles` contains localized Markdown. English article source files are retained under `data/news/md-articles`. Proper names and user-submitted content are not automatically translated. API/report catalogs live in the backend repository.
 
 `npm run check:i18n` checks catalog parity, message syntax, interpolation variables, and message references. Write technical documentation and source comments in English; translated interface content belongs in the locale catalogs.
 
@@ -44,8 +44,20 @@ Translations live in `messages/{zh,en,ja}.json`. Keep keys stable and update all
 - Analyze SB3, CC3, and JSON projects and generate sortable SVG reports.
 - Compare block types and connections. Scores do not compare assets or prove plagiarism.
 - Submit showcase images and links; administrators review them at `/project-display-review` using the review key.
+- Submit resource websites at `/nav/submit`; the website tab of `/project-display-review` approves or rejects them.
+- Edit showcase cards in place, with image cropping and a floating multiple-link editor.
 - Browse localized news, resources, and historical release notes.
 
 Successfully processed original projects are retained privately for 30 days, then deleted by an hourly cleanup task. Reports remain available permanently. Multipart temporary files are cleaned when requests finish. Showcase submissions and images persist for review and publication. The review key stays in page memory and must be entered again after a reload.
 
 See [deployment and backups](deploy/README.md) and the [showcase API](docs/api-project-apply.md). Contact: [me@remya.top](mailto:me@remya.top).
+
+## Resource icons
+
+Maintain only website names and URLs in `data/nav/sites.json`. `npm run icons:fetch` reads each site's icon metadata (including relative URLs and redirects), falls back to `/favicon.ico`, and saves normalized 32-pixel PNGs in the ignored `public/site-icons` directory. Development and production builds run it automatically. Fetches have time and size limits; unavailable or unsupported icons use a neutral globe without failing the build. Icons are served locally and refreshed on each build, so visitors do not contact an external favicon service.
+
+## Appearance
+
+The header theme control switches between light and dark palettes. The preference is stored locally under `sja_theme` and restored before paint; new visitors default to dark. Shared theme tokens cover forms, navigation, legal pages, and Markdown articles as well as the homepage.
+
+User-submitted websites are stored in PostgreSQL. Only approved entries are public, and duplicate pending/approved URLs are rejected. Approval triggers best-effort icon discovery in the backend, with public-address-only connections, DNS rebinding protection, response/time limits, and PNG normalization. Unsupported or unavailable icons use a globe. Submitted-site icons persist in the backend media volume; they do not require a frontend rebuild. See [website API](docs/api-websites.md).

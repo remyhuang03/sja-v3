@@ -5,29 +5,62 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground;
   }
-  
+
   h1 {
     @apply text-lg font-bold;
   }
-  
-  h2, h3, h4, h5, h6 {
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-bold;
   }
-  
+
   :root {
-    /* Balanced Gray Dark theme with Purple accents */
-    --background: 220 14% 11%;
+    color-scheme: light;
+    --background: 40 20% 98%;
+    --foreground: 240 10% 13%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 13%;
+    --primary: 262 65% 48%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 7% 94%;
+    --secondary-foreground: 240 8% 27%;
+    --muted: 240 7% 94%;
+    --muted-foreground: 240 5% 43%;
+    --accent: 240 7% 93%;
+    --accent-foreground: 240 8% 20%;
+    --destructive: 0 72% 45%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 6% 86%;
+    --input: 240 6% 83%;
+    --ring: 262 65% 48%;
+    --chart-1: 262 65% 48%;
+    --chart-2: 280 65% 45%;
+    --chart-3: 240 65% 45%;
+    --chart-4: 300 65% 40%;
+    --chart-5: 270 65% 40%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --background: 240 7% 9%;
     --foreground: 220 10% 95%;
-    --card: 220 12% 16%;
+    --card: 240 6% 12%;
     --card-foreground: 220 10% 95%;
     --popover: 220 12% 16%;
     --popover-foreground: 220 10% 95%;
-    --primary: 262 83% 58%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 263 82% 74%;
+    --primary-foreground: 260 35% 12%;
     --secondary: 220 12% 20%;
     --secondary-foreground: 220 10% 75%;
     --muted: 220 12% 20%;
@@ -50,40 +83,40 @@
 
 @layer components {
   .sm-link-text {
-    @apply text-sm text-muted-foreground hover:text-primary;
+    @apply text-muted-foreground hover:text-primary text-sm;
   }
-  
+
   /* Custom gradients and effects for dark-gray theme */
   .gradient-purple-bg {
     @apply bg-gradient-to-br from-purple-900/20 via-slate-800/30 to-blue-900/20;
   }
-  
+
   .glass-card {
-    @apply backdrop-blur-sm bg-card/80 border border-border/60 shadow-lg;
+    @apply bg-card/80 border-border/60 border shadow-lg backdrop-blur-sm;
   }
-  
+
   /* Scrollbar styling */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-track {
     @apply bg-muted/20;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb {
     @apply bg-muted-foreground/40 rounded-full;
   }
-  
+
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
     @apply bg-muted-foreground/60;
   }
-  
+
   /* Animation utilities */
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
   }
-  
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -94,11 +127,13 @@
       transform: translateY(0);
     }
   }
-  
+
   /* Focus ring with purple theme */
   .focus-ring {
-    @apply focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background;
+    @apply focus:ring-primary focus:ring-offset-background focus:ring-2 focus:ring-offset-2 focus:outline-none;
   }
 }
 
-body { font-family: Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+body {
+  font-family: Arial, "Noto Sans SC", "Microsoft YaHei", sans-serif;
+}

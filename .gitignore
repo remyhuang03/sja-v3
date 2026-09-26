@@ -50,3 +50,6 @@ __pycache__/
 /.VSCodeCounter
 /.idea
 !.env.example
+
+# Website icons are fetched during development and production builds.
+/public/site-icons/

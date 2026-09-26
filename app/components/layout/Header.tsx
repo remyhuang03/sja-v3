@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import ThemeSwitcher from "../ThemeSwitcher";
 import LanguageSwitcher from "../LanguageSwitcher";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -45,7 +46,7 @@ export default function Header() {
 
   return (
     <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
-      <div className="container flex min-h-16 max-w-screen-2xl flex-wrap items-center gap-y-2 py-2">
+      <div className="mx-auto flex min-h-20 max-w-6xl flex-wrap items-center gap-y-2 px-6 py-3 sm:px-10">
         {/* Logo */}
         <div
           className={cn(
@@ -59,7 +60,7 @@ export default function Header() {
               height={19}
               src="/meta/white-banner-title.svg"
               alt="SJA Plus"
-              className="h-6 w-auto"
+              className="h-5 w-auto invert dark:invert-0"
             />
           </Link>
         </div>
@@ -105,12 +106,13 @@ export default function Header() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="ml-auto">
+        <div className="ml-auto flex items-center gap-2">
+          <ThemeSwitcher />
           <LanguageSwitcher />
         </div>
 
         {/* Mobile Navigation Button */}
-        <div className="flex flex-1 items-center justify-end md:hidden">
+        <div className="border-border/50 flex w-full items-center justify-center border-t pt-1 md:hidden">
           <nav
             aria-label={t("mobileNavigation")}
             className="flex gap-3 text-xs"

@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 
 import "./globals.css";
 
+import ThemeProvider from "@/app/components/ThemeProvider";
 import Header from "@/app/components/layout/Header";
 import ModernFooter from "@/app/components/layout/ModernFooter";
 import RouteTransition from "@/app/components/RouteTransition";
@@ -43,18 +44,20 @@ export default async function RootLayout({
   const locale = await getLocale();
   const messages = await getMessages();
   return (
-    <html lang={locale === "zh" ? "zh-Hans" : locale} className="dark">
+    <html lang={locale === "zh" ? "zh-Hans" : locale} suppressHydrationWarning>
       <body className={`${mainFont.className}`}>
         <NextIntlClientProvider
           locale={locale}
           messages={messages}
           timeZone="UTC"
         >
-          <Header />
-          <main className="relative">
-            <RouteTransition>{children}</RouteTransition>
-          </main>
-          <ModernFooter />
+          <ThemeProvider>
+            <Header />
+            <main className="relative">
+              <RouteTransition>{children}</RouteTransition>
+            </main>
+            <ModernFooter />
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

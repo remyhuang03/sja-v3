@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "next typegen && tsc --noEmit",
-    "check:i18n": "node scripts/check-i18n.mjs"
+    "check:i18n": "node scripts/check-i18n.mjs",
+    "icons:fetch": "node scripts/fetch-site-icons.mjs",
+    "prebuild": "npm run icons:fetch",
+    "predev": "npm run icons:fetch",
+    "test:icons": "node --test scripts/fetch-site-icons.test.mjs"
   },
   "dependencies": {
     "@radix-ui/react-aspect-ratio": "1.1.15",
@@ -16,6 +20,7 @@
     "@radix-ui/react-dialog": "1.1.23",
     "@radix-ui/react-label": "2.1.15",
     "@radix-ui/react-navigation-menu": "1.2.22",
+    "@radix-ui/react-popover": "1.1.23",
     "@radix-ui/react-radio-group": "1.4.7",
     "@radix-ui/react-select": "2.3.7",
     "@radix-ui/react-separator": "1.1.15",
@@ -28,8 +33,10 @@
     "markdown-it": "15.0.2",
     "next": "16.3.6",
     "next-intl": "4.14.7",
+    "next-themes": "0.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-easy-crop": "6.2.3",
     "tailwind-merge": "3.7.0",
     "tailwindcss-animate": "1.0.7"
   },
@@ -41,9 +48,11 @@
     "@types/react-dom": "19.3.0",
     "eslint": "9.39.5",
     "eslint-config-next": "16.3.6",
+    "parse5": "8.0.1",
     "postcss": "8.5.28",
     "prettier": "3.9.9",
     "prettier-plugin-tailwindcss": "0.8.1",
+    "sharp": "0.35.4",
     "tailwindcss": "4.3.3",
     "typescript": "6.0.3"
   },

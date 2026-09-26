@@ -25,11 +25,12 @@ export default function LanguageSwitcher() {
         startTransition(() => router.refresh());
       }}
     >
-      <SelectTrigger aria-label={t("language")} className="w-[105px] shrink-0">
+      <SelectTrigger aria-label={t("language")} className="w-[120px] shrink-0">
         <SelectValue />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="zh">中文</SelectItem>
+        <SelectItem value="zh">简体中文</SelectItem>
+        <SelectItem value="zh-Hant">繁體中文</SelectItem>
         <SelectItem value="en">English</SelectItem>
         <SelectItem value="ja">日本語</SelectItem>
       </SelectContent>

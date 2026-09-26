@@ -5,7 +5,10 @@ import { createTranslator } from "next-intl";
 
 const read = (path) => JSON.parse(readFileSync(path, "utf8"));
 const catalogs = Object.fromEntries(
-  ["zh", "en", "ja"].map((locale) => [locale, read(`messages/${locale}.json`)]),
+  ["zh", "zh-Hant", "en", "ja"].map((locale) => [
+    locale,
+    read(`messages/${locale}.json`),
+  ]),
 );
 const variables = (value) =>
   [
@@ -87,5 +90,5 @@ for (const release of read("data/update-log/log.json")) {
   }
 }
 console.log(
-  "Chinese, English, and Japanese catalogs and source references are valid.",
+  "Simplified Chinese, Traditional Chinese, English, and Japanese catalogs and source references are valid.",
 );

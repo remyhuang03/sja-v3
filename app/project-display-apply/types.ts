@@ -42,8 +42,8 @@ export interface BackendSubmissionDraft {
  *
  * FormData structure:
  * - meta: JSON string containing project metadata
- * - cover: Image file (cover.jpg)
- * - avatar: Image file (avatar.jpg)
+ * - cover: Image file (cover.png)
+ * - avatar: Image file (avatar.png)
  *
  * See /docs/api-project-apply.md for complete API documentation
  */
@@ -62,8 +62,8 @@ export function buildSubmissionFormData(state: ShowcaseCardState): FormData {
   };
 
   fd.append("meta", JSON.stringify(draft));
-  if (state.coverFile) fd.append("cover", state.coverFile, "cover.jpg");
-  if (state.avatarFile) fd.append("avatar", state.avatarFile, "avatar.jpg");
+  if (state.coverFile) fd.append("cover", state.coverFile, "cover.png");
+  if (state.avatarFile) fd.append("avatar", state.avatarFile, "avatar.png");
   return fd;
 }
 
@@ -73,7 +73,7 @@ export function isSubmissionReady(state: ShowcaseCardState): boolean {
     state.authorName &&
     state.authorLink &&
     state.projectBrief &&
-    state.projectBrief.length <= 20 &&
+    Array.from(state.projectBrief).length <= 20 &&
     state.coverFile &&
     state.avatarFile &&
     state.links.length > 0 &&
@@ -93,7 +93,7 @@ export function getValidationErrors(
   if (!state.authorName) errors.push(t("enterAnAuthorName2"));
   if (!state.authorLink) errors.push(t("enterTheAuthorProfileUrl"));
   if (!state.projectBrief) errors.push(t("enterAProjectDescription"));
-  if (state.projectBrief && state.projectBrief.length > 20)
+  if (state.projectBrief && Array.from(state.projectBrief).length > 20)
     errors.push(t("theDescriptionMustNotExceed20Characters"));
   if (!state.coverFile) errors.push(t("uploadACoverImage"));
   if (state.coverFile && state.coverFile.size > 5 * 1024 * 1024)
@@ -101,6 +101,21 @@ export function getValidationErrors(
   if (!state.avatarFile) errors.push(t("uploadAnAvatar"));
   if (state.avatarFile && state.avatarFile.size > 2 * 1024 * 1024)
     errors.push(t("theAvatarMustNotExceed2Mib"));
+  if (
+    state.links.some((link) => {
+      try {
+        const u = new URL(link.url);
+        return (
+          !["http:", "https:"].includes(u.protocol) ||
+          !!u.username ||
+          !!u.password
+        );
+      } catch {
+        return true;
+      }
+    })
+  )
+    errors.push(t("invalidProjectUrl"));
   if (state.links.length === 0) errors.push(t("addAtLeastOneProjectLink"));
   if (!state.links.some((link) => link.id === state.defaultLinkId))
     errors.push(t("chooseADefaultProjectLink"));

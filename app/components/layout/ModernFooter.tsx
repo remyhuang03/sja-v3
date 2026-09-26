@@ -11,8 +11,8 @@ export default function ModernFooter() {
   const t = useTranslations("ui");
 
   return (
-    <footer className="border-border/40 bg-muted/30 mt-auto border-t">
-      <div className="container mx-auto px-4 py-8">
+    <footer className="border-border/40 mt-auto border-t bg-transparent">
+      <div className="mx-auto max-w-6xl px-6 py-10 sm:px-10">
         {/* Project Display Section */}
         <ProjectDisplay />
 
@@ -84,6 +84,14 @@ export default function ModernFooter() {
           <div>
             <h4 className="mb-3 font-semibold">{t("legal")}</h4>
             <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/project-display-review"
+                  className="text-muted-foreground hover:text-primary text-sm"
+                >
+                  {t("adminReview")}
+                </Link>
+              </li>
               <li>
                 <Link
                   href="/legal/privacy"
