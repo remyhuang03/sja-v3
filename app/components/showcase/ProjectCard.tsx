@@ -98,15 +98,15 @@ function CardArea({
           side="right"
           align="start"
           aria-label={label}
-          className={field === "links" ? "w-96" : undefined}
+          className={cn("relative", field === "links" && "w-96")}
         >
-          <div className="mb-4 flex items-center justify-between gap-3">
+          <div className="mb-4 flex items-center justify-between gap-3 pr-7">
             <h3 className="text-sm font-medium">{label}</h3>
           </div>
           {editor(field)}
           <PopoverClose
             aria-label={t("closeEditor")}
-            className="hover:bg-muted focus-visible:outline-ring rounded p-1 focus-visible:outline-2"
+            className="hover:bg-muted focus-visible:outline-ring absolute top-3 right-3 rounded p-1 focus-visible:outline-2"
           >
             <X className="h-4 w-4" />
           </PopoverClose>
