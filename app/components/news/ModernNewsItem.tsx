@@ -6,7 +6,7 @@ interface ModernNewsItemProps {
     article: string;
     title: string;
     description: string;
-    thumbnail?: string;
+    thumbnail?: string | null;
     isLast?: boolean;
 }
 

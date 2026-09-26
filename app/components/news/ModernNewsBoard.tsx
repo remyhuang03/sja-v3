@@ -1,18 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ModernNewsItem from "./ModernNewsItem";
 
-import fs from 'fs'
-import path from 'path'
+import newsList from '@/data/news/news-info.json';
 
 export default function ModernNewsBoard() {
-    function getNewsList() {
-        const listPath = path.join(process.cwd(), 'data/news/news-info.json');
-        const ret = JSON.parse(fs.readFileSync(listPath, 'utf-8'));
-        return ret;
-    }
-
-    const newsList = getNewsList();
-
     return (
         <Card className="h-fit">
             <CardHeader className="pb-3">

@@ -1,33 +1,25 @@
-import { createContext, useState } from "react";
+'use client';
 
-type statusType = 'init' | 'analyzing' | 'analyzed' | 'analyze_error';
+import { createContext, useContext, useState, type ReactNode } from 'react';
 
-interface GlobalContextType {
-    setReportUrl: (url: string) => void;
-    setStatus: (status:statusType ) => void;
-    setErrorMsg: (msg: string) => void;
-    reportUrl: () => string;
-    status: () => string;
-    errorMsg: () => string;
+type Status = 'init' | 'analyzing' | 'analyzed' | 'analyze_error';
+interface AnalyzeState {
+  reportUrl: string;
+  status: Status;
+  errorMsg: string;
+  setReportUrl: (url: string) => void;
+  setStatus: (status: Status) => void;
+  setErrorMsg: (message: string) => void;
 }
-
-export const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
-
-export default function ContextProvider({ children }) {
-    const [reportUrl, setReportUrl] = useState<string | undefined>("");
-    const [status, setStatus] = useState<statusType>("init");
-    const [errorMsg, setErrorMsg] = useState<string | undefined>("");
-
-    const context = {
-        "setReportUrl": setReportUrl,
-        "setStatus": setStatus,
-        "setErrorMsg": setErrorMsg,
-        "reportUrl": () => { return reportUrl; },
-        "status": () => { return status; },
-        "errorMsg": () => { return errorMsg }
-    }
-
-    return (<GlobalContext.Provider value={context}>
-        {children}
-    </ GlobalContext.Provider>);
+const AnalyzeContext = createContext<AnalyzeState | null>(null);
+export function useAnalyze() {
+  const state = useContext(AnalyzeContext);
+  if (!state) throw new Error('useAnalyze requires ContextProvider');
+  return state;
+}
+export default function ContextProvider({ children }: { children: ReactNode }) {
+  const [reportUrl, setReportUrl] = useState('');
+  const [status, setStatus] = useState<Status>('init');
+  const [errorMsg, setErrorMsg] = useState('');
+  return <AnalyzeContext.Provider value={{ reportUrl, status, errorMsg, setReportUrl, setStatus, setErrorMsg }}>{children}</AnalyzeContext.Provider>;
 }

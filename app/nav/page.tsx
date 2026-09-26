@@ -3,14 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Upload } from "lucide-react";
 import ModernNavSection from "./NavSection";
-import fs from "fs";
-import path from "path";
+import categories from '@/data/nav/cates.json';
 
 export default function Page() {
-    // get cates file
-    const cateFilePath = path.join(process.cwd(), 'data/nav/cates.json');
-    const cates = JSON.parse(fs.readFileSync(cateFilePath, 'utf-8'));
-
+    const cates: Record<string, { show: number[] }> = categories;
     return (
         <div className="container mx-auto px-4 py-8">
             {/* Header */}

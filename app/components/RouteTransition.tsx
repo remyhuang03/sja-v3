@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { useEffect, useState } from "react";
 
 interface RouteTransitionProps {
@@ -51,7 +51,7 @@ export default function RouteTransition({ children }: RouteTransitionProps) {
     return () => { clearTimeout(t1); clearTimeout(t2); };
   }, [pathname]);
 
-  const prefersReducedMotion = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReducedMotion = useReducedMotion();
 
   return (
     <>

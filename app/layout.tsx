@@ -10,6 +10,7 @@ import RouteTransition from "@/app/components/RouteTransition";
 import { mainFont } from "./fonts/mainFont";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://sja.remya.top"),
   title: "SJA 分析器",
   description: "SJA分析器为您快速分析Scratch作品文件、提供作品相似度对比与资源导航。",
   icons: {

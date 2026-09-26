@@ -15,3 +15,8 @@ sja.remya.top {
         X-Frame-Options SAMEORIGIN
     }
 }
+
+# Retired origin: preserve the full URI and HTTP method while moving to the canonical host.
+sjaplus.top {
+    redir https://sja.remya.top{uri} 308
+}

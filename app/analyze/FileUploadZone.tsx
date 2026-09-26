@@ -33,7 +33,7 @@ export default function FileUploadZone({
 
         // 检查文件大小
         if (file.size > maxSize * 1024 * 1024) {
-            setError(`文件大小不能超过 ${maxSize}MB`);
+            setError(`文件大小不能超过 ${maxSize} MiB`);
             return false;
         }
 
@@ -118,6 +118,10 @@ export default function FileUploadZone({
                         onDragLeave={handleDrag}
                         onDragOver={handleDrag}
                         onDrop={handleDrop}
+                        role="button"
+                        tabIndex={0}
+                        aria-label="选择 Scratch 作品文件"
+                        onKeyDown={e => { if (e.target === e.currentTarget && (e.key === 'Enter' || e.key === ' ')) { e.preventDefault(); openFileDialog(); } }}
                         onClick={openFileDialog}
                     >
                         <input
@@ -143,6 +147,7 @@ export default function FileUploadZone({
                                     </Badge>
                                 </div>
                                 <Button
+                                    type="button"
                                     variant="outline"
                                     size="sm"
                                     onClick={(e) => {
@@ -172,7 +177,7 @@ export default function FileUploadZone({
                                         拖拽文件到这里或点击选择文件
                                     </p>
                                     <p className="text-xs text-muted-foreground">
-                                        支持 .sb3, .json, .cc3 格式，大小不超过 {maxSize}MB
+                                        支持 .sb3, .json, .cc3 格式，大小不超过 {maxSize} MiB
                                     </p>
                                 </div>
                             </div>

@@ -8,7 +8,7 @@ const markdown = new MarkdownIt({
     typographer: false,
 });
 
-export default function Markdown({ mdText }) {
+export default function Markdown({ mdText }: { mdText: string }) {
     const html = markdown.render(mdText ?? '');
 
     return (<>

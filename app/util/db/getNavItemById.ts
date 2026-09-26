@@ -1,12 +1,6 @@
-import fs from "fs";
-import Path from "path";
+import sitesData from '@/data/nav/sites.json';
 
-export default function getNavItemById(id: number | number[]) {
-  const sitesFilePath = Path.join(process.cwd(), "data/nav/sites.json");
-  const sites = JSON.parse(fs.readFileSync(sitesFilePath, "utf-8"));
-  if (Array.isArray(id)) {
-    return id.map((id) => sites[id]);
-  } else {
-    return sites[id];
-  }
+const sites: Record<string, string[]> = sitesData;
+export default function getNavItemById(ids: number[]): string[][] {
+  return ids.map(id => sites[String(id)]).filter((site): site is string[] => !!site);
 }

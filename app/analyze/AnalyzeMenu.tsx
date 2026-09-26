@@ -7,11 +7,11 @@ import { Separator } from "@/components/ui/separator";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Upload, Settings, Download, Copy, FileText, Hash } from "lucide-react";
 import { requestJSON } from '@/lib/api';
-import { GlobalContext } from "./context";
+import { useAnalyze } from "./context";
 import FileUploadZone from "./FileUploadZone";
 
 export default function ModernAnalyzeMenu() {
-    const states = useContext(GlobalContext);
+    const states = useAnalyze();
     const [files, setFiles] = useState<FileList | null>(null);
     const [sortOrder, setSortOrder] = useState("desc");
     const [rankCategory, setRankCategory] = useState("top12");
@@ -19,7 +19,7 @@ export default function ModernAnalyzeMenu() {
 
     function submitHandler(e: React.FormEvent) {
         e.preventDefault();
-        if (states.status() === 'analyzing') return;
+        if (states.status === 'analyzing') return;
 
         states.setStatus('analyzing');
 
@@ -43,7 +43,7 @@ export default function ModernAnalyzeMenu() {
                 states.setReportUrl(new URL(data.token, window.location.origin).href);
                 states.setStatus('analyzed');
             } else {
-                states.setErrorMsg(data.msg);
+                states.setErrorMsg(data.msg || "分析失败");
                 states.setStatus('analyze_error');
             }
         }).catch(error => {
@@ -53,7 +53,7 @@ export default function ModernAnalyzeMenu() {
     }
 
     function handleMarkdownCopy() {
-        const url = states.reportUrl();
+        const url = states.reportUrl;
         let md = "";
         if (enableClickableReport) {
             md = `[![](${url})](${url})`;
@@ -68,8 +68,8 @@ export default function ModernAnalyzeMenu() {
         });
     }
 
-    const isAnalyzing = states.status() === 'analyzing';
-    const isAnalyzed = states.status() === 'analyzed';
+    const isAnalyzing = states.status === 'analyzing';
+    const isAnalyzed = states.status === 'analyzed';
 
     return (
         <Card>
@@ -181,7 +181,7 @@ export default function ModernAnalyzeMenu() {
                                 
                                 <Button 
                                     variant="outline"
-                                    onClick={() => window.open(states.reportUrl(), '_blank')}
+                                    onClick={() => window.open(states.reportUrl, '_blank')}
                                     className="flex-1"
                                 >
                                     <Download className="h-4 w-4 mr-2" />

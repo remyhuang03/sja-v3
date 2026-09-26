@@ -9,13 +9,13 @@ export default async function Page({ searchParams }: { searchParams: Promise<{ a
     const articleName = (await searchParams).a;
     const validPattern = /^[a-zA-Z0-9-]+$/;
 
-    if (!validPattern.test(articleName) || !articleName)
-        return (<NotFound />);
+    if (!articleName || !validPattern.test(articleName))
+        notFound();
 
     const MarkdownFile = await readFile(Path.join(process.cwd(), "data/news/md-articles", articleName + '.md'), 'utf8').catch(() => null);
 
     if (!MarkdownFile)
-        return (<NotFound />);
+        notFound();
 
     return (
         <div className='mb-10 mx-4 sm:mx-6'>

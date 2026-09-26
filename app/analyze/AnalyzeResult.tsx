@@ -4,14 +4,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, AlertCircle, Loader2, FileImage } from "lucide-react";
-import { GlobalContext } from "./context";
+import { useAnalyze } from "./context";
 import { cn } from "@/lib/utils";
 
 export default function ModernAnalyzeResult() {
-    const states = useContext(GlobalContext);
-    const status = states.status();
-    const reportUrl = states.reportUrl();
-    const errorMsg = states.errorMsg();
+    const states = useAnalyze();
+    const status = states.status;
+    const reportUrl = states.reportUrl;
+    const errorMsg = states.errorMsg;
 
     const getStatusIcon = () => {
         switch (status) {
